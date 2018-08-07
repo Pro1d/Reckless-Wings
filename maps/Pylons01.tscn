@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scripts/Map.gd" type="Script" id=1]
+[ext_resource path="res://map_tiles/pylons/PylonStart.tscn" type="PackedScene" id=2]
+[ext_resource path="res://map_tiles/pylons/PylonCheckpointSingle.tscn" type="PackedScene" id=3]
+[ext_resource path="res://map_tiles/pylons/PylonCheckpoint.tscn" type="PackedScene" id=4]
+[ext_resource path="res://map_tiles/pylons/PylonFinish.tscn" type="PackedScene" id=5]
+
+[node name="Map" type="Position3D" index="0"]
+
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="PylonStart" parent="." index="0" instance=ExtResource( 2 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 50 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="PylonCheckpoint3" parent="." index="1" instance=ExtResource( 3 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 0, 50 )
+
+[node name="PylonCheckpoint4" parent="." index="2" instance=ExtResource( 3 )]
+
+transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, 300, 0, 50 )
+
+[node name="PylonCheckpoint6" parent="." index="3" instance=ExtResource( 3 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 400, 0, 50 )
+
+[node name="PylonCheckpoint7" parent="." index="4" instance=ExtResource( 3 )]
+
+transform = Transform( -0.460084, 0, 0.887876, 0, 1, 0, -0.887876, 0, -0.460084, 505.822, 0, -169.905 )
+
+[node name="PylonCheckpoint9" parent="." index="5" instance=ExtResource( 3 )]
+
+transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, 250, 0, -235 )
+
+[node name="PylonCheckpoint10" parent="." index="6" instance=ExtResource( 3 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 150, 0, -235 )
+
+[node name="PylonCheckpoint11" parent="." index="7" instance=ExtResource( 3 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, -235 )
+
+[node name="PylonCheckpoint12" parent="." index="8" instance=ExtResource( 3 )]
+
+transform = Transform( -1, 0, 8.74228e-008, 0, 1, 0, -8.74228e-008, 0, -1, 50, 0, -235 )
+
+[node name="PylonCheckpoint5" parent="." index="9" instance=ExtResource( 4 )]
+
+transform = Transform( -0.995407, 0, 0.0957372, 0, 1, 0, -0.0957372, 0, -0.995407, 363.793, 0, -229.542 )
+
+[node name="PylonCheckpoint8" parent="." index="10" instance=ExtResource( 4 )]
+
+transform = Transform( 0.353691, 5.62828e-009, 0.935363, -2.19139e-009, 1, -5.18859e-009, -0.935363, -2.14586e-010, 0.353691, 492.936, -1.30427e-006, -22.0506 )
+
+[node name="PylonFinish" parent="." index="11" instance=ExtResource( 5 )]
+
+transform = Transform( 0.849943, 0, -0.526876, 0, 1, 0, 0.526876, 0, 0.849943, -157.191, 0, -279.367 )
+_sections_unfolded = [ "Transform" ]
+
+

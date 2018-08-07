@@ -1,0 +1,23 @@
+[gd_resource type="ArrayMesh" load_steps=2 format=2]
+
+[ext_resource path="res://assets/mesh/wind.material" type="Material" id=1]
+
+[resource]
+
+resource_name = "Plane"
+blend_shape_mode = 1
+custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
+surfaces/0 = {
+"aabb": AABB( -1, -1, -5.96046e-008, 2, 2, 1e-005 ),
+"array_data": PoolByteArray( 255, 187, 255, 187, 0, 0, 0, 60, 0, 0, 127, 0, 255, 59, 255, 187, 0, 0, 0, 60, 0, 0, 127, 0, 255, 59, 255, 59, 0, 0, 0, 60, 0, 0, 127, 0, 255, 187, 255, 59, 0, 0, 0, 60, 0, 0, 127, 0 ),
+"array_index_data": PoolByteArray( 0, 0, 2, 0, 1, 0, 0, 0, 3, 0, 2, 0 ),
+"blend_shape_data": [  ],
+"format": 98051,
+"index_count": 6,
+"material": ExtResource( 1 ),
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 4
+}
+_sections_unfolded = [ "Resource", "surface_1" ]
+

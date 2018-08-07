@@ -1,0 +1,161 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://assets/mesh/plane.tres" type="ArrayMesh" id=1]
+
+[sub_resource type="Gradient" id=1]
+
+offsets = PoolRealArray( 0, 0.188235, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=2]
+
+flags = 4
+gradient = SubResource( 1 )
+width = 2048
+
+[sub_resource type="Curve" id=3]
+
+min_value = 0.0
+max_value = 1.0
+bake_resolution = 100
+_data = [ Vector2( 0.191959, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.489258 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+
+flags = 4
+width = 2048
+curve = SubResource( 3 )
+
+[sub_resource type="Gradient" id=5]
+
+offsets = PoolRealArray( 0, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0.486196 )
+
+[sub_resource type="GradientTexture" id=6]
+
+flags = 4
+gradient = SubResource( 5 )
+width = 2048
+
+[sub_resource type="Curve" id=7]
+
+min_value = 0.0
+max_value = 1.0
+bake_resolution = 100
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.714844 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=8]
+
+flags = 4
+width = 2048
+curve = SubResource( 7 )
+
+[sub_resource type="ParticlesMaterial" id=9]
+
+render_priority = 0
+trail_divisor = 50
+trail_size_modifier = SubResource( 8 )
+trail_color_modifier = SubResource( 6 )
+emission_shape = 2
+emission_box_extents = Vector3( 50, 15, 50 )
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = false
+spread = 10.0
+flatness = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 50.0
+initial_velocity_random = 0.2
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 0.0
+angle_random = 0.0
+scale = 1.0
+scale_random = 0.3
+scale_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Initial Velocity", "Scale" ]
+
+[sub_resource type="BoxShape" id=10]
+
+extents = Vector3( 50, 15, 50 )
+
+[node name="WindHorizontal" type="Spatial" index="0"]
+
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 0, 15, 0 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Wind" type="Area" parent="." index="0"]
+
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 3
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 1 )
+gravity = 20.0
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 2
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+_sections_unfolded = [ "Pause", "Transform" ]
+
+[node name="Particles" type="Particles" parent="Wind" index="0"]
+
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+emitting = true
+amount = 500
+lifetime = 2.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 5.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_aabb = AABB( -50, -15, -50, 100, 30, 100 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 9 )
+draw_passes = 1
+draw_pass_1 = ExtResource( 1 )
+_sections_unfolded = [ "Draw Passes", "Drawing", "Geometry", "Process Material", "Time", "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="Wind" index="1"]
+
+shape = SubResource( 10 )
+disabled = false
+
+

@@ -1,0 +1,343 @@
+[gd_scene load_steps=30 format=2]
+
+[ext_resource path="res://scripts/Map.gd" type="Script" id=1]
+[ext_resource path="res://map_tiles/canyon/CanyonEntrance.scn" type="PackedScene" id=2]
+[ext_resource path="res://map_tiles/canyon/CanyonAreaStart.scn" type="PackedScene" id=3]
+[ext_resource path="res://map_tiles/canyon/CanyonAreaCheckpointDown.scn" type="PackedScene" id=4]
+[ext_resource path="res://map_tiles/canyon/CanyonStraightTight.scn" type="PackedScene" id=5]
+[ext_resource path="res://map_tiles/canyon/CanyonSR22.scn" type="PackedScene" id=6]
+[ext_resource path="res://map_tiles/canyon/CanyonTurn22.scn" type="PackedScene" id=7]
+[ext_resource path="res://map_tiles/canyon/CanyonTurn21Left.scn" type="PackedScene" id=8]
+[ext_resource path="res://map_tiles/canyon/CanyonAreaEnd.scn" type="PackedScene" id=9]
+[ext_resource path="res://map_tiles/canyon/CanyonStraightDiagonalRock.scn" type="PackedScene" id=10]
+[ext_resource path="res://map_tiles/canyon/CanyonCliffPlantSR23.scn" type="PackedScene" id=11]
+[ext_resource path="res://map_tiles/canyon/CanyonCliffPlant2.scn" type="PackedScene" id=12]
+[ext_resource path="res://map_tiles/canyon/CanyonCliffPlantSL23.scn" type="PackedScene" id=13]
+[ext_resource path="res://map_tiles/canyon/CanyonCliffPlant1.scn" type="PackedScene" id=14]
+[ext_resource path="res://map_tiles/canyon/CanyonCliffPlant4.scn" type="PackedScene" id=15]
+[ext_resource path="res://map_tiles/canyon/CanyonCliffPlantTurnInt22.scn" type="PackedScene" id=16]
+[ext_resource path="res://map_tiles/canyon/CanyonCliffPlantTurn22.scn" type="PackedScene" id=17]
+[ext_resource path="res://map_tiles/canyon/CanyonPlant24.scn" type="PackedScene" id=18]
+[ext_resource path="res://map_tiles/canyon/CanyonPlant44_0000.scn" type="PackedScene" id=19]
+[ext_resource path="res://map_tiles/canyon/CanyonCliffPlantTurn33.scn" type="PackedScene" id=20]
+[ext_resource path="res://map_tiles/canyon/CanyonPlant41.scn" type="PackedScene" id=21]
+[ext_resource path="res://map_tiles/canyon/CanyonPlant22_0000.scn" type="PackedScene" id=22]
+[ext_resource path="res://map_tiles/canyon/CanyonPlant22_0000Alt.scn" type="PackedScene" id=23]
+[ext_resource path="res://map_tiles/canyon/CanyonPlant21Alt3.scn" type="PackedScene" id=24]
+[ext_resource path="res://map_tiles/canyon/CanyonPlant21Alt2.scn" type="PackedScene" id=25]
+[ext_resource path="res://map_tiles/canyon/CanyonPlant21Alt1.scn" type="PackedScene" id=26]
+[ext_resource path="res://map_tiles/canyon/CanyonPlantTAlt2.scn" type="PackedScene" id=27]
+[ext_resource path="res://map_tiles/canyon/CanyonPlantT.scn" type="PackedScene" id=28]
+[ext_resource path="res://map_tiles/canyon/CanyonPlant11Alt1.scn" type="PackedScene" id=29]
+
+[node name="Map" type="Position3D" index="0"]
+
+script = ExtResource( 1 )
+_sections_unfolded = [ "Pause", "Transform", "Visibility" ]
+
+[node name="CanyonEntrance" parent="." index="0" instance=ExtResource( 2 )]
+
+transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, 2000, 0, -500 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CanyonEntrance2" parent="." index="1" instance=ExtResource( 2 )]
+
+transform = Transform( 1, 0, -1.06581e-014, 0, 1, 0, 1.06581e-014, 0, 1, 100, 0, -800 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CanyonAreaStart" parent="." index="2" instance=ExtResource( 3 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 0, -800 )
+
+[node name="CanyonAreaCheckpoint5" parent="." index="3" instance=ExtResource( 4 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 500, 0, -700 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CanyonAreaCheckpoint2" parent="." index="4" instance=ExtResource( 4 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1400, 0, -300 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CanyonAreaCheckpoint4" parent="." index="5" instance=ExtResource( 4 )]
+
+transform = Transform( 1, 0, 1.06581e-014, 0, 1, 0, -1.06581e-014, 0, 1, 950, 0, -500 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CanyonStraightTight2" parent="." index="6" instance=ExtResource( 5 )]
+
+transform = Transform( -1, 0, 8.74228e-008, 0, 1, 0, -8.74228e-008, 0, -1, 1600, 0, -200 )
+
+[node name="CanyonSR24" parent="." index="7" instance=ExtResource( 6 )]
+
+transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 900, 0, -500 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CanyonSR22" parent="." index="8" instance=ExtResource( 6 )]
+
+transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 1500, 0, -200 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CanyonTurn22" parent="." index="9" instance=ExtResource( 7 )]
+
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 1800, 0, -400 )
+
+[node name="CanyonTurn24" parent="." index="10" instance=ExtResource( 7 )]
+
+transform = Transform( 1, 0, 1.06581e-014, 0, 1, 0, -1.06581e-014, 0, 1, 1000, 0, -500 )
+
+[node name="CanyonTurn23" parent="." index="11" instance=ExtResource( 7 )]
+
+transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 1800, 0, -300 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CanyonTurn11" parent="." index="12" instance=ExtResource( 8 )]
+
+transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 1100, 0, -300.001 )
+
+[node name="CanyonTurn14" parent="." index="13" instance=ExtResource( 8 )]
+
+transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 300, 0, -700.001 )
+
+[node name="CanyonTurn13" parent="." index="14" instance=ExtResource( 8 )]
+
+transform = Transform( -2.18557e-007, 0, 1, 0, 1, 0, -1, 0, -2.18557e-007, 299.999, 0, -800 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CanyonTurn15" parent="." index="15" instance=ExtResource( 8 )]
+
+transform = Transform( -2.18557e-007, 0, 1, 0, 1, 0, -1, 0, -2.18557e-007, 599.999, 0, -700 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CanyonTurn12" parent="." index="16" instance=ExtResource( 8 )]
+
+transform = Transform( 1.31134e-007, 0, -1, 0, 1, 0, 1, 0, 1.31134e-007, 600, 0, -600.001 )
+
+[node name="CanyonAreaEnd" parent="." index="17" instance=ExtResource( 9 )]
+
+transform = Transform( 1, 0, 1.74846e-007, 0, 1, 0, -1.74846e-007, 0, 1, 2000, 0, -500 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CanyonHalfTurn33Right2" parent="." index="18" instance=ExtResource( 10 )]
+
+transform = Transform( -1, 0, 8.74228e-008, 0, 1, 0, -8.74228e-008, 0, -1, 1300, 0, -300 )
+
+[node name="Spatial" type="Spatial" parent="." index="19"]
+
+[node name="CanyonCliffPlantSR23" parent="Spatial" index="0" instance=ExtResource( 11 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 0, -600 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CanyonCliffPlant2" parent="Spatial" index="1" instance=ExtResource( 12 )]
+
+transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 900, 0, -1100 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CanyonCliffPlantSR24" parent="Spatial" index="2" instance=ExtResource( 11 )]
+
+transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 800, 0, -1100 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CanyonCliffPlantSR25" parent="Spatial" index="3" instance=ExtResource( 11 )]
+
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 700, 0, 0 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CanyonCliffPlantSL23" parent="Spatial" index="4" instance=ExtResource( 13 )]
+
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 1700, 0, 0 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CanyonCliffPlantSL24" parent="Spatial" index="5" instance=ExtResource( 13 )]
+
+transform = Transform( 1.31134e-007, 0, -1, 0, 1, 0, 1, 0, 1.31134e-007, 1400, 0, -700 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CanyonCliffPlant1" parent="Spatial" index="6" instance=ExtResource( 14 )]
+
+transform = Transform( -2.18557e-007, 0, 1, 0, 1, 0, -1, 0, -2.18557e-007, 600, 0, 0 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CanyonCliffPlant4" parent="Spatial" index="7" instance=ExtResource( 15 )]
+
+transform = Transform( -2.18557e-007, 0, 1, 0, 1, 0, -1, 0, -2.18557e-007, 500, 0, 0 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CanyonCliffPlantTurnInt22" parent="Spatial" index="8" instance=ExtResource( 16 )]
+
+transform = Transform( 1.31134e-007, 0, -1, 0, 1, 0, 1, 0, 1.31134e-007, 1400, 0, -900.001 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CanyonCliffPlantTurn22" parent="Spatial" index="9" instance=ExtResource( 17 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -100 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CanyonCliffPlantTurn23" parent="Spatial" index="10" instance=ExtResource( 17 )]
+
+transform = Transform( -1, 0, 8.74228e-008, 0, 1, 0, -8.74228e-008, 0, -1, 2000, 0, -700 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CanyonPlant24" type="Spatial" parent="Spatial" index="11" instance=ExtResource( 18 )]
+
+transform = Transform( -1, 0, 8.74228e-008, 0, 1, 0, -8.74228e-008, 0, -1, 900, 0, -900 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"empty_draw_type": "PLAIN_AXES"
+}
+
+[node name="CanyonCliffPlantTurn24" parent="Spatial" index="12" instance=ExtResource( 17 )]
+
+transform = Transform( -1, 0, 8.74228e-008, 0, 1, 0, -8.74228e-008, 0, -1, 1200, 0, -1000 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CanyonPlant44_0000" parent="Spatial" index="13" instance=ExtResource( 19 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 500, 0, -300 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CanyonCliffPlantTurn33" parent="Spatial" index="14" instance=ExtResource( 20 )]
+
+transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, 1800, 0, -100 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CanyonCliffPlantTurn34" parent="Spatial" index="15" instance=ExtResource( 20 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 300, 0, -1100 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CanyonPlant41" parent="Spatial" index="16" instance=ExtResource( 21 )]
+
+transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 1300, 0, -500 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CanyonPlant22_0000" parent="Spatial" index="17" instance=ExtResource( 22 )]
+
+transform = Transform( -1, 0, 8.74228e-008, 0, 1, 0, -8.74228e-008, 0, -1, 600, 0, -900 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CanyonPlant22_0000Alt" type="Spatial" parent="Spatial" index="18" instance=ExtResource( 23 )]
+
+transform = Transform( -1, 0, 8.74228e-008, 0, 1, 0, -8.74228e-008, 0, -1, 1100, 0, -100 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"empty_draw_type": "PLAIN_AXES"
+}
+
+[node name="CanyonPlant22_0000Alt2" parent="Spatial" index="19" instance=ExtResource( 23 )]
+
+transform = Transform( -1, 0, 8.74228e-008, 0, 1, 0, -8.74228e-008, 0, -1, 1000, 0, -700 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CanyonPlant22_0001" parent="Spatial" index="20" instance=ExtResource( 22 )]
+
+transform = Transform( -1, 0, 8.74228e-008, 0, 1, 0, -8.74228e-008, 0, -1, 200, 0, -200 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CanyonPlant21Alt3" parent="Spatial" index="21" instance=ExtResource( 24 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1000, 0, -400 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CanyonPlant21Alt7" parent="Spatial" index="22" instance=ExtResource( 24 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1700, 0, -400 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CanyonPlant21Alt6" parent="Spatial" index="23" instance=ExtResource( 24 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 400, 0, -600 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CanyonPlant21Alt9" parent="Spatial" index="24" instance=ExtResource( 24 )]
+
+transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, 700, 0, -700 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CanyonPlant21Alt2" parent="Spatial" index="25" instance=ExtResource( 25 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1400, 0, -500 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CanyonPlant21Alt8" parent="Spatial" index="26" instance=ExtResource( 25 )]
+
+transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, 1700, 0, -600 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CanyonPlant21Alt5" parent="Spatial" index="27" instance=ExtResource( 25 )]
+
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 200, 0, -500 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CanyonPlant21Alt1" parent="Spatial" index="28" instance=ExtResource( 26 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1600, 0, -500 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CanyonPlant21Alt4" parent="Spatial" index="29" instance=ExtResource( 26 )]
+
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 700, 0, -400 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CanyonPlant22_0002" parent="Spatial" index="30" instance=ExtResource( 22 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1300, 0, -99.9997 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CanyonPlantTAlt2" parent="Spatial" index="31" instance=ExtResource( 27 )]
+
+transform = Transform( -1, 0, 8.74228e-008, 0, 1, 0, -8.74228e-008, 0, -1, 400, 0, -900 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CanyonPlantT" parent="Spatial" index="32" instance=ExtResource( 28 )]
+
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 800, 0, -200 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CanyonPlantT2" parent="Spatial" index="33" instance=ExtResource( 28 )]
+
+transform = Transform( 1.31134e-007, 0, -1, 0, 1, 0, 1, 0, 1.31134e-007, 1700, 0, -500 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CanyonPlant11Alt1" parent="Spatial" index="34" instance=ExtResource( 29 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 0, -1000 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CanyonPlant11Alt6" parent="Spatial" index="35" instance=ExtResource( 29 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 700, 0, -500 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CanyonPlant11Alt2" parent="Spatial" index="36" instance=ExtResource( 29 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1100, 0, -700 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CanyonPlant11Alt3" parent="Spatial" index="37" instance=ExtResource( 29 )]
+
+transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 500, 0, -600 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CanyonPlant11Alt5" parent="Spatial" index="38" instance=ExtResource( 29 )]
+
+transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 1000, 0, -300 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CanyonCliffPlant3" parent="Spatial" index="39" instance=ExtResource( 14 )]
+
+transform = Transform( -1, 0, 8.74228e-008, 0, 1, 0, -8.74228e-008, 0, -1, 2000, 0, -300 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CanyonCliffPlant5" parent="Spatial" index="40" instance=ExtResource( 14 )]
+
+transform = Transform( 1.31134e-007, 0, 1, 0, 1, 0, -1, 0, 1.31134e-007, 1200, 0, 100 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CanyonPlant11Alt4" parent="Spatial" index="41" instance=ExtResource( 29 )]
+
+transform = Transform( -1, 0, 8.74228e-008, 0, 1, 0, -8.74228e-008, 0, -1, 400, 0, -1000 )
+_sections_unfolded = [ "Transform" ]
+
+
