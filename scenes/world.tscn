@@ -55,8 +55,8 @@ light_specular = 0.45
 light_bake_mode = 1
 light_cull_mask = -1
 shadow_enabled = true
-shadow_color = Color( 0.636719, 0.636719, 0.636719, 1 )
-shadow_bias = 0.45
+shadow_color = Color( 0.199219, 0.199219, 0.199219, 1 )
+shadow_bias = 0.2
 shadow_contact = 0.0
 shadow_reverse_cull_face = false
 editor_only = false
@@ -65,11 +65,11 @@ directional_shadow_split_1 = 0.1
 directional_shadow_split_2 = 0.2
 directional_shadow_split_3 = 0.5
 directional_shadow_blend_splits = true
-directional_shadow_normal_bias = 9.97
-directional_shadow_bias_split_scale = 0.32
+directional_shadow_normal_bias = 4.0
+directional_shadow_bias_split_scale = 1.0
 directional_shadow_depth_range = 0
-directional_shadow_max_distance = 10000.0
-_sections_unfolded = [ "Directional Shadow", "Editor", "Light", "Shadow", "Transform" ]
+directional_shadow_max_distance = 2000.0
+_sections_unfolded = [ "Directional Shadow", "Editor", "Light", "Shadow" ]
 
 [node name="HUD" parent="." index="1" instance=ExtResource( 2 )]
 
@@ -153,7 +153,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Plane" parent="." index="3" instance=ExtResource( 6 )]
 
-transform = Transform( 0.00010002, -0.997861, -0.0653687, -0.00152682, -0.0653688, 0.99786, -0.999999, 0, -0.00153009, 0, 77.7451, 0 )
+transform = Transform( 0.00010002, -0.997861, -0.0653687, -0.00152682, -0.0653688, 0.99786, -0.999999, 0, -0.00153009, -4.41933, 145.207, 115.694 )
 
 [node name="GhostPlane" parent="." index="4" instance=ExtResource( 7 )]
 

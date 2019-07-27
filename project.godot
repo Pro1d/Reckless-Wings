@@ -74,5 +74,6 @@ common/enable_object_picking=false
 [rendering]
 
 threads/thread_model=2
+quality/directional_shadow/size=16384
 environment/default_clear_color=Color( 0.683594, 0.903595, 1, 1 )
 environment/default_environment="res://default_env.tres"

@@ -249,8 +249,8 @@ projection = 0
 current = true
 fov = 70.0
 size = 1.0
-near = 0.1
-far = 8000.0
+near = 1.0
+far = 2000.0
 _sections_unfolded = [ "Transform" ]
 
 [node name="CameraBackCenter" type="Camera" parent="CameraSwitch" index="1"]
@@ -266,8 +266,8 @@ projection = 0
 current = true
 fov = 70.0
 size = 1.0
-near = 0.1
-far = 8000.0
+near = 1.0
+far = 2000.0
 _sections_unfolded = [ "Transform" ]
 
 [node name="Camerafront" type="Camera" parent="CameraSwitch" index="2"]
@@ -283,8 +283,8 @@ projection = 0
 current = true
 fov = 70.0
 size = 1.0
-near = 0.1
-far = 8000.0
+near = 1.0
+far = 2000.0
 _sections_unfolded = [ "Transform" ]
 
 [node name="Mesh" type="RigidBody" parent="." index="5"]
