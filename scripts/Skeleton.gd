@@ -6,6 +6,7 @@ onready var AileronR = find_bone("AileronR")
 onready var Elevator = find_bone("Elevator")
 onready var Rudder = find_bone("Rudder")
 
+# warning-ignore:unused_argument
 func _process(delta):
 	set_bone_pose(AileronL, Transform(Quat(Vector3(1,0,0), plane_node.aileron.surface_angle)))
 	set_bone_pose(AileronR, Transform(Quat(Vector3(-1,0,0), plane_node.aileron.surface_angle)))

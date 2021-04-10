@@ -7,6 +7,7 @@ onready var mesh_node = get_node("MeshInstance")
 func _ready():
 	get_node("AnimationPlayer").play("uv1")
 
+# warning-ignore:unused_argument
 func _process(delta):
 	var cam_origin = get_viewport().get_camera().global_transform.origin
 	var mesh_origin = mesh_node.global_transform.origin

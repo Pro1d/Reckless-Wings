@@ -6,6 +6,7 @@ var static_transform
 func _ready():
 	static_transform = transform
 
+# warning-ignore:unused_argument
 func _on_race_initialized(checkpoint_count):
 	mode = RigidBody.MODE_STATIC
 	set_axis_velocity(Vector3(0,0,0))

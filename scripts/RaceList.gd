@@ -4,21 +4,21 @@ extends VBoxContainer
 # var a = 2
 # var b = "textvar"
 func list_maps_in_directory(path):
-    var files = []
-    var dir = Directory.new()
-    dir.open(path)
-    dir.list_dir_begin()
+	var files = []
+	var dir = Directory.new()
+	dir.open(path)
+	dir.list_dir_begin()
 
-    while true:
-        var file = dir.get_next()
-        if file == "":
-            break
-        elif not file.begins_with(".") and file.ends_with(".tscn"):
-            files.append(file)
+	while true:
+		var file = dir.get_next()
+		if file == "":
+			break
+		elif not file.begins_with(".") and file.ends_with(".tscn"):
+			files.append(file)
 
-    dir.list_dir_end()
+	dir.list_dir_end()
 
-    return files
+	return files
 	
 func _ready():
 	while get_child_count():
@@ -36,6 +36,7 @@ func _ready():
 
 func _on_race_selected(name):
 	Globals.MAP_NAME = name
+# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://scenes/world.tscn")
 
 #func _process(delta):

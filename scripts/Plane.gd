@@ -108,6 +108,7 @@ func _physics_process(delta):
 		if collision_data != null:
 			destroy()
 
+# warning-ignore:unused_argument
 func _process(delta):
 	if Input.is_action_just_pressed("restart"):
 		init_race()
@@ -176,6 +177,7 @@ func _on_Nose_finish_line_crossed():
 func _on_Nose_checkpoint_crossed(id):
 	cross_checkpoint(id)
 
+# warning-ignore:unused_argument
 func _on_body_entered(body):
 	destroy()
 

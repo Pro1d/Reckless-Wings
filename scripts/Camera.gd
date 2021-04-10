@@ -7,6 +7,7 @@ var action_camera = {"camera_up" : 0, "camera_center" : 1, "camera_first_person"
 func _ready():
 	get_child(default_active_camera).make_current()
 
+# warning-ignore:unused_argument
 func _process(delta):
 	if Input.is_action_just_pressed("next_camera"):
 		default_active_camera = (default_active_camera + 1) % get_child_count()

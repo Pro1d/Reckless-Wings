@@ -21,12 +21,8 @@ func _init(action_distance = 6.0, angle_max = PI / 4, force_factor = 0.00001, jo
 	m_force_factor = force_factor
 	
 func read_input():
-	var input = -Input.get_joy_axis(0, m_joy_axis)
-	if Input.is_key_pressed(m_key_left):
-		input += 1
-	if Input.is_key_pressed(m_key_right):
-		input -= 1
-	return input
+	var input = Input.get_action_strength("rudder+") - Input.get_action_strength("rudder-")
+	return clamp(input, -1, 1)
 
 func angle(input):
 	return input * m_angle_max

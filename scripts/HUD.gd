@@ -10,11 +10,13 @@ func _ready():
 	$VBoxContainer/BestTimeDiff.set_text("")
 	
 
+# warning-ignore:unused_argument
 func _process(delta):
 	$Speed.set_text(str(floor(plane_node.get_linear_speed() * 3.6))+" Kph")
 	update_chronometer_text(recorder_node.race_time)
 
 	if Input.is_action_just_pressed("back"):
+# warning-ignore:return_value_discarded
 		get_tree().change_scene("res://scenes/MenuList.tscn")
 	if Input.is_action_just_pressed("pause"):
 		toggle_pause()

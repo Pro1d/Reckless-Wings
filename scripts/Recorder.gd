@@ -20,6 +20,7 @@ onready var mesh = plane_node.get_node("Mesh")
 func _ready():
 	set_physics_process(false)
 
+# warning-ignore:unused_argument
 func _physics_process(delta):
 	if recording:
 		record_pose.append_array(acquire_frame())
@@ -27,7 +28,7 @@ func _physics_process(delta):
 
 func acquire_frame():
 	var t = mesh.global_transform
-	var q = Quat(t.basis)
+	var q = t.basis.get_rotation_quat()
 	var o = t.origin
 	return [
 		o.x, o.y, o.z,
@@ -56,17 +57,22 @@ func stop_record():
 	recording = false
 	set_physics_process(false)
 
+# warning-ignore:unused_argument
 func _on_race_initialized(checkpoint_count):
 	reset()
 	start_record()
 
+# warning-ignore:unused_argument
 func _on_race_ended(checkpoint_count):
 	record_time = race_time
 	stop_record()
 
+# warning-ignore:unused_argument
+# warning-ignore:unused_argument
 func _on_checkpoint_crossed(current_checkpoint, checkpoint_count):
 	record_checkpoint.append(race_time)
 
+# warning-ignore:unused_argument
 func _on_race_started(checkpoint_count):
 	race_time = 0
 

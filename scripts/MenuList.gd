@@ -9,6 +9,7 @@ func _ready():
 	# Initialization here
 	pass
 
+# warning-ignore:unused_argument
 func _process(delta):
 	if Input.is_action_just_pressed("back"):
 		get_tree().quit()

@@ -4,33 +4,23 @@ extends Object
 
 var m_action_distance # m
 var m_angle_max # rad
-var m_key_up # key
-var m_key_down # key
-var m_joy_axis
 var m_force_factor # (m/s, m/s²) to N
 var angular_velocity = 0.0 # rad/s
 var drag = 0.0
 var surface_angle = 0.0
 var m_negative_input_factor = 0.6
 
-func _init(action_distance = 6.0, angle_max = PI / 4, force_factor = 0.0001, joy_axis=1, key_up = KEY_UP, key_down = KEY_DOWN):
+func _init(action_distance = 6.0, angle_max = PI / 4, force_factor = 0.0001):
 	m_action_distance = action_distance
 	m_angle_max = angle_max
-	m_joy_axis = joy_axis
-	m_key_up = key_up
-	m_key_down = key_down
 	m_force_factor = force_factor
 	
 func read_input():
-	var input = -Input.get_joy_axis(0, m_joy_axis)
-	if Input.is_key_pressed(m_key_up):
-		input += 1
-	if Input.is_key_pressed(m_key_down):
-		input -= 1
-	return input if input < 0 else input * m_negative_input_factor
+	var input = Input.get_action_strength("elevator+") - Input.get_action_strength("elevator-")
+	return clamp(input, -1, 1)
 
 func angle(input):
-	return input * m_angle_max
+	return (input if input < 0 else input * m_negative_input_factor) * m_angle_max
 
 func reset():
 	drag = 0
