@@ -1,7 +1,5 @@
-# Sloowf
+# Reckless Wings: Wild Gust
 It is a flight simulation racing game made with [Godot](https://godotengine.org/).
-
-TODO: find a better name, add a gameplay video, how to play.
 
 ## The ideas
 
@@ -14,13 +12,13 @@ The game combines two main concepts:
 **The physic of flight is simplified...** to enjoy the game even if you are not a profesionnal pilot.
 **...but not too much** to introduce difficulties for the most skillful players.
 
-## Interested?
-I could not find a game that brings these concepts together.
-That is why I decided to create this game.
-However, I do not have neither the desire nor the time to finish & publish this game.
+## Preview
 
-You know a game of the same kind? Let me know! I want to have a try.
+Watch the video:
 
-You want to create a similar game or fork this project? Please do! I would love playing a better game like this.
+[![Watch the video](https://img.youtube.com/vi/DSsDReVk_bk/default.jpg)](https://youtu.be/DSsDReVk_bk)
 
-I am definetely interested in any work related to this kind of game ;)
+Screenshots:
+
+![Screenshot 1](./presentation/screenshot1.png)
+![Screenshot 2](./presentation/screenshot2.png)
