@@ -1,6 +1,5 @@
 extends Node
 
-
 """
 Recorder and official chronometer
 used : for ghost, best time, checkpoint diff
@@ -15,7 +14,6 @@ var record_time
 var recording = false
 var race_time = 0
 onready var plane_node = get_parent()
-onready var mesh = plane_node.get_node("RigidBody")
 
 func _ready():
 	set_physics_process(false)
@@ -27,7 +25,7 @@ func _physics_process(delta):
 		race_time += 1
 
 func acquire_frame():
-	var t = mesh.global_transform
+	var t = plane_node.global_transform
 	var q = t.basis.get_rotation_quat()
 	var o = t.origin
 	return [
@@ -112,6 +110,6 @@ func save_map_record():
 
 func get_map_record_filename():
 	var fname = Globals.MAP_DIRECTORY + Globals.MAP_NAME
-	fname = fname.get_basename() + ".json"
+	fname = fname.get_basename() + ".best.json"
 	print("File: ", fname)
 	return fname

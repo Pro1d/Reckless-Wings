@@ -33,281 +33,183 @@
 [ext_resource path="res://map_tiles/canyon/CanyonPlant11Alt3.scn" type="PackedScene" id=31]
 [ext_resource path="res://map_tiles/canyon/CanyonPlant11Alt4.scn" type="PackedScene" id=32]
 
-[node name="Map" type="Position3D" index="0"]
-
+[node name="Map" type="Position3D"]
 script = ExtResource( 1 )
-_sections_unfolded = [ "Pause", "Transform", "Visibility" ]
 
-[node name="CanyonEntrance" parent="." index="0" instance=ExtResource( 2 )]
-
+[node name="CanyonEntrance" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="CanyonAreaStart" parent="." index="1" instance=ExtResource( 3 )]
+[node name="CanyonAreaStart" parent="." instance=ExtResource( 3 )]
 
-[node name="CanyonStraight" parent="." index="2" instance=ExtResource( 4 )]
-
+[node name="CanyonStraight" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 0, 0 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="CanyonHalfTurn33Joint" parent="." index="3" instance=ExtResource( 5 )]
-
+[node name="CanyonHalfTurn33Joint" parent="." instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 400, 0, -100 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="CanyonAreaCheckpoint" parent="." index="4" instance=ExtResource( 6 )]
-
+[node name="CanyonAreaCheckpoint" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 600, 0, -200 )
 
-[node name="CanyonAreaCheckpoint2" parent="." index="5" instance=ExtResource( 6 )]
+[node name="CanyonAreaCheckpoint2" parent="." instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1000, 0, 50 )
 
-transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 1000, 0, 50 )
-_sections_unfolded = [ "Transform" ]
+[node name="CanyonAreaCheckpoint3" parent="." instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1300, 0, 0 )
 
-[node name="CanyonAreaCheckpoint3" parent="." index="6" instance=ExtResource( 6 )]
+[node name="CanyonAreaCheckpoint4" parent="." instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1200, 0, -400 )
 
-transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 1300, 0, 0 )
+[node name="CanyonStraightAlt" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 600, 0, -200 )
 
-[node name="CanyonAreaCheckpoint4" parent="." index="7" instance=ExtResource( 6 )]
+[node name="CanyonStraightAlt2" parent="." instance=ExtResource( 7 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1200, 0, -400 )
 
-transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 1200, 0, -400 )
+[node name="CanyonSR22" parent="." instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 700, 0, -200 )
 
-[node name="CanyonStraightAlt" parent="." index="8" instance=ExtResource( 7 )]
+[node name="CanyonSL22" parent="CanyonSR22" instance=ExtResource( 9 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.05176e-05, 0, 600 )
 
-transform = Transform( 1, 0, 1.06581e-014, 0, 1, 0, -1.06581e-014, 0, 1, 600, 0, -200 )
-
-[node name="CanyonStraightAlt2" parent="." index="9" instance=ExtResource( 7 )]
-
-transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 1200, 0, -400 )
-
-[node name="CanyonSR22" parent="." index="10" instance=ExtResource( 8 )]
-
-transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 700, 0, -200 )
-
-[node name="CanyonSL22" type="Spatial" parent="CanyonSR22" index="2" instance=ExtResource( 9 )]
-
-transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -3.05176e-005, 0, 600 )
-_sections_unfolded = [ "Transform" ]
-__meta__ = {
-"empty_draw_type": "PLAIN_AXES"
-}
-
-[node name="CanyonTurn22" parent="." index="11" instance=ExtResource( 10 )]
-
+[node name="CanyonTurn22" parent="." instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 900, 0, -100 )
 
-[node name="CanyonTurn23" parent="." index="12" instance=ExtResource( 10 )]
+[node name="CanyonTurn23" parent="." instance=ExtResource( 10 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1300, 0, 100 )
 
-transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 1300, 0, 100 )
+[node name="CanyonTurn24" parent="." instance=ExtResource( 10 )]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1100, 0, 200 )
 
-[node name="CanyonTurn24" parent="." index="13" instance=ExtResource( 10 )]
+[node name="CanyonStraight4" parent="." instance=ExtResource( 11 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1300, 0, 0 )
 
-transform = Transform( -1, 0, 8.74228e-008, 0, 1, 0, -8.74228e-008, 0, -1, 1100, 0, 200 )
+[node name="CanyonAreaEnd" parent="." instance=ExtResource( 12 )]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 950, 0, -700 )
 
-[node name="CanyonStraight4" parent="." index="14" instance=ExtResource( 11 )]
+[node name="CanyonDeadEnd" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 900, 0, -700 )
 
-transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 1300, 0, 0 )
-
-[node name="CanyonAreaEnd" parent="." index="15" instance=ExtResource( 12 )]
-
-transform = Transform( -1, 0, 8.74228e-008, 0, 1, 0, -8.74228e-008, 0, -1, 950, 0, -700 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="CanyonDeadEnd" parent="." index="16" instance=ExtResource( 13 )]
-
-transform = Transform( 1, 0, -1.06581e-014, 0, 1, 0, 1.06581e-014, 0, 1, 900, 0, -700 )
-
-[node name="CanyonTurn33" parent="." index="17" instance=ExtResource( 14 )]
-
+[node name="CanyonTurn33" parent="." instance=ExtResource( 14 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1000, 0, -700 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Ground" type="Spatial" parent="." index="18"]
+[node name="Ground" type="Spatial" parent="."]
 
-_sections_unfolded = [ "Transform" ]
-
-[node name="CanyonCliffPlantSL23" parent="Ground" index="0" instance=ExtResource( 15 )]
-
+[node name="CanyonCliffPlantSL23" parent="Ground" instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 0, 600 )
 
-[node name="CanyonCliffPlantSL26" parent="Ground" index="1" instance=ExtResource( 15 )]
+[node name="CanyonCliffPlantSL26" parent="Ground" instance=ExtResource( 15 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1600, 0, -400 )
 
-transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, 1600, 0, -400 )
+[node name="CanyonCliffPlantSL24" parent="Ground" instance=ExtResource( 15 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 500, 0, -800 )
 
-[node name="CanyonCliffPlantSL24" parent="Ground" index="2" instance=ExtResource( 15 )]
-
-transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 500, 0, -800 )
-
-[node name="CanyonCliffPlantTurn22" parent="Ground" index="3" instance=ExtResource( 16 )]
-
+[node name="CanyonCliffPlantTurn22" parent="Ground" instance=ExtResource( 16 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 0, 700 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="CanyonCliffPlantTurn44" parent="Ground" index="4" instance=ExtResource( 17 )]
-
+[node name="CanyonCliffPlantTurn44" parent="Ground" instance=ExtResource( 17 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -400 )
 
-[node name="CanyonCliffPlantTurn45" parent="Ground" index="5" instance=ExtResource( 17 )]
+[node name="CanyonCliffPlantTurn45" parent="Ground" instance=ExtResource( 17 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1200, 0, -900 )
 
-transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 1200, 0, -900 )
+[node name="CanyonCliffPlantTurn46" parent="Ground" instance=ExtResource( 17 )]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1700, 0, 400 )
 
-[node name="CanyonCliffPlantTurn46" parent="Ground" index="6" instance=ExtResource( 17 )]
-
-transform = Transform( -1, 0, 8.74228e-008, 0, 1, 0, -8.74228e-008, 0, -1, 1700, 0, 400 )
-
-[node name="CanyonCliffPlant2" parent="Ground" index="7" instance=ExtResource( 18 )]
-
+[node name="CanyonCliffPlant2" parent="Ground" instance=ExtResource( 18 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -200 )
 
-[node name="CanyonCliffPlant4" parent="Ground" index="8" instance=ExtResource( 18 )]
+[node name="CanyonCliffPlant4" parent="Ground" instance=ExtResource( 18 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1700, 0, 100 )
 
-transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, 1700, 0, 100 )
+[node name="CanyonCliffPlant3" parent="Ground" instance=ExtResource( 18 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1000, 0, -900 )
 
-[node name="CanyonCliffPlant3" parent="Ground" index="9" instance=ExtResource( 18 )]
-
-transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 1000, 0, -900 )
-
-[node name="CanyonPlant44_0000" parent="Ground" index="10" instance=ExtResource( 19 )]
-
+[node name="CanyonPlant44_0000" parent="Ground" instance=ExtResource( 19 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 600, 0, -500 )
 
-[node name="CanyonPlant24" parent="Ground" index="11" instance=ExtResource( 20 )]
+[node name="CanyonPlant24" parent="Ground" instance=ExtResource( 20 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 900, 0, -400 )
 
-transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 900, 0, -400 )
+[node name="CanyonPlant25" parent="Ground" instance=ExtResource( 20 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1500, 0, 100 )
 
-[node name="CanyonPlant25" parent="Ground" index="12" instance=ExtResource( 20 )]
+[node name="CanyonPlant21Alt1" parent="Ground" instance=ExtResource( 21 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 200, 0, -100 )
 
-transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 1500, 0, 100 )
+[node name="CanyonPlant21Alt3" parent="Ground" instance=ExtResource( 21 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1200, 0, 100 )
 
-[node name="CanyonPlant21Alt1" parent="Ground" index="13" instance=ExtResource( 21 )]
+[node name="CanyonPlant21Alt5" parent="Ground" instance=ExtResource( 21 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1200, 0, 500 )
 
-transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 200, 0, -100 )
-_sections_unfolded = [ "Transform" ]
+[node name="CanyonPlant21Alt2" parent="Ground" instance=ExtResource( 21 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 300, 0, -600 )
 
-[node name="CanyonPlant21Alt3" parent="Ground" index="14" instance=ExtResource( 21 )]
+[node name="CanyonPlant21Alt4" parent="Ground" instance=ExtResource( 21 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1300, 0, -600 )
 
-transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 1200, 0, 100 )
-_sections_unfolded = [ "Transform" ]
+[node name="CanyonPlantCross" parent="Ground" instance=ExtResource( 22 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 300, 0, -300 )
 
-[node name="CanyonPlant21Alt5" parent="Ground" index="15" instance=ExtResource( 21 )]
+[node name="CanyonPlantCross2" parent="Ground" instance=ExtResource( 22 )]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 400, 0, 200 )
 
-transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 1200, 0, 500 )
-_sections_unfolded = [ "Transform" ]
+[node name="CanyonPlantCross3" parent="Ground" instance=ExtResource( 22 )]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1200, 0, 600 )
 
-[node name="CanyonPlant21Alt2" parent="Ground" index="16" instance=ExtResource( 21 )]
-
-transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 300, 0, -600 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="CanyonPlant21Alt4" parent="Ground" index="17" instance=ExtResource( 21 )]
-
-transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 1300, 0, -600 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="CanyonPlantCross" parent="Ground" index="18" instance=ExtResource( 22 )]
-
-transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 300, 0, -300 )
-
-[node name="CanyonPlantCross2" parent="Ground" index="19" instance=ExtResource( 22 )]
-
-transform = Transform( -1, 0, 8.74228e-008, 0, 1, 0, -8.74228e-008, 0, -1, 400, 0, 200 )
-
-[node name="CanyonPlantCross3" parent="Ground" index="20" instance=ExtResource( 22 )]
-
-transform = Transform( -1, 0, 8.74228e-008, 0, 1, 0, -8.74228e-008, 0, -1, 1200, 0, 600 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="CanyonPlantT" parent="Ground" index="21" instance=ExtResource( 23 )]
-
+[node name="CanyonPlantT" parent="Ground" instance=ExtResource( 23 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 300, 0, 500 )
 
-[node name="CanyonPlantT2" parent="Ground" index="22" instance=ExtResource( 23 )]
+[node name="CanyonPlantT2" parent="Ground" instance=ExtResource( 23 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 300, 0, 400 )
 
-transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, 300, 0, 400 )
+[node name="CanyonPlant41" parent="Ground" instance=ExtResource( 24 )]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1000, 0, -300 )
 
-[node name="CanyonPlant41" parent="Ground" index="23" instance=ExtResource( 24 )]
+[node name="CanyonPlant42" parent="Ground" instance=ExtResource( 24 )]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1400, 0, -300 )
 
-transform = Transform( -1, 0, 8.74228e-008, 0, 1, 0, -8.74228e-008, 0, -1, 1000, 0, -300 )
+[node name="CanyonCliffPlantTurn33" parent="Ground" instance=ExtResource( 25 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 300, 0, 700 )
 
-[node name="CanyonPlant42" parent="Ground" index="24" instance=ExtResource( 24 )]
+[node name="CanyonCliffPlantTurn34" parent="Ground" instance=ExtResource( 25 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1100, 0, 600 )
 
-transform = Transform( -1, 0, 8.74228e-008, 0, 1, 0, -8.74228e-008, 0, -1, 1400, 0, -300 )
+[node name="CanyonCliffPlantTurnInt22" parent="Ground" instance=ExtResource( 26 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 700, 0, 500 )
 
-[node name="CanyonCliffPlantTurn33" parent="Ground" index="25" instance=ExtResource( 25 )]
+[node name="CanyonCliffPlantTurnInt23" parent="Ground" instance=ExtResource( 26 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 800, 0, 500 )
 
-transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, 300, 0, 700 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="CanyonCliffPlantTurn34" parent="Ground" index="26" instance=ExtResource( 25 )]
-
-transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 1100, 0, 600 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="CanyonCliffPlantTurnInt22" parent="Ground" index="27" instance=ExtResource( 26 )]
-
-transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, 700, 0, 500 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="CanyonCliffPlantTurnInt23" parent="Ground" index="28" instance=ExtResource( 26 )]
-
-transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 800, 0, 500 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="CanyonPlant22_0000" parent="Ground" index="29" instance=ExtResource( 27 )]
-
-editor/display_folded = true
+[node name="CanyonPlant22_0000" parent="Ground" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 0, 200 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="CanyonPlant22_0002" parent="Ground" index="30" instance=ExtResource( 27 )]
-
+[node name="CanyonPlant22_0002" parent="Ground" instance=ExtResource( 27 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1400, 0, 400 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="CanyonPlant22_0001" parent="Ground" index="31" instance=ExtResource( 27 )]
+[node name="CanyonPlant22_0001" parent="Ground" instance=ExtResource( 27 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 600, 0, 0 )
 
-transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 600, 0, 0 )
-_sections_unfolded = [ "Transform" ]
+[node name="CanyonPlant22_0000Alt" parent="Ground" instance=ExtResource( 28 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 800, 0, 100 )
 
-[node name="CanyonPlant22_0000Alt" parent="Ground" index="32" instance=ExtResource( 28 )]
+[node name="CanyonPlant11Alt1" parent="Ground" instance=ExtResource( 29 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 600, 0, 200 )
 
-editor/display_folded = true
-transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 800, 0, 100 )
-_sections_unfolded = [ "Transform" ]
+[node name="CanyonPlant11Alt2" parent="Ground" instance=ExtResource( 29 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1100, 0, -100 )
 
-[node name="CanyonPlant11Alt1" parent="Ground" index="33" instance=ExtResource( 29 )]
+[node name="CanyonCliffPlant1" parent="Ground" instance=ExtResource( 30 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1700, 0, 300 )
 
-transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 600, 0, 200 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="CanyonPlant11Alt2" parent="Ground" index="34" instance=ExtResource( 29 )]
-
-transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 1100, 0, -100 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="CanyonCliffPlant1" parent="Ground" index="35" instance=ExtResource( 30 )]
-
-transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, 1700, 0, 300 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="CanyonPlant11Alt3" parent="Ground" index="36" instance=ExtResource( 31 )]
-
+[node name="CanyonPlant11Alt3" parent="Ground" instance=ExtResource( 31 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1300, 0, 200 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="CanyonPlant11Alt4" parent="Ground" index="37" instance=ExtResource( 32 )]
-
+[node name="CanyonPlant11Alt4" parent="Ground" instance=ExtResource( 32 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1500, 0, 300 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="CanyonPlant11Alt5" parent="Ground" index="38" instance=ExtResource( 32 )]
-
+[node name="CanyonPlant11Alt5" parent="Ground" instance=ExtResource( 32 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1200, 0, 300 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="CanyonPlant11Alt6" parent="Ground" index="39" instance=ExtResource( 32 )]
-
+[node name="CanyonPlant11Alt6" parent="Ground" instance=ExtResource( 32 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1300, 0, -400 )
-_sections_unfolded = [ "Transform" ]
-
-
