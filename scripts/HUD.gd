@@ -12,7 +12,7 @@ func _ready():
 
 # warning-ignore:unused_argument
 func _process(delta):
-	$Speed.set_text(str(floor(plane_node.get_linear_speed() * 3.6))+" Kph")
+	$Speed.set_text(str(floor(plane_node.get_linear_speed().length() * 3.6))+" Kph")
 	if recorder_node:
 		update_chronometer_text(recorder_node.race_time)
 

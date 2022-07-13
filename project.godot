@@ -44,6 +44,7 @@ Globals="*res://scripts/global.gd"
 
 window/size/width=1366
 window/size/height=768
+window/vsync/use_vsync=false
 
 [editor_plugins]
 
@@ -174,4 +175,6 @@ common/physics_fps=100
 threads/thread_model=2
 quality/directional_shadow/size=16384
 environment/default_clear_color=Color( 0.683594, 0.903595, 1, 1 )
+quality/filters/msaa=3
+quality/filters/use_fxaa=true
 environment/default_environment="res://default_env.tres"
