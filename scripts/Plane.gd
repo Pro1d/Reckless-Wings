@@ -37,7 +37,7 @@ signal plane_destroyed()
 # wingspan = 11m
 # max speed = 600km/h ~> 170m/s | normal speed 180 km/h -> 50m/s
 const LIN_SPEED := 50.0 # m/s
-const LIN_ACCEL := 7.0 # m/s² , should be lesser than gravity acceleration
+const LIN_ACCEL := 8.5 # m/s² , should be lesser than gravity acceleration
 const MAX_LIN_SPEED := 170.0 # m/s, to compute drag, the drag will compensate lin_accel at this max speed
 const MIN_LIN_SPEED := 30.0 # m/s, over this limit the lift is stronger than graviy
 
@@ -48,7 +48,7 @@ const ELEVATOR_DRAG := 0.1 * WIND_DRAG
 const ELEVATOR_STRENGTH := 0.12
 const RUDDER_DRAG := 0.1 * WIND_DRAG
 const RUDDER_STRENGTH := 0.045
-const AILERON_DRAG := 0.06 * WIND_DRAG
+const AILERON_DRAG := 0.1 * WIND_DRAG
 const AILERON_STRENGTH := 0.35
 
 const VERTICAL_PITCH_STRENGTH := 0.03
@@ -57,7 +57,6 @@ const LATERAL_YAW_STRENGTH := 0.015
 var LINEAR_DRAG := Local.new(WIND_DRAG, WIND_DRAG * 300, WIND_DRAG * 1000)
 var ANGULAR_DAMP := Euler.new(0.96, 0.96, 0.998)
 
-# gravity
 var GRAVITY : float = ProjectSettings.get_setting("physics/3d/default_gravity") # m/s²
 
 # In local coordinates

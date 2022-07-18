@@ -49,3 +49,8 @@ func update_with_command(wind_velocity : float, delta : float, command : float):
 	_update_surface_angle(delta, command)
 	_update_drag()
 	_update_lift(wind_velocity)
+
+func update_override(wind_velocity : float, delta : float, angle : float):
+	surface_angle = angle
+	_update_drag()
+	_update_lift(wind_velocity)

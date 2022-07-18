@@ -351,6 +351,7 @@ modulate_pitch = false
 modulate_db = true
 
 [node name="Recorder" type="Node" parent="."]
+process_priority = 1
 script = ExtResource( 10 )
 
 [connection signal="checkpoint_crossed" from="." to="Recorder" method="_on_checkpoint_crossed"]
@@ -359,8 +360,8 @@ script = ExtResource( 10 )
 [connection signal="race_ended" from="." to="Recorder" method="_on_race_ended"]
 [connection signal="race_initialized" from="." to="RigidBody" method="_on_race_initialized"]
 [connection signal="race_initialized" from="." to="RigidBody/AudioStreamPlayer3D" method="_on_Plane_race_initialized"]
-[connection signal="race_initialized" from="." to="Recorder" method="_on_race_initialized"]
 [connection signal="race_initialized" from="." to="RigidBody/AudioStreamPlayer3D2" method="_on_Plane_race_initialized"]
+[connection signal="race_initialized" from="." to="Recorder" method="_on_race_initialized"]
 [connection signal="race_started" from="." to="Recorder" method="_on_race_started"]
 [connection signal="body_entered" from="RigidBody" to="." method="_on_body_entered"]
 [connection signal="area_entered" from="RigidBody/Nose" to="RigidBody/Nose" method="_on_area_entered"]

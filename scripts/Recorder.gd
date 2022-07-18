@@ -36,6 +36,12 @@ func acquire_frame():
 		plane_node.aileron.surface_angle,
 		plane_node.elevator.surface_angle,
 		plane_node.rudder.surface_angle,
+		plane_node.linear_speed.longitudinal,
+		plane_node.linear_speed.lateral,
+		plane_node.linear_speed.vertical,
+		plane_node.angular_velocity.longitudinal,
+		plane_node.angular_velocity.lateral,
+		plane_node.angular_velocity.vertical,
 	]
 
 func reset():
