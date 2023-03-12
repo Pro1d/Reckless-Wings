@@ -1,5 +1,3 @@
 [gd_scene format=2]
 
-[node name="Map" type="Position3D" index="0"]
-
-
+[node name="Map" type="Position3D"]

@@ -46,6 +46,7 @@ func _physics_process(delta):
 		mesh_node.set_axis_velocity(speed)
 		state = STATE_PHYSIC
 
+# warning-ignore:unused_argument
 func _on_race_initialized(checkpoint_count):
 	var recorder = plane_node.get_node("Recorder")
 	if recorder.has_best_track():

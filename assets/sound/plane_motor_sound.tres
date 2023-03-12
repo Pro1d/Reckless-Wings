@@ -5,4 +5,3 @@ data = PoolByteArray( 117, 251, 117, 251, 211, 250, 211, 250, 26, 250, 26, 250, 
 format = 1
 loop_mode = 2
 loop_end = 181817
-stereo = true

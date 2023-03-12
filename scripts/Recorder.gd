@@ -15,7 +15,7 @@ var record_time
 var recording = false
 var race_time = 0
 onready var plane_node = get_parent()
-onready var mesh = plane_node.get_node("Mesh")
+onready var mesh = plane_node.get_node("RigidBody")
 
 func _ready():
 	set_physics_process(false)
