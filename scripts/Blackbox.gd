@@ -5,15 +5,15 @@ Recorder and official chronometer
 used : for ghost, best time, checkpoint diff
 """
 
-var best_track = {"pose": PoolRealArray(), "checkpoint": [], "time": 0}
+var best_track = {"pose": PackedFloat32Array(), "checkpoint": [], "time": 0}
 
-var record_pose = PoolRealArray()
+var record_pose = PackedFloat32Array()
 var record_checkpoint = []
 var record_time
 
 var recording = false
 var race_time = 0
-onready var plane_node = get_parent()
+@onready var plane_node = get_parent()
 
 func _ready():
 	set_physics_process(false)
@@ -26,7 +26,7 @@ func _physics_process(delta):
 
 func acquire_frame():
 	var t = plane_node.global_transform
-	var q = t.basis.get_rotation_quat()
+	var q = t.basis.get_rotation_quaternion()
 	var o = t.origin
 	return [
 		o.x, o.y, o.z,
@@ -79,16 +79,18 @@ func has_best_track():
 
 func load_map_record():
 	print("Loading best track...")
-	var file = File.new()
-	var fname = get_map_record_filename()
-	if file.open(fname, File.READ) != OK:
+	var fname := get_map_record_filename()
+	var file := FileAccess.open(fname, FileAccess.READ)
+	if file == null:
 		printerr("File ", fname, " not found!")
 		return
 	
-	var data = parse_json(file.get_line())
+	var test_json_conv := JSON.new()
+	test_json_conv.parse(file.get_line())
+	var data = test_json_conv.get_data()
 	file.close()
 	if typeof(data["best_track"]) == TYPE_DICTIONARY:
-		best_track["pose"] = PoolRealArray(data["best_track"]["pose"])
+		best_track["pose"] = PackedFloat32Array(data["best_track"]["pose"])
 		# convert float to int
 		best_track["time"] = int(data["best_track"]["time"])
 		best_track["checkpoint"] = []
@@ -97,19 +99,19 @@ func load_map_record():
 
 func save_map_record():
 	print("Saving best track...")
-	var file = File.new()
-	var fname = get_map_record_filename()
-	if file.open(fname, File.WRITE) != OK:
+	var fname := get_map_record_filename()
+	var file := FileAccess.open(fname, FileAccess.WRITE)
+	if file == null:
 		printerr("Cannot open ", fname, " in write mode!")
 		return
 
-	file.store_line(to_json({
+	file.store_line(JSON.new().stringify({
 		"best_track": best_track
 	}))
 	file.close()
 
-func get_map_record_filename():
-	var fname = Globals.MAP_DIRECTORY + Globals.MAP_NAME
+func get_map_record_filename() -> String:
+	var fname := Globals.MAP_DIRECTORY + Globals.MAP_NAME
 	fname = fname.get_basename() + ".best.json"
 	print("File: ", fname)
 	return fname

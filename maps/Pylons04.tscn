@@ -1,31 +1,31 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=5 format=3]
 
-[ext_resource path="res://scripts/Map.gd" type="Script" id=1]
-[ext_resource path="res://map_tiles/pylons/PylonStart.tscn" type="PackedScene" id=2]
-[ext_resource path="res://map_tiles/pylons/PylonCheckpoint.tscn" type="PackedScene" id=3]
-[ext_resource path="res://map_tiles/pylons/PylonFinish.tscn" type="PackedScene" id=4]
+[ext_resource type="Script" path="res://scripts/world/Map.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://b1sd3hfc72lok" path="res://map_tiles/pylons/PylonStart.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://dqqgghghfcb4u" path="res://map_tiles/pylons/PylonCheckpoint.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://dje3spnv372kr" path="res://map_tiles/pylons/PylonFinish.tscn" id="4"]
 
-[node name="Map" type="Position3D" index="0"]
+[node name="Map" type="Marker3D" index="0"]
 
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform3D" ]
 
 [node name="PylonStart" parent="." index="0" instance=ExtResource( 2 )]
 
 [node name="PylonCheckpoint2" parent="." index="1" instance=ExtResource( 3 )]
 
-transform = Transform( 0.999999, 0, -0.000661518, 0, 1, 0, 0.000661518, 0, 0.999999, 158.011, 0, 1.35479 )
+transform = Transform3D( 0.999999, 0, -0.000661518, 0, 1, 0, 0.000661518, 0, 0.999999, 158.011, 0, 1.35479 )
 
 [node name="PylonCheckpoint4" parent="." index="2" instance=ExtResource( 3 )]
 
-transform = Transform( 0.987249, 0, 0.159183, 0, 1, 0, -0.159183, 0, 0.987249, 425.188, 0, 92.415 )
+transform = Transform3D( 0.987249, 0, 0.159183, 0, 1, 0, -0.159183, 0, 0.987249, 425.188, 0, 92.415 )
 
 [node name="PylonCheckpoint5" parent="." index="3" instance=ExtResource( 3 )]
 
-transform = Transform( 0.529483, 0, 0.84832, 0, 1, 0, -0.84832, 0, 0.529483, 641.422, 0, -95.0057 )
+transform = Transform3D( 0.529483, 0, 0.84832, 0, 1, 0, -0.84832, 0, 0.529483, 641.422, 0, -95.0057 )
 
 [node name="PylonFinish" parent="." index="4" instance=ExtResource( 4 )]
 
-transform = Transform( 0.63144, 0, 0.775425, 0, 1, 0, -0.775425, 0, 0.63144, 773.16, 0, -443.567 )
+transform = Transform3D( 0.63144, 0, 0.775425, 0, 1, 0, -0.775425, 0, 0.63144, 773.16, 0, -443.567 )
 
 

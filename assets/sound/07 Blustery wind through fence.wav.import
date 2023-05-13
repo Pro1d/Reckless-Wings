@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/07 Blustery wind through fence.wav-c71d58a7f6cccb50f15841381ab550ad.sample"
+type="AudioStreamWAV"
+uid="uid://c03tobfngef0v"
+path="res://.godot/imported/07 Blustery wind through fence.wav-c71d58a7f6cccb50f15841381ab550ad.sample"
 
 [deps]
 
 source_file="res://assets/sound/07 Blustery wind through fence.wav"
-dest_files=[ "res://.import/07 Blustery wind through fence.wav-c71d58a7f6cccb50f15841381ab550ad.sample" ]
+dest_files=["res://.godot/imported/07 Blustery wind through fence.wav-c71d58a7f6cccb50f15841381ab550ad.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=false
+edit/loop_mode=2
+edit/loop_begin=88200
+edit/loop_end=2646000
 compress/mode=0

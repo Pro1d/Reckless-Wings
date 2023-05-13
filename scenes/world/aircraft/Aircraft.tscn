@@ -1,0 +1,94 @@
+[gd_scene load_steps=11 format=3 uid="uid://cw2gvpvae6stq"]
+
+[ext_resource type="Script" path="res://scripts/world/aircraft/Aircraft.gd" id="1_p40c6"]
+[ext_resource type="PackedScene" uid="uid://cwj07h2i1mle4" path="res://assets/mesh/spitfire/spitfire.dae" id="2_qvcob"]
+[ext_resource type="Script" path="res://scripts/world/aircraft/Spitfire.gd" id="3_03ggi"]
+[ext_resource type="Script" path="res://scripts/world/aircraft/ControlSurface.gd" id="3_uqxi0"]
+[ext_resource type="Material" uid="uid://c4hjqqjdrl61l" path="res://resources/propeller.material" id="4_u5ph4"]
+[ext_resource type="AudioStream" path="res://assets/sound/plane_motor_sound.tres" id="5_uhefb"]
+[ext_resource type="AudioStream" uid="uid://c03tobfngef0v" path="res://assets/sound/07 Blustery wind through fence.wav" id="6_caghl"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7e54m"]
+radius = 0.6
+height = 8.64367
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u25g0"]
+resource_local_to_scene = true
+size = Vector3(0.422, 5, 0.2)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_s0raa"]
+height = 0.281992
+radius = 1.60688
+
+[node name="Aircraft" type="RigidBody3D"]
+collision_layer = 12
+collision_mask = 19
+mass = 700.0
+center_of_mass_mode = 1
+gravity_scale = 0.0
+script = ExtResource("1_p40c6")
+
+[node name="BodyShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -7.10543e-15, 1.0445e-07, 1.47177)
+shape = SubResource("CapsuleShape3D_7e54m")
+
+[node name="LeftWingShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(-0.109754, -0.991538, 0.0693351, -4.82448e-08, 0.0697565, 0.997564, -0.993959, 0.109487, -0.00765609, -3, -0.497526, -0.879601)
+shape = SubResource("BoxShape3D_u25g0")
+
+[node name="RightWingShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.109754, -0.991538, -0.0693351, -3.53902e-08, -0.0697565, 0.997564, -0.993959, -0.109487, -0.00765609, 3, -0.497526, -0.879602)
+shape = SubResource("BoxShape3D_u25g0")
+
+[node name="PropellerShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 7.10543e-15, -9.92393e-08, -2.85577)
+shape = SubResource("CylinderShape3D_s0raa")
+disabled = true
+
+[node name="spitfire" parent="." node_paths=PackedStringArray("_rudder", "_elevator", "_aileron") instance=ExtResource("2_qvcob")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.581757)
+script = ExtResource("3_03ggi")
+_rudder = NodePath("../RudderControlSurface")
+_elevator = NodePath("../ElevatorControlSurface")
+_aileron = NodePath("../AileronControlSurface")
+
+[node name="Plane" parent="spitfire/PlaneSkeleton/Skeleton3D" index="0"]
+skeleton = NodePath("..")
+
+[node name="RotatingPropeller" parent="spitfire" index="1"]
+surface_material_override/0 = ExtResource("4_u5ph4")
+
+[node name="RudderControlSurface" type="Node" parent="."]
+script = ExtResource("3_uqxi0")
+_action_plus = "rudder+"
+_action_minus = "rudder-"
+
+[node name="ElevatorControlSurface" type="Node" parent="."]
+script = ExtResource("3_uqxi0")
+_action_plus = "elevator+"
+_action_minus = "elevator-"
+
+[node name="AileronControlSurface" type="Node" parent="."]
+script = ExtResource("3_uqxi0")
+_action_plus = "aileron+"
+_action_minus = "aileron-"
+
+[node name="EngineAudio" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.09866e-08, -1.39521)
+stream = ExtResource("5_uhefb")
+max_db = 1.0
+autoplay = true
+bus = &"Plane"
+doppler_tracking = 2
+
+[node name="WindAudio" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.09866e-08, -1.39521)
+stream = ExtResource("6_caghl")
+attenuation_model = 2
+volume_db = 2.5
+max_db = 6.0
+autoplay = true
+bus = &"Plane"
+doppler_tracking = 2
+
+[editable path="spitfire"]

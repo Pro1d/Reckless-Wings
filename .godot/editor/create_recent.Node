@@ -1,0 +1,17 @@
+Node
+WorldEnvironment
+Node3D
+Label
+Camera3D
+CenterContainer
+MarginContainer
+VBoxContainer
+Area3D
+StaticBody3D
+Button
+ScrollContainer
+Control
+ControlSurface
+CollisionShape3D
+MeshInstance3D
+RigidBody3D

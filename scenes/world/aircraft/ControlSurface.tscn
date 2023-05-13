@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://csy2k6wtnpk8k"]
+
+[ext_resource type="Script" path="res://scripts/world/aircraft/ControlSurface.gd" id="1_wffuj"]
+
+[node name="ControlSurface" type="Node"]
+script = ExtResource("1_wffuj")

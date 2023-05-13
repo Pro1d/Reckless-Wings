@@ -1,49 +1,49 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=7 format=3]
 
-[ext_resource path="res://scripts/Map.gd" type="Script" id=1]
-[ext_resource path="res://map_tiles/pylons/PylonStart.tscn" type="PackedScene" id=2]
-[ext_resource path="res://map_tiles/pylons/PylonCheckpoint.tscn" type="PackedScene" id=3]
-[ext_resource path="res://map_tiles/pylons/PylonCheckpointSingle.tscn" type="PackedScene" id=4]
-[ext_resource path="res://map_tiles/pylons/PylonCheckpointTight.tscn" type="PackedScene" id=5]
-[ext_resource path="res://map_tiles/pylons/PylonFinish.tscn" type="PackedScene" id=6]
+[ext_resource type="Script" path="res://scripts/world/Map.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://b1sd3hfc72lok" path="res://map_tiles/pylons/PylonStart.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://dqqgghghfcb4u" path="res://map_tiles/pylons/PylonCheckpoint.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://dfyaqrp8hh87i" path="res://map_tiles/pylons/PylonCheckpointSingle.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://txpuaf2ym3io" path="res://map_tiles/pylons/PylonCheckpointTight.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://dje3spnv372kr" path="res://map_tiles/pylons/PylonFinish.tscn" id="6"]
 
-[node name="Map" type="Position3D" index="0"]
+[node name="Map" type="Marker3D" index="0"]
 
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform3D" ]
 
 [node name="PylonStart" parent="." index="0" instance=ExtResource( 2 )]
 
 [node name="PylonCheckpoint2" parent="." index="1" instance=ExtResource( 3 )]
 
-transform = Transform( 0.999999, 0, -0.000661518, 0, 1, 0, 0.000661518, 0, 0.999999, 395.063, 0, -161.112 )
+transform = Transform3D( 0.999999, 0, -0.000661518, 0, 1, 0, 0.000661518, 0, 0.999999, 395.063, 0, -161.112 )
 
 [node name="PylonCheckpoint4" parent="." index="2" instance=ExtResource( 3 )]
 
-transform = Transform( 0.969959, 0, -0.243267, 0, 1, 0, 0.243267, 0, 0.969959, 723.495, 0, -11.0508 )
+transform = Transform3D( 0.969959, 0, -0.243267, 0, 1, 0, 0.243267, 0, 0.969959, 723.495, 0, -11.0508 )
 
 [node name="PylonCheckpoint3" parent="." index="3" instance=ExtResource( 4 )]
 
-transform = Transform( 0.950805, 0, 0.30979, 0, 1, 0, -0.30979, 0, 0.950805, 129.382, 0, -40.9029 )
+transform = Transform3D( 0.950805, 0, 0.30979, 0, 1, 0, -0.30979, 0, 0.950805, 129.382, 0, -40.9029 )
 
 [node name="PylonCheckpoint" parent="." index="4" instance=ExtResource( 5 )]
 
-transform = Transform( 0.773194, 0, 0.63417, 0, 1, 0, -0.63417, 0, 0.773194, 259.721, 0, -113.81 )
+transform = Transform3D( 0.773194, 0, 0.63417, 0, 1, 0, -0.63417, 0, 0.773194, 259.721, 0, -113.81 )
 
 [node name="PylonCheckpoint6" parent="." index="5" instance=ExtResource( 5 )]
 
-transform = Transform( 0.885437, 0, -0.464759, 0, 1, 0, 0.464759, 0, 0.885437, 564.949, 0, -111.945 )
+transform = Transform3D( 0.885437, 0, -0.464759, 0, 1, 0, 0.464759, 0, 0.885437, 564.949, 0, -111.945 )
 
 [node name="PylonCheckpoint7" parent="." index="6" instance=ExtResource( 5 )]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 858.923, 0, 0 )
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 858.923, 0, 0 )
 
 [node name="PylonCheckpoint8" parent="." index="7" instance=ExtResource( 5 )]
 
-transform = Transform( 0.947192, 0, 0.320667, 0, 1, 0, -0.320667, 0, 0.947192, 1019.24, 0, -31.8991 )
+transform = Transform3D( 0.947192, 0, 0.320667, 0, 1, 0, -0.320667, 0, 0.947192, 1019.24, 0, -31.8991 )
 
 [node name="PylonFinish" parent="." index="8" instance=ExtResource( 6 )]
 
-transform = Transform( 0.63144, 0, 0.775425, 0, 1, 0, -0.775425, 0, 0.63144, 1144.47, 0, -141.204 )
+transform = Transform3D( 0.63144, 0, 0.775425, 0, 1, 0, -0.775425, 0, 0.63144, 1144.47, 0, -141.204 )
 
 

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://b44al7cab4dvl"]
+
+[ext_resource type="PackedScene" uid="uid://dwdyx2heai7nq" path="res://scenes/world/Water.tscn" id="1_gufuc"]
+[ext_resource type="Environment" uid="uid://bf4ucfyivfj0q" path="res://default_env.tres" id="2_ky2hb"]
+
+[node name="World" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.906308, 0.298835, 0.298836, -6.18173e-08, -0.707107, 0.707105, 0.422618, -0.640855, -0.640856, 0, 0, 0)
+light_energy = 3.0
+shadow_enabled = true
+shadow_bias = 0.2
+directional_shadow_blend_splits = true
+directional_shadow_max_distance = 2000.0
+
+[node name="Water" parent="." instance=ExtResource("1_gufuc")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("2_ky2hb")

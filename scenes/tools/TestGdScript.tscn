@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://rnjjm7pahiye"]
+
+[sub_resource type="GDScript" id="GDScript_443cm"]
+script/source = "extends Node
+
+
+func _ready():
+#	var yaw := 2*PI / 4
+#	var pitch := 2*PI / 4
+#	var roll := 2*PI / 4
+	for a_ in [Vector3.ONE, Vector3(1,0,0)]:
+		var a: Vector3 = a_
+		var q := Quaternion(a.normalized(), 2 * PI / 4)
+		var angular_v := q.get_axis() * q.get_angle()
+		print(angular_v, \" = \", q.get_axis(), \" * \", q.get_angle())
+		print(angular_v * 0.9)
+		var q2 := Quaternion(a.normalized(), 2 * PI / 4 * 0.9)
+		var angular_v2 := q2.get_axis() * q2.get_angle()
+		print(angular_v2)
+"
+
+[node name="TestGdScript" type="Node"]
+script = SubResource("GDScript_443cm")

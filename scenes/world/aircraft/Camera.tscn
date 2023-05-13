@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://drc2d8o06eufr"]
+
+[ext_resource type="Script" path="res://scripts/world/aircraft/Camera.gd" id="1_2vco6"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_qcxeq"]
+auto_exposure_enabled = true
+
+[node name="Camera" type="Node3D"]
+script = ExtResource("1_2vco6")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 13)
+attributes = SubResource("CameraAttributesPractical_qcxeq")
+doppler_tracking = 2
+
+[node name="UpPosition" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 13)
+
+[node name="CenterPosition" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 13)
+
+[node name="FirstPersonPosition" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)

@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://dwdyx2heai7nq"]
+
+[ext_resource type="Script" path="res://scripts/world/Water.gd" id="1_bgc6p"]
+[ext_resource type="Shape3D" uid="uid://mhq5ott8qb4q" path="res://resources/water_shape.tres" id="1_w81md"]
+[ext_resource type="Material" uid="uid://jl3ye365pt65" path="res://map_tiles/canyon/Material/water.tres" id="2_6b6q1"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ikjxp"]
+material = ExtResource("2_6b6q1")
+size = Vector2(4000, 4000)
+subdivide_width = 40
+subdivide_depth = 40
+
+[sub_resource type="Animation" id="2"]
+resource_name = "uv1"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:mesh:material:uv1_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oford"]
+_data = {
+"uv1": SubResource("2")
+}
+
+[node name="Water" type="Area3D"]
+collision_layer = 16
+collision_mask = 4
+script = ExtResource("1_bgc6p")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
+shape = ExtResource("1_w81md")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_ikjxp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../MeshInstance3D")
+autoplay = "uv1"
+speed_scale = 0.25
+libraries = {
+"": SubResource("AnimationLibrary_oford")
+}

@@ -1,16 +1,17 @@
-extends KinematicBody
+class_name PlaneOld
+extends CharacterBody3D
 
 const ControlSurface = preload("res://scripts/ControlSurface.gd")
 
 class Local:
-	var longitudinal : float # Vector3.FORWARD
-	var lateral : float # Vector3.LEFT
-	var vertical : float # Vector3.UP
-	func _init(lon, lat, ver):
+	var longitudinal: float # Vector3.FORWARD
+	var lateral: float # Vector3.LEFT
+	var vertical: float # Vector3.UP
+	func _init(lon: float, lat: float,ver: float):
 		longitudinal = lon
 		lateral = lat
 		vertical = ver
-	static func fromVector3(v : Vector3) -> Local:
+	static func fromVector3(v: Vector3) -> Local:
 		return Local.new(v.dot(Vector3.FORWARD), v.dot(Vector3.LEFT), v.dot(Vector3.UP))
 	func toVector3() -> Vector3:
 		return longitudinal * Vector3.FORWARD + lateral * Vector3.LEFT + vertical * Vector3.UP
@@ -19,12 +20,16 @@ class Euler:
 	var yaw : float # Vector3.FORWARD
 	var pitch : float # Vector3.LEFT
 	var roll : float # Vector3.UP
-	func _init(a, p, r):
+	func _init(a,p,r):
 		yaw = a
 		pitch = p
 		roll = r
-	func toVector3():
-		return yaw * Vector3.UP + pitch * Vector3.LEFT + roll * Vector3.FORWARD
+	func toBasis(delta : float) -> Basis:
+		return Basis.from_euler(
+			(yaw * Vector3.UP + pitch * Vector3.LEFT + roll * Vector3.FORWARD) * delta
+			)#EulerOrder.EULER_ORDER_XYZ)
+#	func toVector3() -> Vector3:
+#		return yaw * Vector3.UP + pitch * Vector3.LEFT + roll * Vector3.FORWARD
 
 signal race_initialized(checkpoint_count)
 signal race_started(checkpoint_count)
@@ -68,14 +73,14 @@ var rudder := ControlSurface.new("rudder+", "rudder-", MIN_LIN_SPEED)
 var elevator := ControlSurface.new("elevator+", "elevator-", MIN_LIN_SPEED, 0.6)
 var aileron := ControlSurface.new("aileron+", "aileron-", MIN_LIN_SPEED)
 
-var map # = get_node("/root/World/Map") # TODO receive signal "map_loaded"
+var map : Map# = get_node("/root/World/Map") # TODO receive signal "map_loaded"
 var crossed_checkpoints := []
 enum RaceState {RACE_INITIALIZED, RACE_IN_PROGRESS, RACE_FINISHED}
-var race_state = RaceState.RACE_INITIALIZED
+var race_state := RaceState.RACE_INITIALIZED
 enum PlaneState {PLANE_NORMAL, PLANE_LOCKED, PLANE_DESTROYED}
-var plane_state = PlaneState.PLANE_NORMAL
+var plane_state := PlaneState.PLANE_NORMAL
 
-var winds = {}
+var winds := {}
 var total_winds := Vector3(0,0,0)
 
 var debug_frame := 0
@@ -95,7 +100,7 @@ func _physics_process(delta : float):
 	if plane_state != PlaneState.PLANE_DESTROYED:
 		var gravity_dir := global_transform.basis.inverse() * Vector3.DOWN
 		var gravity := gravity_dir * GRAVITY
-		var stall := clamp(inverse_lerp(MIN_LIN_SPEED, 0, linear_speed.longitudinal), 0, 1)
+		var stall := clampf(inverse_lerp(MIN_LIN_SPEED, 0.0, linear_speed.longitudinal), 0.0, 1.0)
 		
 		# stalling, automatically put the nose down
 		var rot_angle = Vector3.FORWARD.angle_to((Vector3.FORWARD + 0.75 * delta * gravity).normalized()) * stall
@@ -130,8 +135,8 @@ func _physics_process(delta : float):
 		linear_speed.lateral += (-lat_drag + local_gravity.lateral) * delta
 		linear_speed.vertical += (-ver_drag + local_gravity.vertical + lift) * delta
 		
-		var vertical_to_pitch := -pow(abs(wind_relative_speed.vertical), 2) * sign(wind_relative_speed.vertical) * VERTICAL_PITCH_STRENGTH
-		var lateral_to_yaw := pow(abs(wind_relative_speed.lateral), 2) * sign(wind_relative_speed.lateral) * LATERAL_YAW_STRENGTH
+		var vertical_to_pitch := -pow(absf(wind_relative_speed.vertical), 2) * signf(wind_relative_speed.vertical) * VERTICAL_PITCH_STRENGTH
+		var lateral_to_yaw := pow(absf(wind_relative_speed.lateral), 2) * signf(wind_relative_speed.lateral) * LATERAL_YAW_STRENGTH
 		var yaw_lift := RUDDER_STRENGTH * rudder.lift
 		var pitch_lift := ELEVATOR_STRENGTH * elevator.lift
 		var roll_lift := AILERON_STRENGTH * aileron.lift
@@ -146,7 +151,7 @@ func _physics_process(delta : float):
 		
 		# actual motion
 		var linear_motion := linear_speed.toVector3() * delta
-		var angular_motion := Basis(angular_velocity.toVector3() * delta)
+		var angular_motion := angular_velocity.toBasis(delta)
 		global_transform.basis *= angular_motion
 		
 		linear_speed = Local.fromVector3(angular_motion.inverse() * linear_speed.toVector3())
@@ -174,8 +179,7 @@ func _physics_process(delta : float):
 		if collision_data != null:
 			destroy()
 
-# warning-ignore:unused_argument
-func _process(delta : float):
+func _process(_delta : float):
 	if Input.is_action_just_pressed("restart"):
 		init_race()
 	if Input.is_action_just_pressed("ui_cancel"):
@@ -190,7 +194,7 @@ func autopilot(delta : float, frontal_wind_velocity : float):
 	aileron.update_with_command(frontal_wind_velocity, delta, clamp(aileron_cmd, -1, 1))
 	elevator.update_with_command(frontal_wind_velocity, delta, clamp(elevator_cmd, -1, 1))
 
-func reset_plane(t : Transform):
+func reset_plane(t : Transform3D):
 	aileron.reset()
 	elevator.reset()
 	rudder.reset()
@@ -214,30 +218,30 @@ func init_race():
 	winds.clear()
 	total_winds = Vector3.ZERO
 	race_state = RaceState.RACE_INITIALIZED
-	emit_signal("race_initialized", map.get_checkpoint_count())
+	race_initialized.emit(map.get_checkpoint_count())
 
 func start_race():
 	if race_state == RaceState.RACE_INITIALIZED:
 		plane_state = PlaneState.PLANE_NORMAL
 		race_state = RaceState.RACE_IN_PROGRESS
-		emit_signal("race_started", map.get_checkpoint_count())
+		race_started.emit(map.get_checkpoint_count())
 
 func end_race():
 	if race_state == RaceState.RACE_IN_PROGRESS:
 		if len(crossed_checkpoints) >= map.get_checkpoint_count():
 			race_state = RaceState.RACE_FINISHED
-			emit_signal("race_ended", map.get_checkpoint_count())
+			race_ended.emit(map.get_checkpoint_count())
 
 func cross_checkpoint(id):
 	if race_state == RaceState.RACE_IN_PROGRESS:
 		if not (id in crossed_checkpoints) and len(crossed_checkpoints) < map.get_checkpoint_count():
 			crossed_checkpoints.append(id)
-			emit_signal("checkpoint_crossed", len(crossed_checkpoints), map.get_checkpoint_count())
+			checkpoint_crossed.emit(len(crossed_checkpoints), map.get_checkpoint_count())
 
 func destroy():
 	if plane_state != PlaneState.PLANE_DESTROYED:
 		plane_state = PlaneState.PLANE_DESTROYED
-		emit_signal("plane_destroyed")
+		plane_destroyed.emit()
 
 func _on_Nose_start_line_crossed():
 	start_race()
@@ -249,14 +253,14 @@ func _on_Nose_checkpoint_crossed(id):
 	cross_checkpoint(id)
 
 # warning-ignore:unused_argument
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	destroy()
 
 func _on_map_loaded(map_node):
 	map = map_node
 	init_race()
 
-func _on_Nose_wind_entered(area):
+func _on_Nose_wind_entered(area : Area3D):
 	if not winds.has(area):
 		winds[area] = area.to_global(Vector3(0,0,100)) - area.global_transform.origin
 		total_winds += winds[area]

@@ -1,0 +1,5 @@
+res://default_env.tres
+res://scenes/world/World.tscn
+res://resources/propeller.material
+res://scenes/logic/Race.tscn
+res://scenes/ui/HUD.tscn

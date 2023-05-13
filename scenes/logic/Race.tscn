@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://coqsl88jw8f7a"]
+
+[ext_resource type="PackedScene" uid="uid://b44al7cab4dvl" path="res://scenes/world/World.tscn" id="1_6awxa"]
+[ext_resource type="Script" path="res://scripts/logic/Race.gd" id="1_mwpo4"]
+[ext_resource type="PackedScene" uid="uid://dhx0t6w7vrqaj" path="res://scenes/ui/HUD.tscn" id="2_2x0kj"]
+[ext_resource type="PackedScene" uid="uid://cw2gvpvae6stq" path="res://scenes/world/aircraft/Aircraft.tscn" id="4_syrr7"]
+[ext_resource type="PackedScene" uid="uid://drc2d8o06eufr" path="res://scenes/world/aircraft/Camera.tscn" id="5_2kl2e"]
+
+[node name="Race" type="Node"]
+process_mode = 3
+script = ExtResource("1_mwpo4")
+
+[node name="World" parent="." instance=ExtResource("1_6awxa")]
+
+[node name="HUD" parent="." instance=ExtResource("2_2x0kj")]
+
+[node name="Aircraft" parent="." instance=ExtResource("4_syrr7")]
+linear_damp_mode = 1
+angular_damp_mode = 1
+
+[node name="Camera" parent="Aircraft" instance=ExtResource("5_2kl2e")]
