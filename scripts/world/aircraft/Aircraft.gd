@@ -61,7 +61,7 @@ class State:
 func sqr_sign(x: float) -> float:
 	return sign(x) * (abs(x) ** 2)
 func clamp_abs(x: float, bound: float) -> float:
-	return clampf(x, -abs(bound), abs(bound))
+	return clampf(x, -absf(bound), absf(bound))
 # plane dim:
 # length = 8m
 # wingspan = 11m
@@ -263,8 +263,8 @@ func _autopilot(delta: float, frontal_wind_velocity: float):
 	var gravity_dir := global_transform.basis.transposed() * Vector3.DOWN
 	var elevator_cmd := gravity_dir.dot(Vector3.BACK) * 0.8
 	var aileron_cmd := gravity_dir.dot(Vector3.LEFT) * 0.4
-	_aileron.update_with_command(frontal_wind_velocity, delta, clamp(aileron_cmd, -1, 1))
-	_elevator.update_with_command(frontal_wind_velocity, delta, clamp(elevator_cmd, -1, 1))
+	_aileron.update_with_command(frontal_wind_velocity, delta, clampf(aileron_cmd, -1, 1))
+	_elevator.update_with_command(frontal_wind_velocity, delta, clampf(elevator_cmd, -1, 1))
 
 func _update_audio(throttle: float, wind_velocity: LLV) -> void:
 	var clamped_speed := clampf(wind_velocity.longitudinal, 0, _max_linear_speed)

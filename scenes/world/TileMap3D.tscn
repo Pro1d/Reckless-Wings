@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://do12062hxywry"]
+
+[ext_resource type="Script" path="res://scripts/world/TileMap3D.gd" id="1_kk4b6"]
+[ext_resource type="Script" path="res://scripts/world/TileMap3DData.gd" id="2_hr51e"]
+
+[sub_resource type="Resource" id="Resource_4oqdx"]
+script = ExtResource("2_hr51e")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wni4g"]
+size = Vector2(20, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0g2rx"]
+albedo_color = Color(8.42288e-08, 0.190065, 0.275633, 1)
+
+[node name="TileMap3D" type="Node3D"]
+script = ExtResource("1_kk4b6")
+tiles = SubResource("Resource_4oqdx")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.789352, -0.372901, 0.487717, 0, 0.794404, 0.60739, -0.613941, -0.479444, 0.627064, 15.8233, 6.654, 17.3467)
+current = true
+
+[node name="Tiles" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.989443, 1.84298e-09, 0.144926, -0.143763, 0.126459, 0.981499, -0.0183272, -0.991972, 0.125124, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.051, 0.05, 7.859)
+mesh = SubResource("PlaneMesh_wni4g")
+surface_material_override/0 = SubResource("StandardMaterial3D_0g2rx")

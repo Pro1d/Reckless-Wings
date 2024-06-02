@@ -29,7 +29,7 @@ func get_start_position() -> Transform3D:
 	printerr("Cannot find StartPosition* node")
 	return Transform3D()
 
-func get_checkpoint_count():
+func get_checkpoint_count() -> int:
 	return _checkpoint_count
 
 func _on_body_entered_start_area(body: Node3D) -> void:
