@@ -1,4 +1,3 @@
-@tool
 class_name TileMap3D
 extends Node3D
 
