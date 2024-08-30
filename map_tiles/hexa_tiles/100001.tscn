@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://w8tpga281sr7"]
+
+[ext_resource type="ArrayMesh" uid="uid://jxsfecdi2qqu" path="res://map_tiles/hexa_parts/cliff_004.res" id="1_0wy6k"]
+[ext_resource type="ArrayMesh" uid="uid://ca48vxlmgfwbp" path="res://map_tiles/hexa_parts/ground_004.res" id="2_c62ce"]
+[ext_resource type="ArrayMesh" uid="uid://dmt0jp5wrbiec" path="res://map_tiles/hexa_parts/top_004.res" id="3_imy4s"]
+
+[node name="100001" type="Node3D"]
+
+[node name="Cliff004" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.500428, 0, 0.865778, 0, 1, 0, -0.865778, 0, 0.500428, 0, 0, 0)
+mesh = ExtResource("1_0wy6k")
+
+[node name="Ground004" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.500428, 0, 0.865778, 0, 1, 0, -0.865778, 0, 0.500428, 0, 0, 0)
+mesh = ExtResource("2_c62ce")
+
+[node name="Top004" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.500428, 0, 0.865778, 0, 1, 0, -0.865778, 0, 0.500428, 0, 0, 0)
+mesh = ExtResource("3_imy4s")

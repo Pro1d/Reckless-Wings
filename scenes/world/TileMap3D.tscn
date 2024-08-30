@@ -1,23 +1,25 @@
-[gd_scene load_steps=6 format=3 uid="uid://do12062hxywry"]
+[gd_scene load_steps=7 format=3 uid="uid://do12062hxywry"]
 
 [ext_resource type="Script" path="res://scripts/world/TileMap3D.gd" id="1_kk4b6"]
 [ext_resource type="Script" path="res://scripts/world/TileMap3DData.gd" id="2_hr51e"]
 
-[sub_resource type="Resource" id="Resource_4oqdx"]
+[sub_resource type="Resource" id="Resource_gwvqr"]
 script = ExtResource("2_hr51e")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_wni4g"]
-size = Vector2(20, 20)
+size = Vector2(40, 40)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0g2rx"]
 albedo_color = Color(8.42288e-08, 0.190065, 0.275633, 1)
 
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_84b27"]
+
 [node name="TileMap3D" type="Node3D"]
 script = ExtResource("1_kk4b6")
-tiles = SubResource("Resource_4oqdx")
+tiles = SubResource("Resource_gwvqr")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.789352, -0.372901, 0.487717, 0, 0.794404, 0.60739, -0.613941, -0.479444, 0.627064, 15.8233, 6.654, 17.3467)
+transform = Transform3D(1, 0, 0, 0, 0.262189, 0.965016, 0, -0.965016, 0.262189, 17.06, 23.425, 22.53)
 current = true
 
 [node name="Tiles" type="Node3D" parent="."]
@@ -26,6 +28,13 @@ current = true
 transform = Transform3D(0.989443, 1.84298e-09, 0.144926, -0.143763, 0.126459, 0.981499, -0.0183272, -0.991972, 0.125124, 0, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.051, 0.05, 7.859)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.546, 0.05, 12.459)
 mesh = SubResource("PlaneMesh_wni4g")
 surface_material_override/0 = SubResource("StandardMaterial3D_0g2rx")
+
+[node name="SeaLevelPlane" type="StaticBody3D" parent="."]
+collision_layer = 2147483648
+collision_mask = 2147483648
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SeaLevelPlane"]
+shape = SubResource("WorldBoundaryShape3D_84b27")

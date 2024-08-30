@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdksdm8a5l8rj"]
+
+[ext_resource type="ArrayMesh" uid="uid://bn77tf15rmpy0" path="res://map_tiles/hexa_parts/top_007.res" id="1_bhc1y"]
+
+[node name="111111" type="Node3D"]
+
+[node name="Top007" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_bhc1y")

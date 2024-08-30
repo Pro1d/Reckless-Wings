@@ -6,19 +6,40 @@ class ExtendedTileType:
 	var rotation: int
 	var neighbors: int
 
-# 0: fill (land), 1: hole (canyon)
+# 0: fill (land), 1: hole (canyon, cliff, sea)
 
 # 0: |0|1|2|3|
 # 1:  |0|1|2|3|
 # 2: |0|1|2|3|
 # 3:  |0|1|2|3|
 var data: PackedInt32Array
-var width := 10
-var height := 10
+var width := 20
+var height := 20
 
 func _init() -> void:
 	data.resize(width * height)
 	data.fill(0)
+
+func position_to_index(pos: Vector3) -> Vector2i:
+	#position = Vector3(
+				#cos(PI / 6) * (2 * x + (y % 2)),
+				#0,
+				#y * (1 + cos(PI / 3))
+			#)
+	var x := pos.x
+	var y := pos.z
+	var iy := floori(y / (1 + cos(PI / 3)) + .5)
+	return Vector2i(
+		floori((x / cos(PI / 6) - (iy % 2)) / 2 + .5), iy
+	)
+
+func is_inside(i : Vector2i) -> bool:
+	return (
+		0 <= i.x
+		and i.x < width
+		and 0 <= i.y
+		and i.y < height
+	)
 
 func data_at(i: Vector2i) -> bool:
 	assert(0 <= i.x)
@@ -26,6 +47,7 @@ func data_at(i: Vector2i) -> bool:
 	assert(0 <= i.y)
 	assert(i.y < height)
 	return (data[i.x + i.y * width] & 1) != 0
+
 func set_data_at(i: Vector2i, d: bool) -> void:
 	assert(0 <= i.x)
 	assert(i.x < width)
@@ -35,6 +57,7 @@ func set_data_at(i: Vector2i, d: bool) -> void:
 		data[i.x + i.y * width] |= 1
 	else:
 		data[i.x + i.y * width] &= ~0b1
+
 func is_hole(i: Vector2i) -> bool:
 	if (0 <= i.x) and (i.x < width) and (0 <= i.y) and (i.y < height):
 		return data_at(i)
