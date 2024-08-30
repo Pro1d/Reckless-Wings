@@ -30,43 +30,30 @@ var anim := 0.0
 func _ready() -> void:
 	var plane := $SeaLevelPlane as StaticBody3D
 	plane.input_event.connect(_on_plane_input_event)
+	_rebuild()
 
-func _process(_delta: float) -> void:
-	#anim += delta
-	#if anim < 0.5:
-	#	return
-	#anim -= 0.5
-	#tiles.set_hole(Vector2i(randi_range(0, tiles.width - 1), randi_range(0, tiles.height - 1)), true)
+func _rebuild() -> void:
 	for c: Node3D in $Tiles.get_children():
 		$Tiles.remove_child(c)
 		c.queue_free()
-	for x in range(tiles.width):
-		for y in range(tiles.height):
-			var ett := tiles.extended_tile_type(Vector2i(x, y))
-			var res : PackedScene
-			res = meshes[ett.neighbors if ett.hole else -1]
-			var tile := res.instantiate() as Node3D
-			tile.rotation = PI / 3 * ett.rotation * Vector3.UP
-			tile.position = Vector3(
-				cos(PI / 6) * (2 * x + (y % 2)),
-				0,
-				y * (1 + cos(PI / 3))
-			)
-			for c: MeshInstance3D in tile.get_children():
-				if c == null:
-					continue
-				c.set_surface_override_material(0, preload("res://resources/triplanar_grid.material"))
-			$Tiles.add_child(tile)
-			#var mesh_instance := MeshInstance3D.new()
-			#var ett := tiles.extended_tile_type(Vector2i(x, y))
-			#mesh_instance.mesh = meshes[ett.neighbors if ett.hole else -1]
-			#mesh_instance.rotation = PI / 3 * ett.rotation * Vector3.UP
-			#mesh_instance.position = Vector3(
-				#cos(PI / 6) * (2 * x + (y % 2)),
-				#0,
-				#y * (1 + cos(PI / 3))
-			#)
-			#$Tiles.add_child(mesh_instance)
+	for chunk: TileMap3DData.Chunk in tiles.chunks.values():
+		for x in range(chunk.origin.x, chunk.origin.x + TileMap3DData.Chunk.SIZE.x):
+			for y in range(chunk.origin.y, chunk.origin.y + TileMap3DData.Chunk.SIZE.y):
+				var ett := tiles.extended_tile_type(Vector2i(x, y))
+				var res : PackedScene
+				res = meshes[ett.neighbors if ett.hole else -1]
+				var tile := res.instantiate() as Node3D
+				tile.rotation = PI / 3 * ett.rotation * Vector3.UP
+				tile.position = Vector3(
+					cos(PI / 6) * (2 * x + (y & 1)),
+					0,
+					y * (1 + cos(PI / 3))
+				)
+				for c: MeshInstance3D in tile.get_children():
+					if c == null:
+						continue
+					c.set_surface_override_material(0, preload("res://resources/triplanar_grid.material"))
+				$Tiles.add_child(tile)
 
 func _on_plane_input_event(
 	_camera: Node3D,
@@ -79,8 +66,9 @@ func _on_plane_input_event(
 	var mm := event as InputEventMouseMotion
 	if mm != null:
 		var index := tiles.position_to_index(event_position)
-		if tiles.is_inside(index):
-			if mm.button_mask == MOUSE_BUTTON_MASK_LEFT:
-				tiles.set_hole(tiles.position_to_index(event_position), true)
-			if mm.button_mask == MOUSE_BUTTON_MASK_RIGHT:
-				tiles.set_hole(tiles.position_to_index(event_position), false)
+		if mm.button_mask == MOUSE_BUTTON_MASK_LEFT:
+			tiles.set_hole(index, false)
+			_rebuild()
+		if mm.button_mask == MOUSE_BUTTON_MASK_RIGHT:
+			tiles.set_hole(index, true)
+			_rebuild()

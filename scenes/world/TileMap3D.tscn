@@ -19,7 +19,7 @@ script = ExtResource("1_kk4b6")
 tiles = SubResource("Resource_gwvqr")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.262189, 0.965016, 0, -0.965016, 0.262189, 17.06, 23.425, 22.53)
+transform = Transform3D(1, 0, 0, 0, 0.262189, 0.965016, 0, -0.965016, 0.262189, 0, 19.71, 10.07)
 current = true
 
 [node name="Tiles" type="Node3D" parent="."]
@@ -28,7 +28,7 @@ current = true
 transform = Transform3D(0.989443, 1.84298e-09, 0.144926, -0.143763, 0.126459, 0.981499, -0.0183272, -0.991972, 0.125124, 0, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.546, 0.05, 12.459)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
 mesh = SubResource("PlaneMesh_wni4g")
 surface_material_override/0 = SubResource("StandardMaterial3D_0g2rx")
 
