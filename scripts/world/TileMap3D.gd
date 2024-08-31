@@ -1,6 +1,9 @@
 class_name TileMap3D
 extends Node3D
 
+
+const TILE_HEIGHT := 1.0
+
 class MeshTile:
 	var mesh_resource: Mesh
 	var hole: bool = true
@@ -24,7 +27,7 @@ var meshes: Dictionary = {
 	0b111111: preload("res://map_tiles/hexa_tiles/111111.tscn"),
 	-1: preload("res://map_tiles/hexa_tiles/full.tscn"),
 }
-var anim := 0.0
+var _edit_height := 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -37,23 +40,35 @@ func _rebuild() -> void:
 		$Tiles.remove_child(c)
 		c.queue_free()
 	for chunk: TileMap3DData.Chunk in tiles.chunks.values():
-		for x in range(chunk.origin.x, chunk.origin.x + TileMap3DData.Chunk.SIZE.x):
-			for y in range(chunk.origin.y, chunk.origin.y + TileMap3DData.Chunk.SIZE.y):
-				var ett := tiles.extended_tile_type(Vector2i(x, y))
-				var res : PackedScene
-				res = meshes[ett.neighbors if ett.hole else -1]
-				var tile := res.instantiate() as Node3D
-				tile.rotation = PI / 3 * ett.rotation * Vector3.UP
-				tile.position = Vector3(
-					cos(PI / 6) * (2 * x + (y & 1)),
-					0,
-					y * (1 + cos(PI / 3))
-				)
-				for c: MeshInstance3D in tile.get_children():
-					if c == null:
-						continue
-					c.set_surface_override_material(0, preload("res://resources/triplanar_grid.material"))
-				$Tiles.add_child(tile)
+		for x in range(chunk.origin.x - 1, chunk.origin.x + TileMap3DData.Chunk.SIZE.x + 1):
+			for y in range(chunk.origin.y - 1, chunk.origin.y + TileMap3DData.Chunk.SIZE.y + 1):
+				for z in range(5):
+					var i := Vector3i(x, y, z)
+					var ck := tiles.get_chunk(i)
+					if not (ck == null or ck == chunk):
+						continue # skip border tile belonging to an other chunk
+					var ett := tiles.extended_tile_type(i)
+					if ett.is_empty():
+						continue # skip empty tile
+					var res : PackedScene
+					res = meshes[ett.neighbors if ett.hole else -1]
+					var tile := res.instantiate() as HexaTile
+					tile.ground_enabled = (z == 0)
+					tile.rotation = PI / 3 * ett.rotation * Vector3.UP
+					tile.position = Vector3(
+						cos(PI / 6) * (2 * x + (y & 1)),
+						z * TILE_HEIGHT,
+						y * (1 + cos(PI / 3))
+					)
+					$Tiles.add_child(tile)
+
+func _unhandled_input(event: InputEvent) -> void:
+	var ke := event as InputEventKey
+	if ke != null:
+		var key_name := ke.as_text_physical_keycode()
+		if key_name.is_valid_int():
+			_edit_height = key_name.to_int()
+			($SeaLevelPlane as Node3D).position.y = (_edit_height - 1) * TILE_HEIGHT
 
 func _on_plane_input_event(
 	_camera: Node3D,
@@ -63,12 +78,13 @@ func _on_plane_input_event(
 	_shape_idx: int
 ) -> void:
 	event_position = ($Tiles as Node3D).to_local(event_position)
-	var mm := event as InputEventMouseMotion
+	var mm := event as InputEventMouse
 	if mm != null:
 		var index := tiles.position_to_index(event_position)
-		if mm.button_mask == MOUSE_BUTTON_MASK_LEFT:
-			tiles.set_hole(index, false)
-			_rebuild()
-		if mm.button_mask == MOUSE_BUTTON_MASK_RIGHT:
-			tiles.set_hole(index, true)
+		#var i3 := Vector3i(index.x, index.y, _edit_height)
+		var hole := mm.button_mask == MOUSE_BUTTON_MASK_RIGHT
+		var full := mm.button_mask == MOUSE_BUTTON_MASK_LEFT
+		if hole or full:
+			for z in range(5):
+				tiles.set_hole(Vector3i(index.x, index.y, z), hole or z >= _edit_height)
 			_rebuild()

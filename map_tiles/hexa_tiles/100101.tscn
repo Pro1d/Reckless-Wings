@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://sw31w6jlefuj"]
+[gd_scene load_steps=8 format=3 uid="uid://sw31w6jlefuj"]
 
+[ext_resource type="Script" path="res://map_tiles/hexa_tiles/hexa_tile.gd" id="1_2afvx"]
 [ext_resource type="ArrayMesh" uid="uid://ty2dtybacgl6" path="res://map_tiles/hexa_parts/cliff_001.res" id="1_wiano"]
 [ext_resource type="ArrayMesh" uid="uid://cs4de4hkhg23y" path="res://map_tiles/hexa_parts/ground_001.res" id="2_ittln"]
 [ext_resource type="ArrayMesh" uid="uid://c0ff3m0tx2ydv" path="res://map_tiles/hexa_parts/top_001.res" id="3_rkuef"]
@@ -8,6 +9,7 @@
 [ext_resource type="ArrayMesh" uid="uid://cdteo4utga1vl" path="res://map_tiles/hexa_parts/top_002.res" id="6_wl7f2"]
 
 [node name="100101" type="Node3D"]
+script = ExtResource("1_2afvx")
 
 [node name="Cliff001" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866026, 0, 0.5, 0, 0, 0)

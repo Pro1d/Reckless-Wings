@@ -7,7 +7,7 @@
 script = ExtResource("2_hr51e")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_wni4g"]
-size = Vector2(40, 40)
+size = Vector2(80, 80)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0g2rx"]
 albedo_color = Color(8.42288e-08, 0.190065, 0.275633, 1)
@@ -19,7 +19,7 @@ script = ExtResource("1_kk4b6")
 tiles = SubResource("Resource_gwvqr")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.262189, 0.965016, 0, -0.965016, 0.262189, 0, 19.71, 10.07)
+transform = Transform3D(1, 0, 0, 0, 0.487859, 0.872922, 0, -0.872922, 0.487859, 0, 21.27, 17.46)
 current = true
 
 [node name="Tiles" type="Node3D" parent="."]
