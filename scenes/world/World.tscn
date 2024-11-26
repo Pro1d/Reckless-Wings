@@ -1,9 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://b44al7cab4dvl"]
+[gd_scene load_steps=11 format=3 uid="uid://b44al7cab4dvl"]
 
 [ext_resource type="PackedScene" uid="uid://dwdyx2heai7nq" path="res://scenes/world/Water.tscn" id="1_gufuc"]
+[ext_resource type="Script" path="res://scripts/world/world.gd" id="1_jbn75"]
 [ext_resource type="Environment" uid="uid://bf4ucfyivfj0q" path="res://default_env.tres" id="2_ky2hb"]
+[ext_resource type="PackedScene" uid="uid://do12062hxywry" path="res://scenes/world/TileMap3D.tscn" id="4_tp5em"]
+[ext_resource type="PackedScene" uid="uid://cw2gvpvae6stq" path="res://scenes/world/aircraft/Aircraft.tscn" id="5_d6ts7"]
+[ext_resource type="Texture2D" uid="uid://d2akpqagdmg3b" path="res://resources/displacement_texture.tres" id="5_e8x6h"]
+[ext_resource type="Script" path="res://scripts/world/camera_3d.gd" id="7_0my0o"]
+[ext_resource type="Shader" path="res://resources/materials/skip_proj.gdshader" id="7_c8ups"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_25juh"]
+orientation = 2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6jyri"]
+render_priority = 127
+shader = ExtResource("7_c8ups")
 
 [node name="World" type="Node3D"]
+script = ExtResource("1_jbn75")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.906308, 0.298835, 0.298836, -6.18173e-08, -0.707107, 0.707105, 0.422618, -0.640855, -0.640856, 0, 0, 0)
@@ -17,3 +31,29 @@ directional_shadow_max_distance = 2000.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("2_ky2hb")
+
+[node name="TileMap3D" parent="." instance=ExtResource("4_tp5em")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
+horizontal_displacement_texture = ExtResource("5_e8x6h")
+
+[node name="Aircraft" parent="." instance=ExtResource("5_d6ts7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 154.579, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Aircraft"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.935, 7.6)
+fov = 60.0
+near = 0.5
+far = 40000.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Aircraft/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.42)
+visible = false
+mesh = SubResource("PlaneMesh_25juh")
+surface_material_override/0 = SubResource("ShaderMaterial_6jyri")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 152.761, 206.99, 0)
+current = true
+near = 0.5
+far = 40000.0
+script = ExtResource("7_0my0o")

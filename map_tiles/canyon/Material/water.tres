@@ -13,4 +13,5 @@ normal_scale = 0.07
 normal_texture = ExtResource("1")
 uv1_scale = Vector3(200, 200, 200)
 uv1_triplanar_sharpness = 0.999997
-proximity_fade_distance = 2.0
+proximity_fade_enabled = true
+proximity_fade_distance = 10.0

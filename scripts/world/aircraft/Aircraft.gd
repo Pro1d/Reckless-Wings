@@ -117,7 +117,7 @@ var _throttle_command := 1.0  # 0% -> 100%
 var _debug_text := ""
 
 func _ready() -> void:
-	reset(Transform3D())
+	#reset(Transform3D())
 	_control_mode = ControlMode.ENABLED
 
 func _physics_process(delta: float) -> void:

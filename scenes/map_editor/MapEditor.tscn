@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://20m1dug4st86"]
+
+[ext_resource type="Script" path="res://scripts/map_editor/MapEditor.gd" id="1_p5qwl"]
+[ext_resource type="PackedScene" uid="uid://do12062hxywry" path="res://scenes/world/TileMap3D.tscn" id="2_30hea"]
+[ext_resource type="Material" uid="uid://ck1wspodw1whq" path="res://resources/materials/water.material" id="2_rh7yk"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_to8kw"]
+size = Vector2(80, 80)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_xfe3t"]
+
+[node name="MapEditor" type="Node3D"]
+script = ExtResource("1_p5qwl")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.487859, 0.872922, 0, -0.872922, 0.487859, 0, 11.7582, 12.144)
+current = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.989443, 1.84298e-09, 0.144926, -0.143763, 0.126459, 0.981499, -0.0183272, -0.991972, 0.125124, 0, 0, 0)
+
+[node name="Water" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+mesh = SubResource("PlaneMesh_to8kw")
+surface_material_override/0 = ExtResource("2_rh7yk")
+
+[node name="SeaLevelPlane" type="StaticBody3D" parent="."]
+collision_layer = 2147483648
+collision_mask = 2147483648
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SeaLevelPlane"]
+shape = SubResource("WorldBoundaryShape3D_xfe3t")
+
+[node name="TileMap3D" parent="." instance=ExtResource("2_30hea")]
+generate_collisions = false

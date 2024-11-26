@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://b6foxlr23omf3"]
+[gd_scene load_steps=6 format=3 uid="uid://b6foxlr23omf3"]
 
 [ext_resource type="ArrayMesh" uid="uid://ty2dtybacgl6" path="res://map_tiles/hexa_parts/cliff_001.res" id="1_34kbl"]
 [ext_resource type="Script" path="res://map_tiles/hexa_tiles/hexa_tile.gd" id="1_cwn8k"]
 [ext_resource type="ArrayMesh" uid="uid://cs4de4hkhg23y" path="res://map_tiles/hexa_parts/ground_001.res" id="2_anxq7"]
+[ext_resource type="Material" uid="uid://bl3kaanfsjrpc" path="res://resources/materials/rock_grass.material" id="3_ium4q"]
 [ext_resource type="ArrayMesh" uid="uid://c0ff3m0tx2ydv" path="res://map_tiles/hexa_parts/top_001.res" id="3_w2opi"]
 
 [node name="010101" type="Node3D"]
@@ -11,23 +12,29 @@ script = ExtResource("1_cwn8k")
 [node name="Cliff002" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866026, 0, 0.5, 0, 0, 0)
 mesh = ExtResource("1_34kbl")
+surface_material_override/0 = ExtResource("3_ium4q")
 
 [node name="Ground002" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866026, 0, 0.5, 0, 0, 0)
 mesh = ExtResource("2_anxq7")
+surface_material_override/0 = ExtResource("3_ium4q")
 
 [node name="Top002" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866026, 0, 0.5, 0, 0, 0)
 mesh = ExtResource("3_w2opi")
+surface_material_override/0 = ExtResource("3_ium4q")
 
 [node name="Cliff003" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1, 0, -8.74227e-08, 0, 1, 0, 8.74227e-08, 0, -0.999999, 0, 0, 0)
 mesh = ExtResource("1_34kbl")
+surface_material_override/0 = ExtResource("3_ium4q")
 
 [node name="Ground003" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1, 0, -8.74227e-08, 0, 1, 0, 8.74227e-08, 0, -0.999999, 0, 0, 0)
 mesh = ExtResource("2_anxq7")
+surface_material_override/0 = ExtResource("3_ium4q")
 
 [node name="Top003" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1, 0, -8.74227e-08, 0, 1, 0, 8.74227e-08, 0, -0.999999, 0, 0, 0)
 mesh = ExtResource("3_w2opi")
+surface_material_override/0 = ExtResource("3_ium4q")

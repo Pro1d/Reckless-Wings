@@ -1,20 +1,21 @@
-[gd_scene load_steps=11 format=3 uid="uid://cw2gvpvae6stq"]
+[gd_scene load_steps=12 format=3 uid="uid://cw2gvpvae6stq"]
 
 [ext_resource type="Script" path="res://scripts/world/aircraft/Aircraft.gd" id="1_p40c6"]
 [ext_resource type="PackedScene" uid="uid://cwj07h2i1mle4" path="res://assets/mesh/spitfire/spitfire.dae" id="2_qvcob"]
+[ext_resource type="PackedScene" uid="uid://cq51pae2f1x0o" path="res://assets/mesh/BGEAR_plane.glb" id="2_xkbsg"]
 [ext_resource type="Script" path="res://scripts/world/aircraft/Spitfire.gd" id="3_03ggi"]
 [ext_resource type="Script" path="res://scripts/world/aircraft/ControlSurface.gd" id="3_uqxi0"]
-[ext_resource type="Material" uid="uid://c4hjqqjdrl61l" path="res://resources/propeller.material" id="4_u5ph4"]
+[ext_resource type="Material" uid="uid://c4hjqqjdrl61l" path="res://resources/materials/propeller.material" id="4_u5ph4"]
 [ext_resource type="AudioStream" path="res://assets/sound/plane_motor_sound.tres" id="5_uhefb"]
 [ext_resource type="AudioStream" uid="uid://c03tobfngef0v" path="res://assets/sound/07 Blustery wind through fence.wav" id="6_caghl"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7e54m"]
-radius = 0.6
-height = 8.64367
+radius = 0.440381
+height = 5.04988
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u25g0"]
 resource_local_to_scene = true
-size = Vector3(0.422, 5, 0.2)
+size = Vector3(0.422, 2.66504, 0.2)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_s0raa"]
 height = 0.281992
@@ -27,17 +28,28 @@ mass = 700.0
 gravity_scale = 0.0
 center_of_mass_mode = 1
 script = ExtResource("1_p40c6")
+_linear_accel = 7.0
+_max_linear_speed = 90.0
+_min_linear_speed = 20.0
+_elevator_strength = 0.1
+_rudder_strength = 0.04
+_aileron_strength = 0.3
+_vertical_pitch_strength = 0.04
+_lateral_yaw_strength = 0.025
+
+[node name="BGEAR_plane" parent="." instance=ExtResource("2_xkbsg")]
+transform = Transform3D(1, 0, 0, 0, 0.991333, 0.131374, 0, -0.131374, 0.991333, 0, -0.892682, -0.702473)
 
 [node name="BodyShape" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -7.10543e-15, 1.0445e-07, 1.47177)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -7.10543e-15, 0.166718, 0.654727)
 shape = SubResource("CapsuleShape3D_7e54m")
 
 [node name="LeftWingShape" type="CollisionShape3D" parent="."]
-transform = Transform3D(-0.109754, -0.991538, 0.0693351, -4.82448e-08, 0.0697565, 0.997564, -0.993959, 0.109487, -0.00765609, -3, -0.497526, -0.879601)
+transform = Transform3D(-0.109734, -0.993961, -4.34474e-08, 0, -4.37114e-08, 1, -0.993961, 0.109734, 4.79664e-09, -1.8424, 0.0725607, -0.270529)
 shape = SubResource("BoxShape3D_u25g0")
 
 [node name="RightWingShape" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.109754, -0.991538, -0.0693351, -3.53902e-08, -0.0697565, 0.997564, -0.993959, -0.109487, -0.00765609, 3, -0.497526, -0.879602)
+transform = Transform3D(0.109734, -0.993961, 4.34474e-08, -3.82137e-15, 4.37114e-08, 1, -0.993961, -0.109734, 4.79664e-09, 1.842, 0.072526, -0.270104)
 shape = SubResource("BoxShape3D_u25g0")
 
 [node name="PropellerShape" type="CollisionShape3D" parent="."]
@@ -47,6 +59,7 @@ disabled = true
 
 [node name="spitfire" parent="." node_paths=PackedStringArray("_rudder", "_elevator", "_aileron") instance=ExtResource("2_qvcob")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.581757)
+visible = false
 script = ExtResource("3_03ggi")
 _rudder = NodePath("../RudderControlSurface")
 _elevator = NodePath("../ElevatorControlSurface")
@@ -76,7 +89,7 @@ _action_minus = "aileron-"
 [node name="EngineAudio" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.09866e-08, -1.39521)
 stream = ExtResource("5_uhefb")
-max_db = 1.0
+max_db = -12.0
 autoplay = true
 bus = &"Plane"
 doppler_tracking = 2

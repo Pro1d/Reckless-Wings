@@ -1,6 +1,7 @@
 [gd_resource type="Environment" load_steps=3 format=3 uid="uid://bf4ucfyivfj0q"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_rhipt"]
+ground_color = Color(0.191974, 0.572534, 0.713726, 1)
 energy_multiplier = 3.0
 
 [sub_resource type="Sky" id="1"]
@@ -16,9 +17,4 @@ ssao_radius = 40.0
 ssil_enabled = true
 ssil_radius = 15.0
 glow_enabled = true
-glow_levels/2 = 1.0
-glow_levels/3 = 0.0
-glow_levels/4 = 1.0
-glow_levels/5 = 0.0
-glow_levels/6 = 1.0
 adjustment_saturation = 1.44

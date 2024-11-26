@@ -10,6 +10,8 @@ class MeshTile:
 	var neighbors: int = 0
 
 @export var tiles: TileMap3DData
+@export var generate_collisions := true
+@export var horizontal_displacement_texture : Texture2D
 var meshes: Dictionary = {
 	0b000000: preload("res://map_tiles/hexa_tiles/000000.tscn"),
 	0b000001: preload("res://map_tiles/hexa_tiles/000001.tscn"),
@@ -27,26 +29,27 @@ var meshes: Dictionary = {
 	0b111111: preload("res://map_tiles/hexa_tiles/111111.tscn"),
 	-1: preload("res://map_tiles/hexa_tiles/full.tscn"),
 }
-var _edit_height := 1
+var _mesh_tiles := {}
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
-	var plane := $SeaLevelPlane as StaticBody3D
-	plane.input_event.connect(_on_plane_input_event)
-	_rebuild()
+	pass #_rebuild()
 
 func _rebuild() -> void:
-	for c: Node3D in $Tiles.get_children():
-		$Tiles.remove_child(c)
+	for c: Node3D in _mesh_tiles.values():
+		remove_child(c)
 		c.queue_free()
-	for chunk: TileMap3DData.Chunk in tiles.chunks.values():
-		for x in range(chunk.origin.x - 1, chunk.origin.x + TileMap3DData.Chunk.SIZE.x + 1):
-			for y in range(chunk.origin.y - 1, chunk.origin.y + TileMap3DData.Chunk.SIZE.y + 1):
+	_mesh_tiles.clear()
+	for chunk: TileMap3DChunk in tiles.chunks.values():
+		for x in range(chunk.origin.x - 1, chunk.origin.x + TileMap3DChunk.SIZE.x + 1):
+			for y in range(chunk.origin.y - 1, chunk.origin.y + TileMap3DChunk.SIZE.y + 1):
 				for z in range(5):
 					var i := Vector3i(x, y, z)
-					var ck := tiles.get_chunk(i)
-					if not (ck == null or ck == chunk):
-						continue # skip border tile belonging to an other chunk
+					if _mesh_tiles.has(i):
+						continue
+					#var ck := tiles.get_chunk(i)
+					#if not (ck == null or ck == chunk):
+						#continue # skip border tile belonging to an other chunk
 					var ett := tiles.extended_tile_type(i)
 					if ett.is_empty():
 						continue # skip empty tile
@@ -55,36 +58,52 @@ func _rebuild() -> void:
 					var tile := res.instantiate() as HexaTile
 					tile.ground_enabled = (z == 0)
 					tile.rotation = PI / 3 * ett.rotation * Vector3.UP
-					tile.position = Vector3(
-						cos(PI / 6) * (2 * x + (y & 1)),
-						z * TILE_HEIGHT,
-						y * (1 + cos(PI / 3))
+					tile.position = index_to_position(i)
+					add_child(tile, false, Node.InternalMode.INTERNAL_MODE_FRONT)
+					_mesh_tiles[i] = tile
+
+func save_map(path: String) -> Error:
+	return ResourceSaver.save(tiles, path)
+
+func load_map(path: String) -> void:
+	tiles = ResourceLoader.load(path)
+	_rebuild()
+
+func index_to_position(i: Vector3i) -> Vector3:
+	return Vector3(
+		cos(PI / 6) * (2 * i.x + (i.y & 1)),
+		i.z * TILE_HEIGHT,
+		i.y * (1 + cos(PI / 3))
+	)
+
+func position_to_index(pos: Vector3) -> Vector2i:
+	var x := pos.x
+	var y := pos.z
+	var iy := floori(y / (1 + cos(PI / 3)) + .5)
+	return Vector2i(
+		floori((x / cos(PI / 6) - (iy & 1)) / 2 + .5), iy
+	)
+
+func distort() -> void:
+	if generate_collisions:
+		await horizontal_displacement_texture.changed
+		var img := horizontal_displacement_texture.get_image()
+		print(horizontal_displacement_texture, " ", img)
+		const noise_scale := 10.0
+		const noise_strength := 0.1
+		for tile: HexaTile in _mesh_tiles.values():
+			await get_tree().process_frame
+			tile.meshes_transform((
+				func(vertex: Vector3, image: Image) -> Vector3:
+					var c := image.get_pixel(
+						wrapi(roundi(vertex.x * noise_scale), 0, image.get_size().x),
+						wrapi(roundi(vertex.z * noise_scale), 0, image.get_size().y)
 					)
-					$Tiles.add_child(tile)
-
-func _unhandled_input(event: InputEvent) -> void:
-	var ke := event as InputEventKey
-	if ke != null:
-		var key_name := ke.as_text_physical_keycode()
-		if key_name.is_valid_int():
-			_edit_height = key_name.to_int()
-			($SeaLevelPlane as Node3D).position.y = (_edit_height - 1) * TILE_HEIGHT
-
-func _on_plane_input_event(
-	_camera: Node3D,
-	event: InputEvent,
-	event_position: Vector3,
-	_normal: Vector3,
-	_shape_idx: int
-) -> void:
-	event_position = ($Tiles as Node3D).to_local(event_position)
-	var mm := event as InputEventMouse
-	if mm != null:
-		var index := tiles.position_to_index(event_position)
-		#var i3 := Vector3i(index.x, index.y, _edit_height)
-		var hole := mm.button_mask == MOUSE_BUTTON_MASK_RIGHT
-		var full := mm.button_mask == MOUSE_BUTTON_MASK_LEFT
-		if hole or full:
-			for z in range(5):
-				tiles.set_hole(Vector3i(index.x, index.y, z), hole or z >= _edit_height)
-			_rebuild()
+					return vertex + Vector3(c.r * 2 - 1, 0.0, c.g * 2 - 1).normalized() * noise_strength
+					#return vertex + Vector3(
+						#sin(vertex.x * 1.0) * .5,
+						#sin(vertex.x * .1+vertex.z * .15) * .2,
+						#sin(vertex.z * 1.5) * .4
+					#)
+			).bind(img))
+			tile.create_trimesh_collision()
