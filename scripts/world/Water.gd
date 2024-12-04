@@ -2,6 +2,7 @@ extends Area3D
 
 @onready var mesh: MeshInstance3D = $MeshInstance3D
 @onready var mesh_size := (mesh.mesh as PlaneMesh).size.x
+@onready var default_uv_scale := ((mesh.mesh as PlaneMesh).material as StandardMaterial3D).uv1_scale
 @onready var offset_step: float = (
 	(($CollisionShape as CollisionShape3D).shape as BoxShape3D).size.x
 	/ (mesh.mesh.surface_get_material(0) as StandardMaterial3D).uv1_scale.x
@@ -19,3 +20,4 @@ func _process(_delta: float) -> void:
 		mesh_origin.z = snappedf(cam_origin.z, offset_step)
 		mesh.global_position = mesh_origin
 		mesh.scale = Vector3.ONE * ceilf(tan(deg_to_rad(88.0)) * cam_origin.y / (mesh_size / 2))
+		((mesh.mesh as PlaneMesh).material as StandardMaterial3D).uv1_scale = default_uv_scale / mesh.scale

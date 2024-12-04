@@ -197,7 +197,6 @@ common/physics_jitter_fix=0.0
 
 anti_aliasing/quality/msaa_3d=2
 environment/defaults/default_environment="res://default_env.tres"
-threads/thread_model=2
 quality/directional_shadow/size=16384
 quality/filters/msaa=3
 quality/filters/use_fxaa=true

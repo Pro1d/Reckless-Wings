@@ -15,11 +15,11 @@ height = 5.04988
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u25g0"]
 resource_local_to_scene = true
-size = Vector3(0.422, 2.66504, 0.2)
+size = Vector3(0.422, 2.33691, 0.2)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_s0raa"]
 height = 0.281992
-radius = 1.60688
+radius = 0.749712
 
 [node name="Aircraft" type="RigidBody3D"]
 collision_layer = 12
@@ -53,7 +53,7 @@ transform = Transform3D(0.109734, -0.993961, 4.34474e-08, -3.82137e-15, 4.37114e
 shape = SubResource("BoxShape3D_u25g0")
 
 [node name="PropellerShape" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 7.10543e-15, -9.92393e-08, -2.85577)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 7.10543e-15, 0.159494, -1.64277)
 shape = SubResource("CylinderShape3D_s0raa")
 disabled = true
 

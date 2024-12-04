@@ -10,11 +10,13 @@ sky_material = SubResource("PhysicalSkyMaterial_rhipt")
 [resource]
 background_mode = 2
 sky = SubResource("1")
-tonemap_mode = 3
 tonemap_white = 6.0
+ssr_enabled = true
+ssr_fade_in = 0.424264
+ssr_fade_out = 1.27456
 ssao_enabled = true
-ssao_radius = 40.0
+ssao_radius = 16.0
 ssil_enabled = true
-ssil_radius = 15.0
+ssil_radius = 16.0
 glow_enabled = true
 adjustment_saturation = 1.44

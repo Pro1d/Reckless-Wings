@@ -1,5 +1,5 @@
 shader_type spatial;
-render_mode unshaded;
+render_mode unshaded, depth_draw_never, depth_test_disabled, ambient_light_disabled, shadows_disabled,cull_disabled, fog_disabled, skip_vertex_transform;
 
 uniform sampler2D SCREEN_TEXTURE:hint_screen_texture, filter_linear_mipmap;
 uniform sampler2D DEPTH_TEXTURE :source_color, hint_depth_texture;
@@ -18,9 +18,9 @@ vec3 overlay(vec3 base, vec3 blend) {
 
 float textureCavity(sampler2D normal_texture, vec2 uv, vec2 screen_pixel_size){
 	vec4 normal = texture(normal_texture, uv);
-	float r_off = texture(normal_texture, uv - vec2(screen_pixel_size.x*width, 0)).r;
-	float g_off = texture(normal_texture, uv + vec2(0, screen_pixel_size.y*width)).g;
-	return (normal.r - r_off) + (normal.g - g_off) + 0.5;
+	float x_off = texture(normal_texture, uv - vec2(screen_pixel_size.x*width, 0)).x;
+	float y_off = texture(normal_texture, uv + vec2(0, screen_pixel_size.y*width)).y;
+	return (normal.x - x_off) + (normal.y - y_off) + 0.5;
 }
 
 float scaledDepth(sampler2D depth_texture, vec2 uv, mat4 inv_proj_mat){
@@ -30,6 +30,10 @@ float scaledDepth(sampler2D depth_texture, vec2 uv, mat4 inv_proj_mat){
 	view.xyz /= view.w;
 	float linear_depth = view.z;
 	return (zFar * zNear) / (zFar + (linear_depth * (zNear - zFar)));
+}
+
+void vertex() {
+	POSITION = vec4(VERTEX.x, -VERTEX.y, 1.0, 1.0);
 }
 
 void fragment() {

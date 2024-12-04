@@ -3,11 +3,13 @@ extends Resource
 
 class ExtendedTileType:
 	var hole: bool  # false -> flat ground; true -> rotation + neighbors
-	var rotation: int
-	var neighbors: int
+	var rotation: int # in range [0; 5]
+	var neighbors: int # mask of neighboring hole
 	
 	func is_empty() -> bool:
 		return neighbors == 0b111111
+	func is_full() -> bool:
+		return not hole
 
 @export var chunks : Dictionary  # chunks by origin
 

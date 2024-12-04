@@ -18,10 +18,10 @@ func _unhandled_input(event: InputEvent) -> void:
 			_edit_height = key_name.to_int()
 			($SeaLevelPlane as Node3D).position.y = (_edit_height - 1) * TileMap3D.TILE_HEIGHT
 		elif key_name == "S":
-			var path := "res://maps/aaa.res"
+			var path := "res://maps/bbb.res"
 			print("saving to ", path, ": ", _tile_map_3d.save_map(path))
 		elif key_name == "L":
-			var path := "res://maps/aaa.res"
+			var path := "res://maps/bbb.res"
 			print("loading from ", path)
 			_tile_map_3d.load_map(path)
 	elif me != null:

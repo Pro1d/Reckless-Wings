@@ -1,16 +1,11 @@
 extends Camera3D
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	if current:
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-
 func _unhandled_input(event: InputEvent) -> void:
 	var emm := event as InputEventMouseMotion
 	var emb := event as InputEventMouseButton
 	var ek := event as InputEventKey
-	if emb != null and emb.button_index == MOUSE_BUTTON_LEFT and emb.pressed:
+	if emb != null and emb.button_index == MOUSE_BUTTON_LEFT and emb.pressed and current:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED else Input.MOUSE_MODE_VISIBLE
 	if emm != null and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		rotation.y -= emm.relative.x * TAU / 300
@@ -26,3 +21,21 @@ func _unhandled_input(event: InputEvent) -> void:
 					global_position += global_transform.basis * Vector3.LEFT
 				KEY_RIGHT:
 					global_position += global_transform.basis * Vector3.RIGHT
+				KEY_TAB:
+					toggle()
+
+func enable() -> void:
+	var cam := get_viewport().get_camera_3d()
+	global_transform = cam.global_transform
+	current = true
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+func disable() -> void:
+	current = false
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+func toggle() -> void:
+	if current:
+		disable()
+	else:
+		enable()
