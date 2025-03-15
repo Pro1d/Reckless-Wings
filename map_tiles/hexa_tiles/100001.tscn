@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://w8tpga281sr7"]
 
 [ext_resource type="ArrayMesh" uid="uid://jxsfecdi2qqu" path="res://map_tiles/hexa_parts/cliff_004.res" id="1_0wy6k"]
-[ext_resource type="Script" path="res://map_tiles/hexa_tiles/hexa_tile.gd" id="1_8o1nm"]
+[ext_resource type="Script" uid="uid://b52vqkemt747a" path="res://map_tiles/hexa_tiles/hexa_tile.gd" id="1_8o1nm"]
 [ext_resource type="ArrayMesh" uid="uid://ca48vxlmgfwbp" path="res://map_tiles/hexa_parts/ground_004.res" id="2_c62ce"]
 [ext_resource type="ArrayMesh" uid="uid://dmt0jp5wrbiec" path="res://map_tiles/hexa_parts/top_004.res" id="3_imy4s"]
 

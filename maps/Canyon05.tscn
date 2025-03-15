@@ -1,6 +1,6 @@
-[gd_scene load_steps=37 format=3]
+[gd_scene load_steps=37 format=3 uid="uid://hk0iqkmaa4g"]
 
-[ext_resource type="Script" path="res://scripts/world/Map.gd" id="1"]
+[ext_resource type="Script" uid="uid://de0gj60ff07q1" path="res://scripts/world/Map.gd" id="1"]
 [ext_resource type="PackedScene" path="res://map_tiles/WindHorizontal.tscn" id="2"]
 [ext_resource type="PackedScene" path="res://map_tiles/canyon/CanyonEntrance.scn" id="3"]
 [ext_resource type="PackedScene" path="res://map_tiles/canyon/CanyonStraightRocks.scn" id="4"]
@@ -38,426 +38,334 @@
 [ext_resource type="PackedScene" path="res://map_tiles/canyon/CanyonPlant11Alt4.scn" id="36"]
 
 [node name="Map" type="Marker3D" index="0"]
+script = ExtResource("1")
+_sections_unfolded = ["Pause", "Transform3D", "Visibility"]
 
-script = ExtResource( 1 )
-_sections_unfolded = [ "Pause", "Transform3D", "Visibility" ]
+[node name="WindHorizontal" type="Node3D" parent="." index="0" instance=ExtResource("2")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 600, 0, 0)
+_sections_unfolded = ["Transform3D"]
 
-[node name="WindHorizontal" type="Node3D" parent="." index="0" instance=ExtResource( 2 )]
+[node name="WindHorizontal5" parent="." index="1" instance=ExtResource("2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1400, 0, 400)
 
-transform = Transform3D( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 600, 0, 0 )
-_sections_unfolded = [ "Transform3D" ]
+[node name="WindHorizontal15" parent="." index="2" instance=ExtResource("2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1400, 0, 300)
 
-[node name="WindHorizontal5" parent="." index="1" instance=ExtResource( 2 )]
+[node name="WindHorizontal6" parent="." index="3" instance=ExtResource("2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1400, 0, 500)
 
-transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1400, 0, 400 )
+[node name="WindHorizontal7" parent="." index="4" instance=ExtResource("2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1400, 0, 600)
 
-[node name="WindHorizontal15" parent="." index="2" instance=ExtResource( 2 )]
+[node name="WindHorizontal8" parent="." index="5" instance=ExtResource("2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1400, 0, 700)
 
-transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1400, 0, 300 )
+[node name="WindHorizontal9" parent="." index="6" instance=ExtResource("2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1600, 0, 1000)
 
-[node name="WindHorizontal6" parent="." index="3" instance=ExtResource( 2 )]
+[node name="WindHorizontal10" parent="." index="7" instance=ExtResource("2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1600, 0, 1100)
 
-transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1400, 0, 500 )
+[node name="WindHorizontal11" parent="." index="8" instance=ExtResource("2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1600, 0, 1200)
 
-[node name="WindHorizontal7" parent="." index="4" instance=ExtResource( 2 )]
+[node name="WindHorizontal12" parent="." index="9" instance=ExtResource("2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1600, 0, 900)
 
-transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1400, 0, 600 )
+[node name="WindHorizontal13" parent="." index="10" instance=ExtResource("2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1500, 0, 800)
 
-[node name="WindHorizontal8" parent="." index="5" instance=ExtResource( 2 )]
+[node name="WindHorizontal4" parent="." index="11" instance=ExtResource("2")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 500, 0, 0)
 
-transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1400, 0, 700 )
+[node name="WindHorizontal2" parent="." index="12" instance=ExtResource("2")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 700, 0, 0)
 
-[node name="WindHorizontal9" parent="." index="6" instance=ExtResource( 2 )]
+[node name="WindHorizontal3" parent="." index="13" instance=ExtResource("2")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 800, 0, 0)
 
-transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1600, 0, 1000 )
+[node name="WindHorizontal14" parent="." index="14" instance=ExtResource("2")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 900, 0, 0)
 
-[node name="WindHorizontal10" parent="." index="7" instance=ExtResource( 2 )]
+[node name="CanyonEntrance" parent="." index="15" instance=ExtResource("3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+_sections_unfolded = ["Transform3D"]
 
-transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1600, 0, 1100 )
-
-[node name="WindHorizontal11" parent="." index="8" instance=ExtResource( 2 )]
-
-transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1600, 0, 1200 )
-
-[node name="WindHorizontal12" parent="." index="9" instance=ExtResource( 2 )]
-
-transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1600, 0, 900 )
-
-[node name="WindHorizontal13" parent="." index="10" instance=ExtResource( 2 )]
-
-transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1500, 0, 800 )
-
-[node name="WindHorizontal4" parent="." index="11" instance=ExtResource( 2 )]
-
-transform = Transform3D( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 500, 0, 0 )
-
-[node name="WindHorizontal2" parent="." index="12" instance=ExtResource( 2 )]
-
-transform = Transform3D( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 700, 0, 0 )
-
-[node name="WindHorizontal3" parent="." index="13" instance=ExtResource( 2 )]
-
-transform = Transform3D( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 800, 0, 0 )
-
-[node name="WindHorizontal14" parent="." index="14" instance=ExtResource( 2 )]
-
-transform = Transform3D( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 900, 0, 0 )
-
-[node name="CanyonEntrance" parent="." index="15" instance=ExtResource( 3 )]
-
-transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-_sections_unfolded = [ "Transform3D" ]
-
-[node name="CanyonStraightRocks" type="Node3D" parent="." index="16" instance=ExtResource( 4 )]
-
-transform = Transform3D( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 1400, 0, 600 )
-_sections_unfolded = [ "Transform3D" ]
+[node name="CanyonStraightRocks" type="Node3D" parent="." index="16" instance=ExtResource("4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1400, 0, 600)
+_sections_unfolded = ["Transform3D"]
 __meta__ = {
 "empty_draw_type": "PLAIN_AXES"
 }
 
-[node name="CanyonEntrance2" parent="." index="17" instance=ExtResource( 3 )]
+[node name="CanyonEntrance2" parent="." index="17" instance=ExtResource("3")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1500, 0, 1600)
+_sections_unfolded = ["Transform3D"]
 
-transform = Transform3D( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 1500, 0, 1600 )
-_sections_unfolded = [ "Transform3D" ]
+[node name="CanyonAreaStart" parent="." index="18" instance=ExtResource("5")]
 
-[node name="CanyonAreaStart" parent="." index="18" instance=ExtResource( 5 )]
+[node name="CanyonStraight" parent="." index="19" instance=ExtResource("6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 0, 0)
+_sections_unfolded = ["Transform3D"]
 
-[node name="CanyonStraight" parent="." index="19" instance=ExtResource( 6 )]
+[node name="CanyonHalfTurn33Joint" parent="." index="20" instance=ExtResource("7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1100, 0, -100)
+_sections_unfolded = ["Transform3D"]
 
-transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 0, 0 )
-_sections_unfolded = [ "Transform3D" ]
+[node name="CanyonHalfTurn33Joint2" parent="." index="21" instance=ExtResource("7")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1500, 0, 900)
+_sections_unfolded = ["Transform3D"]
 
-[node name="CanyonHalfTurn33Joint" parent="." index="20" instance=ExtResource( 7 )]
+[node name="CanyonAreaCheckpoint" parent="." index="22" instance=ExtResource("8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 600, 0, 0)
 
-transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1100, 0, -100 )
-_sections_unfolded = [ "Transform3D" ]
+[node name="CanyonAreaCheckpoint3" parent="." index="23" instance=ExtResource("8")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1600, 0, 1200)
 
-[node name="CanyonHalfTurn33Joint2" parent="." index="21" instance=ExtResource( 7 )]
+[node name="CanyonAreaCheckpoint4" parent="." index="24" instance=ExtResource("8")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1500, 0, 100)
 
-transform = Transform3D( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 1500, 0, 900 )
-_sections_unfolded = [ "Transform3D" ]
+[node name="CanyonStraightAlt" parent="." index="25" instance=ExtResource("9")]
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 600, 0, 0)
 
-[node name="CanyonAreaCheckpoint" parent="." index="22" instance=ExtResource( 8 )]
+[node name="CanyonStraightAlt3" parent="." index="26" instance=ExtResource("9")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1500, 0, 1500)
 
-transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 600, 0, 0 )
+[node name="CanyonStraightAlt4" parent="." index="27" instance=ExtResource("9")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1600, 0, 1200)
 
-[node name="CanyonAreaCheckpoint3" parent="." index="23" instance=ExtResource( 8 )]
+[node name="CanyonStraightAlt2" parent="." index="28" instance=ExtResource("9")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1500, 0, 100)
 
-transform = Transform3D( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 1600, 0, 1200 )
+[node name="CanyonSR22" parent="." index="29" instance=ExtResource("10")]
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 1600, 0, 1300)
 
-[node name="CanyonAreaCheckpoint4" parent="." index="24" instance=ExtResource( 8 )]
+[node name="CanyonY3" parent="." index="30" instance=ExtResource("11")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1300, 0, 300)
+_sections_unfolded = ["Transform3D"]
 
-transform = Transform3D( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 1500, 0, 100 )
+[node name="CanyonY2" parent="." index="31" instance=ExtResource("11")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 500, 0, 100)
+_sections_unfolded = ["Transform3D"]
 
-[node name="CanyonStraightAlt" parent="." index="25" instance=ExtResource( 9 )]
-
-transform = Transform3D( 1, 0, 1.06581e-014, 0, 1, 0, -1.06581e-014, 0, 1, 600, 0, 0 )
-
-[node name="CanyonStraightAlt3" parent="." index="26" instance=ExtResource( 9 )]
-
-transform = Transform3D( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 1500, 0, 1500 )
-
-[node name="CanyonStraightAlt4" parent="." index="27" instance=ExtResource( 9 )]
-
-transform = Transform3D( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 1600, 0, 1200 )
-
-[node name="CanyonStraightAlt2" parent="." index="28" instance=ExtResource( 9 )]
-
-transform = Transform3D( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 1500, 0, 100 )
-
-[node name="CanyonSR22" parent="." index="29" instance=ExtResource( 10 )]
-
-transform = Transform3D( 1, 0, 1.06581e-014, 0, 1, 0, -1.06581e-014, 0, 1, 1600, 0, 1300 )
-
-[node name="CanyonY3" parent="." index="30" instance=ExtResource( 11 )]
-
-transform = Transform3D( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 1300, 0, 300 )
-_sections_unfolded = [ "Transform3D" ]
-
-[node name="CanyonY2" parent="." index="31" instance=ExtResource( 11 )]
-
-transform = Transform3D( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, 500, 0, 100 )
-_sections_unfolded = [ "Transform3D" ]
-
-[node name="CanyonY" type="Node3D" parent="." index="32" instance=ExtResource( 11 )]
-
-transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 0, -100 )
-_sections_unfolded = [ "Transform3D" ]
+[node name="CanyonY" type="Node3D" parent="." index="32" instance=ExtResource("11")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 0, -100)
+_sections_unfolded = ["Transform3D"]
 __meta__ = {
 "empty_draw_type": "PLAIN_AXES"
 }
 
-[node name="CanyonStraight4" parent="." index="33" instance=ExtResource( 12 )]
+[node name="CanyonStraight4" parent="." index="33" instance=ExtResource("12")]
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 700, 0, 0)
 
-transform = Transform3D( 1, 0, 1.06581e-014, 0, 1, 0, -1.06581e-014, 0, 1, 700, 0, 0 )
-
-[node name="CanyonStraightBridge" type="Node3D" parent="." index="34" instance=ExtResource( 13 )]
-
-transform = Transform3D( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 1600, 0, 1100 )
-_sections_unfolded = [ "Transform3D" ]
+[node name="CanyonStraightBridge" type="Node3D" parent="." index="34" instance=ExtResource("13")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1600, 0, 1100)
+_sections_unfolded = ["Transform3D"]
 __meta__ = {
 "empty_draw_type": "PLAIN_AXES"
 }
 
-[node name="CanyonStraight5" parent="." index="35" instance=ExtResource( 12 )]
+[node name="CanyonStraight5" parent="." index="35" instance=ExtResource("12")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1400, 0, 500)
 
-transform = Transform3D( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 1400, 0, 500 )
+[node name="CanyonAreaEnd" parent="." index="36" instance=ExtResource("14")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1500, 0, 1600)
+_sections_unfolded = ["Transform3D"]
 
-[node name="CanyonAreaEnd" parent="." index="36" instance=ExtResource( 14 )]
+[node name="CanyonDeadEnd" parent="." index="37" instance=ExtResource("15")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1300, 0, 100)
 
-transform = Transform3D( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 1500, 0, 1600 )
-_sections_unfolded = [ "Transform3D" ]
-
-[node name="CanyonDeadEnd" parent="." index="37" instance=ExtResource( 15 )]
-
-transform = Transform3D( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 1300, 0, 100 )
-
-[node name="CanyonTurn33" parent="." index="38" instance=ExtResource( 16 )]
-
-transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1300, 0, -200 )
-_sections_unfolded = [ "Transform3D" ]
+[node name="CanyonTurn33" parent="." index="38" instance=ExtResource("16")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1300, 0, -200)
+_sections_unfolded = ["Transform3D"]
 
 [node name="Ground" type="Node3D" parent="." index="39"]
+_sections_unfolded = ["Transform3D"]
 
-_sections_unfolded = [ "Transform3D" ]
+[node name="CanyonCliffPlantSL24" parent="Ground" index="0" instance=ExtResource("17")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 200, 0, -500)
 
-[node name="CanyonCliffPlantSL24" parent="Ground" index="0" instance=ExtResource( 17 )]
+[node name="CanyonCliffPlantSL25" parent="Ground" index="1" instance=ExtResource("17")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1800, 0, 900)
 
-transform = Transform3D( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 200, 0, -500 )
+[node name="CanyonCliffPlantSL27" parent="Ground" index="2" instance=ExtResource("17")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1700, 0, 400)
 
-[node name="CanyonCliffPlantSL25" parent="Ground" index="1" instance=ExtResource( 17 )]
+[node name="CanyonCliffPlantTurn23" parent="Ground" index="3" instance=ExtResource("18")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 100, 0, -500)
+_sections_unfolded = ["Transform3D"]
 
-transform = Transform3D( -1, 0, 8.74228e-008, 0, 1, 0, -8.74228e-008, 0, -1, 1800, 0, 900 )
+[node name="CanyonCliffPlantTurn45" parent="Ground" index="4" instance=ExtResource("19")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1300, 0, -600)
 
-[node name="CanyonCliffPlantSL27" parent="Ground" index="2" instance=ExtResource( 17 )]
+[node name="CanyonCliffPlantTurn46" parent="Ground" index="5" instance=ExtResource("19")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 1300, 0, 1600)
 
-transform = Transform3D( -1, 0, 8.74228e-008, 0, 1, 0, -8.74228e-008, 0, -1, 1700, 0, 400 )
+[node name="CanyonCliffPlantTurn47" parent="Ground" index="6" instance=ExtResource("19")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 400, 0, 600)
 
-[node name="CanyonCliffPlantTurn23" parent="Ground" index="3" instance=ExtResource( 18 )]
+[node name="CanyonCliffPlant2" parent="Ground" index="7" instance=ExtResource("20")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -200)
 
-transform = Transform3D( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 100, 0, -500 )
-_sections_unfolded = [ "Transform3D" ]
+[node name="CanyonCliffPlant5" parent="Ground" index="8" instance=ExtResource("20")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 900, 0, 1100)
 
-[node name="CanyonCliffPlantTurn45" parent="Ground" index="4" instance=ExtResource( 19 )]
+[node name="CanyonCliffPlant6" parent="Ground" index="9" instance=ExtResource("20")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1700, 0, -100)
 
-transform = Transform3D( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 1300, 0, -600 )
+[node name="CanyonCliffPlant4" parent="Ground" index="10" instance=ExtResource("20")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1700, 0, 100)
 
-[node name="CanyonCliffPlantTurn46" parent="Ground" index="5" instance=ExtResource( 19 )]
+[node name="CanyonCliffPlant3" parent="Ground" index="11" instance=ExtResource("20")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1100, 0, -600)
 
-transform = Transform3D( 1.31134e-007, 0, 1, 0, 1, 0, -1, 0, 1.31134e-007, 1300, 0, 1600 )
+[node name="CanyonPlant44_0000" parent="Ground" index="12" instance=ExtResource("21")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 900, 0, 300)
 
-[node name="CanyonCliffPlantTurn47" parent="Ground" index="6" instance=ExtResource( 19 )]
+[node name="CanyonPlant44_0001" parent="Ground" index="13" instance=ExtResource("21")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 700, 0, -300)
 
-transform = Transform3D( 1.31134e-007, 0, 1, 0, 1, 0, -1, 0, 1.31134e-007, 400, 0, 600 )
-
-[node name="CanyonCliffPlant2" parent="Ground" index="7" instance=ExtResource( 20 )]
-
-transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -200 )
-
-[node name="CanyonCliffPlant5" parent="Ground" index="8" instance=ExtResource( 20 )]
-
-transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 900, 0, 1100 )
-
-[node name="CanyonCliffPlant6" parent="Ground" index="9" instance=ExtResource( 20 )]
-
-transform = Transform3D( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, 1700, 0, -100 )
-
-[node name="CanyonCliffPlant4" parent="Ground" index="10" instance=ExtResource( 20 )]
-
-transform = Transform3D( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, 1700, 0, 100 )
-
-[node name="CanyonCliffPlant3" parent="Ground" index="11" instance=ExtResource( 20 )]
-
-transform = Transform3D( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 1100, 0, -600 )
-
-[node name="CanyonPlant44_0000" parent="Ground" index="12" instance=ExtResource( 21 )]
-
-transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 900, 0, 300 )
-
-[node name="CanyonPlant44_0001" parent="Ground" index="13" instance=ExtResource( 21 )]
-
-transform = Transform3D( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 700, 0, -300 )
-
-[node name="CanyonCliffPlant7" type="Node3D" parent="Ground" index="14" instance=ExtResource( 22 )]
-
-transform = Transform3D( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 700, 0, -600 )
-_sections_unfolded = [ "Transform3D" ]
+[node name="CanyonCliffPlant7" type="Node3D" parent="Ground" index="14" instance=ExtResource("22")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 700, 0, -600)
+_sections_unfolded = ["Transform3D"]
 __meta__ = {
 "empty_draw_type": "PLAIN_AXES"
 }
 
-[node name="CanyonCliffPlant1Alt" type="Node3D" parent="Ground" index="15" instance=ExtResource( 23 )]
-
-transform = Transform3D( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 500, 0, 600 )
-_sections_unfolded = [ "Transform3D" ]
+[node name="CanyonCliffPlant1Alt" type="Node3D" parent="Ground" index="15" instance=ExtResource("23")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 500, 0, 600)
+_sections_unfolded = ["Transform3D"]
 __meta__ = {
 "empty_draw_type": "PLAIN_AXES"
 }
 
-[node name="CanyonPlant24" parent="Ground" index="16" instance=ExtResource( 24 )]
+[node name="CanyonPlant24" parent="Ground" index="16" instance=ExtResource("24")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1100, 0, -400)
 
-transform = Transform3D( -1, 0, 8.74228e-008, 0, 1, 0, -8.74228e-008, 0, -1, 1100, 0, -400 )
+[node name="CanyonPlant25" parent="Ground" index="17" instance=ExtResource("24")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1200, 0, 600)
 
-[node name="CanyonPlant25" parent="Ground" index="17" instance=ExtResource( 24 )]
+[node name="CanyonPlant21Alt1" parent="Ground" index="18" instance=ExtResource("25")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 700, 0, 500)
+_sections_unfolded = ["Transform3D"]
 
-transform = Transform3D( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 1200, 0, 600 )
+[node name="CanyonPlant21Alt3" parent="Ground" index="19" instance=ExtResource("25")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1400, 0, 1500)
+_sections_unfolded = ["Transform3D"]
 
-[node name="CanyonPlant21Alt1" parent="Ground" index="18" instance=ExtResource( 25 )]
+[node name="CanyonPlant21Alt5" parent="Ground" index="20" instance=ExtResource("25")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1800, 0, 1400)
+_sections_unfolded = ["Transform3D"]
 
-transform = Transform3D( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 700, 0, 500 )
-_sections_unfolded = [ "Transform3D" ]
+[node name="CanyonPlant21Alt2" parent="Ground" index="21" instance=ExtResource("25")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1500, 0, 400)
+_sections_unfolded = ["Transform3D"]
 
-[node name="CanyonPlant21Alt3" parent="Ground" index="19" instance=ExtResource( 25 )]
+[node name="CanyonPlant21Alt4" parent="Ground" index="22" instance=ExtResource("25")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1100, 0, 800)
+_sections_unfolded = ["Transform3D"]
 
-transform = Transform3D( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 1400, 0, 1500 )
-_sections_unfolded = [ "Transform3D" ]
+[node name="CanyonPlantCross2" parent="Ground" index="23" instance=ExtResource("26")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1200, 0, 1300)
 
-[node name="CanyonPlant21Alt5" parent="Ground" index="20" instance=ExtResource( 25 )]
+[node name="CanyonPlantT" parent="Ground" index="24" instance=ExtResource("27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 0, -300)
 
-transform = Transform3D( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 1800, 0, 1400 )
-_sections_unfolded = [ "Transform3D" ]
+[node name="CanyonPlantT4" parent="Ground" index="25" instance=ExtResource("27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 600, 0, 200)
 
-[node name="CanyonPlant21Alt2" parent="Ground" index="21" instance=ExtResource( 25 )]
+[node name="CanyonPlantT5" parent="Ground" index="26" instance=ExtResource("27")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 400, 0, 300)
 
-transform = Transform3D( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 1500, 0, 400 )
-_sections_unfolded = [ "Transform3D" ]
+[node name="CanyonPlantT2" parent="Ground" index="27" instance=ExtResource("27")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1400, 0, 1200)
 
-[node name="CanyonPlant21Alt4" parent="Ground" index="22" instance=ExtResource( 25 )]
+[node name="CanyonPlantT3" parent="Ground" index="28" instance=ExtResource("27")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 1000, 0, 600)
 
-transform = Transform3D( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 1100, 0, 800 )
-_sections_unfolded = [ "Transform3D" ]
+[node name="CanyonPlant41" parent="Ground" index="29" instance=ExtResource("28")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1100, 0, 200)
 
-[node name="CanyonPlantCross2" parent="Ground" index="23" instance=ExtResource( 26 )]
+[node name="CanyonPlant42" parent="Ground" index="30" instance=ExtResource("28")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1000, 0, 800)
 
-transform = Transform3D( -1, 0, 8.74228e-008, 0, 1, 0, -8.74228e-008, 0, -1, 1200, 0, 1300 )
+[node name="CanyonCliffPlantTurn34" parent="Ground" index="31" instance=ExtResource("29")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1700, 0, 1500)
+_sections_unfolded = ["Transform3D"]
 
-[node name="CanyonPlantT" parent="Ground" index="24" instance=ExtResource( 27 )]
-
-transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 0, -300 )
-
-[node name="CanyonPlantT4" parent="Ground" index="25" instance=ExtResource( 27 )]
-
-transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 600, 0, 200 )
-
-[node name="CanyonPlantT5" parent="Ground" index="26" instance=ExtResource( 27 )]
-
-transform = Transform3D( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 400, 0, 300 )
-
-[node name="CanyonPlantT2" parent="Ground" index="27" instance=ExtResource( 27 )]
-
-transform = Transform3D( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, 1400, 0, 1200 )
-
-[node name="CanyonPlantT3" parent="Ground" index="28" instance=ExtResource( 27 )]
-
-transform = Transform3D( 1.31134e-007, 0, -1, 0, 1, 0, 1, 0, 1.31134e-007, 1000, 0, 600 )
-
-[node name="CanyonPlant41" parent="Ground" index="29" instance=ExtResource( 28 )]
-
-transform = Transform3D( -1, 0, 8.74228e-008, 0, 1, 0, -8.74228e-008, 0, -1, 1100, 0, 200 )
-
-[node name="CanyonPlant42" parent="Ground" index="30" instance=ExtResource( 28 )]
-
-transform = Transform3D( -1, 0, 8.74228e-008, 0, 1, 0, -8.74228e-008, 0, -1, 1000, 0, 800 )
-
-[node name="CanyonCliffPlantTurn34" parent="Ground" index="31" instance=ExtResource( 29 )]
-
-transform = Transform3D( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, 1700, 0, 1500 )
-_sections_unfolded = [ "Transform3D" ]
-
-[node name="CanyonCliffPlantTurnInt33" type="Node3D" parent="Ground" index="32" instance=ExtResource( 30 )]
-
-transform = Transform3D( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 600, 0, 900 )
-_sections_unfolded = [ "Transform3D" ]
+[node name="CanyonCliffPlantTurnInt33" type="Node3D" parent="Ground" index="32" instance=ExtResource("30")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 600, 0, 900)
+_sections_unfolded = ["Transform3D"]
 __meta__ = {
 "empty_draw_type": "PLAIN_AXES"
 }
 
-[node name="CanyonPlant22_0000" parent="Ground" index="33" instance=ExtResource( 31 )]
-
+[node name="CanyonPlant22_0000" parent="Ground" index="33" instance=ExtResource("31")]
 editor/display_folded = true
-transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1100, 0, 1100 )
-_sections_unfolded = [ "Transform3D" ]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1100, 0, 1100)
+_sections_unfolded = ["Transform3D"]
 
-[node name="CanyonPlant22_0002" parent="Ground" index="34" instance=ExtResource( 31 )]
+[node name="CanyonPlant22_0002" parent="Ground" index="34" instance=ExtResource("31")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1300, 0, 1000)
+_sections_unfolded = ["Transform3D"]
 
-transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1300, 0, 1000 )
-_sections_unfolded = [ "Transform3D" ]
+[node name="CanyonPlant22_0001" parent="Ground" index="35" instance=ExtResource("31")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 500, 0, 400)
+_sections_unfolded = ["Transform3D"]
 
-[node name="CanyonPlant22_0001" parent="Ground" index="35" instance=ExtResource( 31 )]
-
-transform = Transform3D( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 500, 0, 400 )
-_sections_unfolded = [ "Transform3D" ]
-
-[node name="CanyonPlant22_0000Alt" parent="Ground" index="36" instance=ExtResource( 32 )]
-
+[node name="CanyonPlant22_0000Alt" parent="Ground" index="36" instance=ExtResource("32")]
 editor/display_folded = true
-transform = Transform3D( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 400, 0, -300 )
-_sections_unfolded = [ "Transform3D" ]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 400, 0, -300)
+_sections_unfolded = ["Transform3D"]
 
-[node name="CanyonPlant11Alt1" parent="Ground" index="37" instance=ExtResource( 33 )]
+[node name="CanyonPlant11Alt1" parent="Ground" index="37" instance=ExtResource("33")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 600, 0, 200)
+_sections_unfolded = ["Transform3D"]
 
-transform = Transform3D( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 600, 0, 200 )
-_sections_unfolded = [ "Transform3D" ]
+[node name="CanyonPlant11Alt2" parent="Ground" index="38" instance=ExtResource("33")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1600, 0, 800)
+_sections_unfolded = ["Transform3D"]
 
-[node name="CanyonPlant11Alt2" parent="Ground" index="38" instance=ExtResource( 33 )]
+[node name="CanyonPlant11Alt11" parent="Ground" index="39" instance=ExtResource("33")]
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 1200, 0, 800)
+_sections_unfolded = ["Transform3D"]
 
-transform = Transform3D( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 1600, 0, 800 )
-_sections_unfolded = [ "Transform3D" ]
+[node name="CanyonCliffPlant1" parent="Ground" index="40" instance=ExtResource("34")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1700, 0, 300)
+_sections_unfolded = ["Transform3D"]
 
-[node name="CanyonPlant11Alt11" parent="Ground" index="39" instance=ExtResource( 33 )]
+[node name="CanyonPlant11Alt3" parent="Ground" index="41" instance=ExtResource("35")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 0, -400)
+_sections_unfolded = ["Transform3D"]
 
-transform = Transform3D( 1, 0, 1.06581e-014, 0, 1, 0, -1.06581e-014, 0, 1, 1200, 0, 800 )
-_sections_unfolded = [ "Transform3D" ]
+[node name="CanyonPlant11Alt10" parent="Ground" index="42" instance=ExtResource("35")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 900, 0, -300)
+_sections_unfolded = ["Transform3D"]
 
-[node name="CanyonCliffPlant1" parent="Ground" index="40" instance=ExtResource( 34 )]
+[node name="CanyonPlant11Alt7" parent="Ground" index="43" instance=ExtResource("35")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 200, 0, 100)
+_sections_unfolded = ["Transform3D"]
 
-transform = Transform3D( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, 1700, 0, 300 )
-_sections_unfolded = [ "Transform3D" ]
+[node name="CanyonPlant11Alt8" parent="Ground" index="44" instance=ExtResource("35")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1300, 0, -100)
+_sections_unfolded = ["Transform3D"]
 
-[node name="CanyonPlant11Alt3" parent="Ground" index="41" instance=ExtResource( 35 )]
+[node name="CanyonPlant11Alt4" parent="Ground" index="45" instance=ExtResource("36")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1500, 0, 300)
+_sections_unfolded = ["Transform3D"]
 
-transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 0, -400 )
-_sections_unfolded = [ "Transform3D" ]
+[node name="CanyonPlant11Alt9" parent="Ground" index="46" instance=ExtResource("36")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1600, 0, 1400)
+_sections_unfolded = ["Transform3D"]
 
-[node name="CanyonPlant11Alt10" parent="Ground" index="42" instance=ExtResource( 35 )]
+[node name="CanyonPlant11Alt5" parent="Ground" index="47" instance=ExtResource("36")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1200, 0, 300)
+_sections_unfolded = ["Transform3D"]
 
-transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 900, 0, -300 )
-_sections_unfolded = [ "Transform3D" ]
+[node name="CanyonPlant11Alt12" parent="Ground" index="48" instance=ExtResource("36")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1500, 0, 600)
+_sections_unfolded = ["Transform3D"]
 
-[node name="CanyonPlant11Alt7" parent="Ground" index="43" instance=ExtResource( 35 )]
-
-transform = Transform3D( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 200, 0, 100 )
-_sections_unfolded = [ "Transform3D" ]
-
-[node name="CanyonPlant11Alt8" parent="Ground" index="44" instance=ExtResource( 35 )]
-
-transform = Transform3D( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 1300, 0, -100 )
-_sections_unfolded = [ "Transform3D" ]
-
-[node name="CanyonPlant11Alt4" parent="Ground" index="45" instance=ExtResource( 36 )]
-
-transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1500, 0, 300 )
-_sections_unfolded = [ "Transform3D" ]
-
-[node name="CanyonPlant11Alt9" parent="Ground" index="46" instance=ExtResource( 36 )]
-
-transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1600, 0, 1400 )
-_sections_unfolded = [ "Transform3D" ]
-
-[node name="CanyonPlant11Alt5" parent="Ground" index="47" instance=ExtResource( 36 )]
-
-transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1200, 0, 300 )
-_sections_unfolded = [ "Transform3D" ]
-
-[node name="CanyonPlant11Alt12" parent="Ground" index="48" instance=ExtResource( 36 )]
-
-transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1500, 0, 600 )
-_sections_unfolded = [ "Transform3D" ]
-
-[node name="CanyonPlant11Alt6" parent="Ground" index="49" instance=ExtResource( 36 )]
-
-transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1300, 0, -400 )
-_sections_unfolded = [ "Transform3D" ]
-
-
+[node name="CanyonPlant11Alt6" parent="Ground" index="49" instance=ExtResource("36")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1300, 0, -400)
+_sections_unfolded = ["Transform3D"]

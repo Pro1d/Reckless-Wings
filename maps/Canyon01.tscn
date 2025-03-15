@@ -1,6 +1,6 @@
 [gd_scene load_steps=33 format=3 uid="uid://bc1t3ohiign4k"]
 
-[ext_resource type="Script" path="res://scripts/world/Map.gd" id="1"]
+[ext_resource type="Script" uid="uid://de0gj60ff07q1" path="res://scripts/world/Map.gd" id="1"]
 [ext_resource type="PackedScene" path="res://map_tiles/canyon/CanyonEntrance.scn" id="2"]
 [ext_resource type="PackedScene" uid="uid://cklfwf5bdp6u6" path="res://map_tiles/canyon/CanyonAreaStart.scn" id="3"]
 [ext_resource type="PackedScene" path="res://map_tiles/canyon/CanyonStraight.scn" id="4"]

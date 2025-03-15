@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://qpe1ac8ojefm"]
 
-[ext_resource type="Script" path="res://map_tiles/hexa_tiles/hexa_tile.gd" id="1_lj2vp"]
+[ext_resource type="Script" uid="uid://b52vqkemt747a" path="res://map_tiles/hexa_tiles/hexa_tile.gd" id="1_lj2vp"]
 
 [node name="111111" type="Node3D"]
 script = ExtResource("1_lj2vp")

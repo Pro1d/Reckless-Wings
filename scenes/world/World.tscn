@@ -1,22 +1,22 @@
 [gd_scene load_steps=17 format=3 uid="uid://b44al7cab4dvl"]
 
 [ext_resource type="PackedScene" uid="uid://dwdyx2heai7nq" path="res://scenes/world/Water.tscn" id="1_gufuc"]
-[ext_resource type="Script" path="res://scripts/world/world.gd" id="1_jbn75"]
+[ext_resource type="Script" uid="uid://c2fxuuyq7tsyl" path="res://scripts/world/world.gd" id="1_jbn75"]
 [ext_resource type="Environment" uid="uid://bf4ucfyivfj0q" path="res://default_env.tres" id="2_ky2hb"]
-[ext_resource type="Script" path="res://scripts/edge_cavity_effect.gd" id="3_ss3pk"]
+[ext_resource type="Script" uid="uid://c7018vcksr7vm" path="res://scripts/edge_cavity_effect.gd" id="3_ss3pk"]
 [ext_resource type="PackedScene" uid="uid://do12062hxywry" path="res://scenes/world/TileMap3D.tscn" id="4_tp5em"]
 [ext_resource type="PackedScene" uid="uid://cw2gvpvae6stq" path="res://scenes/world/aircraft/Aircraft.tscn" id="5_d6ts7"]
 [ext_resource type="Texture2D" uid="uid://d2akpqagdmg3b" path="res://resources/displacement_texture.tres" id="5_e8x6h"]
 [ext_resource type="Texture2D" uid="uid://iu5jqqwqd6s8" path="res://resources/v_displacement_texture.tres" id="5_fh22f"]
-[ext_resource type="Script" path="res://scripts/world/camera_3d.gd" id="7_0my0o"]
-[ext_resource type="Script" path="res://scripts/world/tile_modifier.gd" id="7_uo1bn"]
+[ext_resource type="Script" uid="uid://b3cya7gh8egbf" path="res://scripts/world/camera_3d.gd" id="7_0my0o"]
+[ext_resource type="Script" uid="uid://dfhy0ow83vrhk" path="res://scripts/world/tile_modifier.gd" id="7_uo1bn"]
 [ext_resource type="NoiseTexture3D" uid="uid://bbgtnvlhe23wl" path="res://resources/tree_density_3d.tres" id="8_bxbfo"]
-[ext_resource type="Shader" path="res://resources/materials/screen_cavity.gdshader" id="10_m4e2n"]
+[ext_resource type="Shader" uid="uid://cs8esd44mydlp" path="res://resources/materials/screen_cavity.gdshader" id="10_m4e2n"]
 
 [sub_resource type="CompositorEffect" id="CompositorEffect_kuknc"]
 resource_local_to_scene = false
 resource_name = ""
-enabled = true
+enabled = false
 effect_callback_type = 4
 needs_motion_vectors = false
 needs_normal_roughness = true

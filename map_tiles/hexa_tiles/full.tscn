@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cdksdm8a5l8rj"]
 
 [ext_resource type="ArrayMesh" uid="uid://bn77tf15rmpy0" path="res://map_tiles/hexa_parts/top_007.res" id="1_bhc1y"]
-[ext_resource type="Script" path="res://map_tiles/hexa_tiles/hexa_tile.gd" id="1_lrv8r"]
+[ext_resource type="Script" uid="uid://b52vqkemt747a" path="res://map_tiles/hexa_tiles/hexa_tile.gd" id="1_lrv8r"]
 
 [node name="111111" type="Node3D"]
 script = ExtResource("1_lrv8r")

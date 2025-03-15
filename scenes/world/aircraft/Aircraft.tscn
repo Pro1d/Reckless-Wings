@@ -1,10 +1,10 @@
 [gd_scene load_steps=12 format=3 uid="uid://cw2gvpvae6stq"]
 
-[ext_resource type="Script" path="res://scripts/world/aircraft/Aircraft.gd" id="1_p40c6"]
+[ext_resource type="Script" uid="uid://dxf3hcxdqajrl" path="res://scripts/world/aircraft/Aircraft.gd" id="1_p40c6"]
 [ext_resource type="PackedScene" uid="uid://cwj07h2i1mle4" path="res://assets/mesh/spitfire/spitfire.dae" id="2_qvcob"]
 [ext_resource type="PackedScene" uid="uid://cq51pae2f1x0o" path="res://assets/mesh/BGEAR_plane.glb" id="2_xkbsg"]
-[ext_resource type="Script" path="res://scripts/world/aircraft/Spitfire.gd" id="3_03ggi"]
-[ext_resource type="Script" path="res://scripts/world/aircraft/ControlSurface.gd" id="3_uqxi0"]
+[ext_resource type="Script" uid="uid://bxbwnkjvolt56" path="res://scripts/world/aircraft/Spitfire.gd" id="3_03ggi"]
+[ext_resource type="Script" uid="uid://54pluc0fjop0" path="res://scripts/world/aircraft/ControlSurface.gd" id="3_uqxi0"]
 [ext_resource type="Material" uid="uid://c4hjqqjdrl61l" path="res://resources/materials/propeller.material" id="4_u5ph4"]
 [ext_resource type="AudioStream" path="res://assets/sound/plane_motor_sound.tres" id="5_uhefb"]
 [ext_resource type="AudioStream" uid="uid://c03tobfngef0v" path="res://assets/sound/07 Blustery wind through fence.wav" id="6_caghl"]

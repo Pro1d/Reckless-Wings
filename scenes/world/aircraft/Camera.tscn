@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://drc2d8o06eufr"]
 
-[ext_resource type="Script" path="res://scripts/world/aircraft/Camera.gd" id="1_2vco6"]
+[ext_resource type="Script" uid="uid://b5u2i71irhetx" path="res://scripts/world/aircraft/Camera.gd" id="1_2vco6"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_qcxeq"]
 auto_exposure_enabled = true

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://20m1dug4st86"]
 
-[ext_resource type="Script" path="res://scripts/map_editor/MapEditor.gd" id="1_p5qwl"]
+[ext_resource type="Script" uid="uid://bhppp5ygtcjrd" path="res://scripts/map_editor/MapEditor.gd" id="1_p5qwl"]
 [ext_resource type="PackedScene" uid="uid://do12062hxywry" path="res://scenes/world/TileMap3D.tscn" id="2_30hea"]
 [ext_resource type="Material" uid="uid://ck1wspodw1whq" path="res://resources/materials/water.material" id="2_rh7yk"]
 
