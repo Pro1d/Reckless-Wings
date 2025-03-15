@@ -99,7 +99,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.09866e-08, -1.39521)
 stream = ExtResource("6_caghl")
 attenuation_model = 2
 volume_db = 2.5
-max_db = 6.0
 autoplay = true
 bus = &"Plane"
 doppler_tracking = 2

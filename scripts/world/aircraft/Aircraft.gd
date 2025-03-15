@@ -273,4 +273,4 @@ func _update_audio(throttle: float, wind_velocity: LLV) -> void:
 	engine_audio.pitch_scale = clampf(engine_rps, 0.8, 2.5)
 	var wind_speed := wind_velocity.to_vector().length()
 	var air_drag := remap(wind_speed, 0, _max_linear_speed, 0.0, 1.0) ** 2
-	wind_audio.volume_db = remap(air_drag, 0.0, 1.0, -24, 2.5)
+	wind_audio.volume_db = remap(air_drag, 0.0, 1.0, -24, -5)

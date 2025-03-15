@@ -40,11 +40,12 @@ void main() {
 	}
 
 	vec4 color = imageLoad(color_image, uv);
+	float d = 2.0;
 	//vec3 normal = normal_roughness_compatibility(imageLoad(normal_roughness_image, uv)).xyz;
-	float x_off = normal_roughness_compatibility(imageLoad(normal_roughness_image, uv - ivec2(1, 0))).x;
-	float y_off = normal_roughness_compatibility(imageLoad(normal_roughness_image, uv - ivec2(0, 1))).y;
-	float x_off2 = normal_roughness_compatibility(imageLoad(normal_roughness_image, uv + ivec2(1, 0))).x;
-	float y_off2 = normal_roughness_compatibility(imageLoad(normal_roughness_image, uv + ivec2(0, 1))).y;
+	float x_off = normal_roughness_compatibility(imageLoad(normal_roughness_image, uv - ivec2(d, 0))).x;
+	float y_off = normal_roughness_compatibility(imageLoad(normal_roughness_image, uv - ivec2(0, d))).y;
+	float x_off2 = normal_roughness_compatibility(imageLoad(normal_roughness_image, uv + ivec2(d, 0))).x;
+	float y_off2 = normal_roughness_compatibility(imageLoad(normal_roughness_image, uv + ivec2(0, d))).y;
 	float res = (x_off2 - x_off) + (y_off2 - y_off) + 0.5;
 
 	color.rgb = overlay(color.rgb, vec3(res));
