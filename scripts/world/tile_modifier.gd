@@ -19,7 +19,7 @@ var v_img : Image
 
 func _ready() -> void:
 	assert(_tile_map != null)
-	#_tile_map.loaded.connect(_on_tile_map_loaded)
+	_tile_map.loaded.connect(_on_tile_map_loaded)
 	
 func _on_tile_map_loaded() -> void:
 	await wait_images()
@@ -43,6 +43,9 @@ func _transform_vertex(vertex: Vector3) -> Vector3:
 	vertex.y *= disp_v_min_height + dv * disp_v_strength
 	return vertex
 
+func _identity_transform_vertex(v: Vector3) -> Vector3:
+	return v
+
 func _transform_all_tiles() -> void:
 	var td_imgs := await _wait_image_3d(veg_tree_density_texture)
 	var td_size := Vector3i(
@@ -52,9 +55,9 @@ func _transform_all_tiles() -> void:
 	)
 	for tile: HexaTile in _tile_map.hexa_tiles.values():
 		await get_tree().process_frame
-		tile.spawn_trees(td_imgs, td_size, Vector3.ONE * 0.1, _transform_vertex)
-		await get_tree().process_frame
-		tile.meshes_transform(_transform_vertex)
+		tile.spawn_trees(td_imgs, td_size, Vector3.ONE * 0.1, _identity_transform_vertex)
+		#await get_tree().process_frame
+		#tile.meshes_transform(_transform_vertex)
 		#await get_tree().process_frame
 		#tile.create_trimesh_collision()
 

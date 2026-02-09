@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://0wbrx0tw1wd4" path="res://assets/texture/water_normal_1.png" id="1"]
 
 [resource]
-albedo_color = Color(0.0869446, 0.493011, 0.601563, 1)
+albedo_color = Color(0.11000001, 0.15349999, 0.2, 1)
 metallic = 0.8
 roughness = 0.25
 normal_enabled = true

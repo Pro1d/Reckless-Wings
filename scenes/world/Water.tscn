@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dwdyx2heai7nq"]
+[gd_scene format=3 uid="uid://dwdyx2heai7nq"]
 
 [ext_resource type="Script" uid="uid://bs7xokxdjv4yy" path="res://scripts/world/Water.gd" id="1_bgc6p"]
 [ext_resource type="Shape3D" uid="uid://mhq5ott8qb4q" path="res://resources/water_shape.tres" id="1_w81md"]
@@ -31,22 +31,20 @@ _data = {
 &"uv1": SubResource("2")
 }
 
-[node name="Water" type="Area3D"]
+[node name="Water" type="Area3D" unique_id=1142140524]
 collision_layer = 16
 collision_mask = 4
 script = ExtResource("1_bgc6p")
 
-[node name="CollisionShape" type="CollisionShape3D" parent="."]
+[node name="CollisionShape" type="CollisionShape3D" parent="." unique_id=1462479309]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
 shape = ExtResource("1_w81md")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1146445729]
 mesh = SubResource("PlaneMesh_ikjxp")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1201870645]
 root_node = NodePath("../MeshInstance3D")
-libraries = {
-&"": SubResource("AnimationLibrary_oford")
-}
-autoplay = "uv1"
+libraries/ = SubResource("AnimationLibrary_oford")
+autoplay = &"uv1"
 speed_scale = 0.25

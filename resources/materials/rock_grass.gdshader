@@ -38,6 +38,7 @@ uniform vec3 uv1_offset;
 uniform vec3 uv2_scale;
 uniform vec3 uv2_offset;
 
+uniform bool enable_top = true;
 uniform sampler2D texture_albedo_top : source_color, filter_linear_mipmap, repeat_enable;
 uniform sampler2D texture_metallic_top : hint_default_white, filter_linear_mipmap, repeat_enable;
 uniform sampler2D texture_roughness_top : hint_roughness_r, filter_linear_mipmap, repeat_enable;
@@ -45,30 +46,35 @@ uniform sampler2D texture_normal_top : hint_roughness_normal, filter_linear_mipm
 uniform sampler2D texture_ambient_occlusion_top : hint_default_white, filter_linear_mipmap, repeat_enable;
 
 void vertex() {
-	vec3 normal = MODEL_NORMAL_MATRIX * NORMAL;
+	if (!IN_SHADOW_PASS) {
+		vec3 normal = MODEL_NORMAL_MATRIX * NORMAL;
 
-	TANGENT = vec3(0.0, 0.0, -1.0) * abs(normal.x);
-	TANGENT += vec3(1.0, 0.0, 0.0) * abs(normal.y);
-	TANGENT += vec3(1.0, 0.0, 0.0) * abs(normal.z);
-	TANGENT = inverse(MODEL_NORMAL_MATRIX) * normalize(TANGENT);
+		TANGENT = vec3(0.0, 0.0, -1.0) * abs(normal.x);
+		TANGENT += vec3(1.0, 0.0, 0.0) * abs(normal.y);
+		TANGENT += vec3(1.0, 0.0, 0.0) * abs(normal.z);
+		TANGENT = inverse(MODEL_NORMAL_MATRIX) * normalize(TANGENT);
 
-	BINORMAL = vec3(0.0, 1.0, 0.0) * abs(normal.x);
-	BINORMAL += vec3(0.0, 0.0, -1.0) * abs(normal.y);
-	BINORMAL += vec3(0.0, 1.0, 0.0) * abs(normal.z);
-	BINORMAL = inverse(MODEL_NORMAL_MATRIX) * normalize(BINORMAL);
+		BINORMAL = vec3(0.0, 1.0, 0.0) * abs(normal.x);
+		BINORMAL += vec3(0.0, 0.0, -1.0) * abs(normal.y);
+		BINORMAL += vec3(0.0, 1.0, 0.0) * abs(normal.z);
+		BINORMAL = inverse(MODEL_NORMAL_MATRIX) * normalize(BINORMAL);
 
-	// UV1 Triplanar: Enabled (with World Triplanar)
-	uv1_power_normal = pow(abs(normal), vec3(uv1_blend_sharpness));
-	uv1_power_normal.y *= sign(normal.y);
-	uv1_triplanar_pos = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz * uv1_scale + uv1_offset;
-	uv1_power_normal /= dot(abs(uv1_power_normal), vec3(1.0));
-	uv1_triplanar_pos *= vec3(1.0, -1.0, 1.0);
+		// UV1 Triplanar: Enabled (with World Triplanar)
+		uv1_power_normal = pow(abs(normal), vec3(uv1_blend_sharpness));
+		if (enable_top)
+			uv1_power_normal.y *= sign(normal.y);
+		else
+			uv1_power_normal.y = -uv1_power_normal.y;
+		uv1_triplanar_pos = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz * uv1_scale + uv1_offset;
+		uv1_power_normal /= dot(abs(uv1_power_normal), vec3(1.0));
+		uv1_triplanar_pos *= vec3(1.0, -1.0, 1.0);
 
-	// UV2 Triplanar: Enabled (with World Triplanar)
-	uv2_power_normal = pow(abs(mat3(MODEL_MATRIX) * NORMAL), vec3(uv2_blend_sharpness));
-	uv2_triplanar_pos = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz * uv2_scale + uv2_offset;
-	uv2_power_normal /= dot(uv2_power_normal, vec3(1.0));
-	uv2_triplanar_pos *= vec3(1.0, -1.0, 1.0);
+		// UV2 Triplanar: Enabled (with World Triplanar)
+		uv2_power_normal = pow(abs(mat3(MODEL_MATRIX) * NORMAL), vec3(uv2_blend_sharpness));
+		uv2_triplanar_pos = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz * uv2_scale + uv2_offset;
+		uv2_power_normal /= dot(uv2_power_normal, vec3(1.0));
+		uv2_triplanar_pos *= vec3(1.0, -1.0, 1.0);
+	}
 }
 
 vec4 triplanar_texture(sampler2D p_sampler, sampler2D p_sampler_top, vec3 p_weights, vec3 p_triplanar_pos) {
@@ -86,6 +92,7 @@ vec4 triplanar_texture(sampler2D p_sampler, sampler2D p_sampler_top, vec3 p_weig
 }
 
 void fragment() {
+if (!IN_SHADOW_PASS) {
 	vec3 p_weights = uv1_power_normal / dot(abs(uv1_power_normal), vec3(1));
 	vec4 albedo_tex = triplanar_texture(texture_albedo, texture_albedo_top, p_weights, uv1_triplanar_pos);
 	vec4 modulate = mix(albedo, albedo_top, max(0.0, p_weights.y));
@@ -117,4 +124,5 @@ void fragment() {
 	vec3 detail_norm = mix(NORMAL_MAP, detail_norm_tex.rgb, detail_tex.a);
 	NORMAL_MAP = mix(NORMAL_MAP, detail_norm, detail_mask_tex.r);
 	ALBEDO.rgb = mix(ALBEDO.rgb, detail, detail_mask_tex.r);
+}
 }
