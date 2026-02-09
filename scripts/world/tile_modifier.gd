@@ -19,7 +19,7 @@ var v_img : Image
 
 func _ready() -> void:
 	assert(_tile_map != null)
-	_tile_map.loaded.connect(_on_tile_map_loaded)
+	#_tile_map.loaded.connect(_on_tile_map_loaded)
 	
 func _on_tile_map_loaded() -> void:
 	await wait_images()

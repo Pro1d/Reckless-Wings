@@ -1,4 +1,4 @@
-[gd_resource type="Environment" load_steps=3 format=3 uid="uid://bf4ucfyivfj0q"]
+[gd_resource type="Environment" format=3 uid="uid://bf4ucfyivfj0q"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_rhipt"]
 ground_color = Color(0.191974, 0.572534, 0.713726, 1)
@@ -10,13 +10,13 @@ sky_material = SubResource("PhysicalSkyMaterial_rhipt")
 [resource]
 background_mode = 2
 sky = SubResource("1")
-tonemap_white = 6.0
 ssr_enabled = true
+ssr_max_steps = 32
 ssr_fade_in = 0.424264
 ssr_fade_out = 1.27456
 ssao_enabled = true
-ssao_radius = 16.0
+ssao_radius = 32.0
+ssao_light_affect = 1.0
 ssil_enabled = true
-ssil_radius = 16.0
+ssil_radius = 32.0
 glow_enabled = true
-adjustment_saturation = 1.44

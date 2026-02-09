@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://jl3ye365pt65"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://jl3ye365pt65"]
 
 [ext_resource type="Texture2D" uid="uid://0wbrx0tw1wd4" path="res://assets/texture/water_normal_1.png" id="1"]
 

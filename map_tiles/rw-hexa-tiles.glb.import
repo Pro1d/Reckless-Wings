@@ -15,9 +15,11 @@ dest_files=["res://.godot/imported/rw-hexa-tiles.glb-a08764baef33a0106850d1be8a2
 
 nodes/root_type=""
 nodes/root_name=""
+nodes/root_script=null
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -32,6 +34,9 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
 _subresources={
 "meshes": {
 "rw-hexa-tiles_Cylinder": {
@@ -41,8 +46,9 @@ _subresources={
 "lods/normal_merge_angle": 60.0,
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://map_tiles/hexa/full.res",
 "save_to_file/make_streamable": "",
-"save_to_file/path": "res://map_tiles/hexa/full.res"
+"save_to_file/path": "uid://b2kip4ijdybk6"
 },
 "rw-hexa-tiles_Cylinder10": {
 "generate/lightmap_uv": 0,
@@ -51,8 +57,9 @@ _subresources={
 "lods/normal_merge_angle": 60.0,
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://map_tiles/hexa/110101.res",
 "save_to_file/make_streamable": "",
-"save_to_file/path": "res://map_tiles/hexa/110101.res"
+"save_to_file/path": "uid://jbl5u3vkmfuh"
 },
 "rw-hexa-tiles_Cylinder11": {
 "generate/lightmap_uv": 0,
@@ -61,8 +68,9 @@ _subresources={
 "lods/normal_merge_angle": 60.0,
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://map_tiles/hexa/101101.res",
 "save_to_file/make_streamable": "",
-"save_to_file/path": "res://map_tiles/hexa/101101.res"
+"save_to_file/path": "uid://du0h1r2iqw7c7"
 },
 "rw-hexa-tiles_Cylinder12": {
 "generate/lightmap_uv": 0,
@@ -71,8 +79,9 @@ _subresources={
 "lods/normal_merge_angle": 60.0,
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://map_tiles/hexa/111101.res",
 "save_to_file/make_streamable": "",
-"save_to_file/path": "res://map_tiles/hexa/111101.res"
+"save_to_file/path": "uid://dyp4ojyfrh5tb"
 },
 "rw-hexa-tiles_Cylinder13": {
 "generate/lightmap_uv": 0,
@@ -81,8 +90,9 @@ _subresources={
 "lods/normal_merge_angle": 60.0,
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://map_tiles/hexa/111111.res",
 "save_to_file/make_streamable": "",
-"save_to_file/path": "res://map_tiles/hexa/111111.res"
+"save_to_file/path": "uid://coynkgwlkhj4c"
 },
 "rw-hexa-tiles_Cylinder2": {
 "generate/lightmap_uv": 0,
@@ -91,8 +101,9 @@ _subresources={
 "lods/normal_merge_angle": 60.0,
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://map_tiles/hexa/100001.res",
 "save_to_file/make_streamable": "",
-"save_to_file/path": "res://map_tiles/hexa/100001.res"
+"save_to_file/path": "uid://bqlmqfnfjehuy"
 },
 "rw-hexa-tiles_Cylinder3": {
 "generate/lightmap_uv": 0,
@@ -101,8 +112,9 @@ _subresources={
 "lods/normal_merge_angle": 60.0,
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://map_tiles/hexa/001001.res",
 "save_to_file/make_streamable": "",
-"save_to_file/path": "res://map_tiles/hexa/001001.res"
+"save_to_file/path": "uid://dd0vq6pdm8si1"
 },
 "rw-hexa-tiles_Cylinder4": {
 "generate/lightmap_uv": 0,
@@ -111,8 +123,9 @@ _subresources={
 "lods/normal_merge_angle": 60.0,
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://map_tiles/hexa/010001.res",
 "save_to_file/make_streamable": "",
-"save_to_file/path": "res://map_tiles/hexa/010001.res"
+"save_to_file/path": "uid://ba3mv55q3nwst"
 },
 "rw-hexa-tiles_Cylinder5": {
 "generate/lightmap_uv": 0,
@@ -121,8 +134,9 @@ _subresources={
 "lods/normal_merge_angle": 60.0,
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://map_tiles/hexa/110001.res",
 "save_to_file/make_streamable": "",
-"save_to_file/path": "res://map_tiles/hexa/110001.res"
+"save_to_file/path": "uid://dqkmlev2rl64"
 },
 "rw-hexa-tiles_Cylinder6": {
 "generate/lightmap_uv": 0,
@@ -131,8 +145,9 @@ _subresources={
 "lods/normal_merge_angle": 60.0,
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://map_tiles/hexa/101001.res",
 "save_to_file/make_streamable": "",
-"save_to_file/path": "res://map_tiles/hexa/101001.res"
+"save_to_file/path": "uid://cr642g5cwte5y"
 },
 "rw-hexa-tiles_Cylinder7": {
 "generate/lightmap_uv": 0,
@@ -141,8 +156,9 @@ _subresources={
 "lods/normal_merge_angle": 60.0,
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://map_tiles/hexa/100101.res",
 "save_to_file/make_streamable": "",
-"save_to_file/path": "res://map_tiles/hexa/100101.res"
+"save_to_file/path": "uid://b5toj5mpyful7"
 },
 "rw-hexa-tiles_Cylinder8": {
 "generate/lightmap_uv": 0,
@@ -151,8 +167,9 @@ _subresources={
 "lods/normal_merge_angle": 60.0,
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://map_tiles/hexa/010101.res",
 "save_to_file/make_streamable": "",
-"save_to_file/path": "res://map_tiles/hexa/010101.res"
+"save_to_file/path": "uid://bc5270oqkx0an"
 },
 "rw-hexa-tiles_Cylinder9": {
 "generate/lightmap_uv": 0,
@@ -161,8 +178,9 @@ _subresources={
 "lods/normal_merge_angle": 60.0,
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://map_tiles/hexa/111001.res",
 "save_to_file/make_streamable": "",
-"save_to_file/path": "res://map_tiles/hexa/111001.res"
+"save_to_file/path": "uid://bsgeaie654tpy"
 },
 "rw-hexa-tiles_Cylinder_001": {
 "generate/lightmap_uv": 0,
@@ -171,8 +189,9 @@ _subresources={
 "lods/normal_merge_angle": 60.0,
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://map_tiles/hexa/000001.res",
 "save_to_file/make_streamable": "",
-"save_to_file/path": "res://map_tiles/hexa/000001.res"
+"save_to_file/path": "uid://oeym5ms7gnom"
 },
 "rw-hexa-tiles_Cylinder_002": {
 "generate/lightmap_uv": 0,
@@ -181,8 +200,9 @@ _subresources={
 "lods/normal_merge_angle": 60.0,
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://map_tiles/hexa/000000.res",
 "save_to_file/make_streamable": "",
-"save_to_file/path": "res://map_tiles/hexa/000000.res"
+"save_to_file/path": "uid://daemxcpw8t4xy"
 }
 }
 }

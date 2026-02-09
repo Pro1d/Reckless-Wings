@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b44al7cab4dvl"]
+[gd_scene format=3 uid="uid://b44al7cab4dvl"]
 
 [ext_resource type="PackedScene" uid="uid://dwdyx2heai7nq" path="res://scenes/world/Water.tscn" id="1_gufuc"]
 [ext_resource type="Script" uid="uid://c2fxuuyq7tsyl" path="res://scripts/world/world.gd" id="1_jbn75"]
@@ -37,10 +37,10 @@ shader_parameter/zFar = 40000.0
 shader_parameter/width = 1.0
 shader_parameter/addDepth = true
 
-[node name="World" type="Node3D"]
+[node name="World" type="Node3D" unique_id=30826270]
 script = ExtResource("1_jbn75")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=955278709]
 transform = Transform3D(0.906308, 0.298835, 0.298836, -6.18173e-08, -0.707107, 0.707105, 0.422618, -0.640855, -0.640856, 0, 0, 0)
 light_energy = 3.0
 shadow_enabled = true
@@ -48,32 +48,32 @@ shadow_bias = 0.2
 directional_shadow_blend_splits = true
 directional_shadow_max_distance = 2000.0
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=61250265]
 environment = ExtResource("2_ky2hb")
 compositor = SubResource("Compositor_3qyea")
 
-[node name="Water" parent="." instance=ExtResource("1_gufuc")]
+[node name="Water" parent="." unique_id=129466947 instance=ExtResource("1_gufuc")]
 
-[node name="TileMap3D" parent="." instance=ExtResource("4_tp5em")]
+[node name="TileMap3D" parent="." unique_id=2115589283 instance=ExtResource("4_tp5em")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 
-[node name="TileModifier" type="Node" parent="TileMap3D"]
+[node name="TileModifier" type="Node" parent="TileMap3D" unique_id=59863280]
 script = ExtResource("7_uo1bn")
 disp_h_texture = ExtResource("5_e8x6h")
 disp_v_texture = ExtResource("5_fh22f")
 veg_tree_density_texture = ExtResource("8_bxbfo")
 
-[node name="Aircraft" parent="." instance=ExtResource("5_d6ts7")]
+[node name="Aircraft" parent="." unique_id=533223783 instance=ExtResource("5_d6ts7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 154.579, 0)
 
-[node name="Camera3D" type="Camera3D" parent="Aircraft"]
+[node name="Camera3D" type="Camera3D" parent="Aircraft" unique_id=1078907478]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.935, 7.6)
 current = true
 fov = 60.0
 near = 0.5
 far = 40000.0
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Aircraft/Camera3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Aircraft/Camera3D" unique_id=714316921]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
 visible = false
 cast_shadow = 0
@@ -82,7 +82,7 @@ ignore_occlusion_culling = true
 mesh = SubResource("PlaneMesh_25juh")
 surface_material_override/0 = SubResource("ShaderMaterial_6jyri")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=535258069]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 152.761, 206.99, 0)
 near = 0.5
 far = 40000.0

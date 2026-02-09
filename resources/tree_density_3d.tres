@@ -1,4 +1,4 @@
-[gd_resource type="NoiseTexture3D" load_steps=3 format=3 uid="uid://bbgtnvlhe23wl"]
+[gd_resource type="NoiseTexture3D" format=3 uid="uid://bbgtnvlhe23wl"]
 
 [sub_resource type="Gradient" id="Gradient_4um78"]
 offsets = PackedFloat32Array(0.251208, 0.454106)
@@ -10,7 +10,7 @@ frequency = 0.0135
 fractal_type = 0
 
 [resource]
+noise = SubResource("FastNoiseLite_pnamb")
+color_ramp = SubResource("Gradient_4um78")
 seamless = true
 seamless_blend_skirt = 0.13
-color_ramp = SubResource("Gradient_4um78")
-noise = SubResource("FastNoiseLite_pnamb")

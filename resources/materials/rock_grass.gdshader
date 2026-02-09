@@ -4,6 +4,7 @@ shader_type spatial;
 render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_burley, specular_schlick_ggx;
 
 uniform vec4 albedo : source_color;
+uniform vec4 albedo_top : source_color;
 uniform sampler2D texture_albedo : source_color, filter_linear_mipmap, repeat_enable;
 
 uniform float roughness : hint_range(0.0, 1.0);
@@ -11,7 +12,7 @@ uniform sampler2D texture_metallic : hint_default_white, filter_linear_mipmap, r
 uniform vec4 metallic_texture_channel;
 uniform sampler2D texture_roughness : hint_roughness_r, filter_linear_mipmap, repeat_enable;
 
-uniform float specular : hint_range(0.0, 1.0, 0.01);
+uniform float specular : hint_range(0.0, 1.0, 0.01) = 0.5;
 uniform float metallic : hint_range(0.0, 1.0, 0.01);
 
 uniform sampler2D texture_normal : hint_roughness_normal, filter_linear_mipmap, repeat_enable;
@@ -81,34 +82,35 @@ vec4 triplanar_texture(sampler2D p_sampler, sampler2D p_sampler_top, vec3 p_weig
 	//samp += texture(p_sampler, p_triplanar_pos.xy) * p_weights.z;
 	//samp += texture(p_weights.y < 0.0 ? p_sampler : p_sampler_top, p_triplanar_pos.xz) * abs(p_weights.y);
 	//samp += texture(p_sampler, p_triplanar_pos.zy * vec2(-1.0, 1.0)) * p_weights.x;
-	return samp;
+	return samp / dot(abs(p_weights), vec3(1));
 }
 
 void fragment() {
+	vec3 p_weights = uv1_power_normal / dot(abs(uv1_power_normal), vec3(1));
+	vec4 albedo_tex = triplanar_texture(texture_albedo, texture_albedo_top, p_weights, uv1_triplanar_pos);
+	vec4 modulate = mix(albedo, albedo_top, max(0.0, p_weights.y));
+	ALBEDO = modulate.rgb * albedo_tex.rgb;
 
-	vec4 albedo_tex = triplanar_texture(texture_albedo, texture_albedo_top, uv1_power_normal, uv1_triplanar_pos);
-	ALBEDO = albedo.rgb * albedo_tex.rgb;
-
-	float metallic_tex = dot(triplanar_texture(texture_metallic, texture_metallic_top, uv1_power_normal, uv1_triplanar_pos), metallic_texture_channel);
+	float metallic_tex = dot(triplanar_texture(texture_metallic, texture_metallic_top, p_weights, uv1_triplanar_pos), metallic_texture_channel);
 	METALLIC = metallic_tex * metallic;
 	SPECULAR = specular;
 
 	vec4 roughness_texture_channel = vec4(1.0, 0.0, 0.0, 0.0);
-	float roughness_tex = dot(triplanar_texture(texture_roughness, texture_roughness_top, uv1_power_normal, uv1_triplanar_pos), roughness_texture_channel);
+	float roughness_tex = dot(triplanar_texture(texture_roughness, texture_roughness_top, p_weights, uv1_triplanar_pos), roughness_texture_channel);
 	ROUGHNESS = roughness_tex * roughness;
 
 	// Normal Map: Enabled
-	NORMAL_MAP = triplanar_texture(texture_normal, texture_normal_top, uv1_power_normal, uv1_triplanar_pos).rgb;
+	NORMAL_MAP = triplanar_texture(texture_normal, texture_normal_top, p_weights, uv1_triplanar_pos).rgb;
 	NORMAL_MAP_DEPTH = normal_scale;
 
 	// Ambient Occlusion: Enabled
-	AO = dot(triplanar_texture(texture_ambient_occlusion, texture_ambient_occlusion_top, uv1_power_normal, uv1_triplanar_pos), ao_texture_channel);
+	AO = dot(triplanar_texture(texture_ambient_occlusion, texture_ambient_occlusion_top, p_weights, uv1_triplanar_pos), ao_texture_channel);
 	AO_LIGHT_AFFECT = ao_light_affect;
 
 	// Detail: Enabled
 	vec4 detail_tex = triplanar_texture(texture_detail_albedo, texture_detail_albedo, uv2_power_normal, uv2_triplanar_pos);
 	vec4 detail_norm_tex = triplanar_texture(texture_detail_normal, texture_detail_normal, uv2_power_normal, uv2_triplanar_pos);
-	vec4 detail_mask_tex = triplanar_texture(texture_detail_mask, texture_detail_mask, uv1_power_normal, uv1_triplanar_pos);
+	vec4 detail_mask_tex = triplanar_texture(texture_detail_mask, texture_detail_mask, p_weights, uv1_triplanar_pos);
 
 	// Detail Blend Mode: Mix
 	vec3 detail = mix(ALBEDO.rgb, detail_tex.rgb, detail_tex.a);
