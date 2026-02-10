@@ -15,7 +15,7 @@ func _ready() -> void:
 	for c: MeshInstance3D in get_children():
 		if c == null or not c.visible:
 			continue
-		c.set_surface_override_material(0, preload("res://resources/materials/rock_grass.material"))
+		#c.set_surface_override_material(0, preload("res://resources/materials/rock_grass.material"))
 		#c.set_surface_override_material(0, preload("res://resources/materials/terrain.material"))
 		match randi_range(0, 2):
 			0:
@@ -88,6 +88,11 @@ func _update_ground() -> void:
 	for c in get_children():
 		if c.name.begins_with("Ground") and c is Node3D:
 			(c as Node3D).visible = ground_enabled
+			
+		if c.name.begins_with("Top") and c is Node3D:
+			(c as MeshInstance3D).set_surface_override_material(0, preload("res://resources/materials/top_triplanar.res"))
+		else:
+			(c as MeshInstance3D).set_surface_override_material(0, preload("res://resources/materials/rock_grass.material"))
 
 func meshes_transform(modifier: Callable) -> void:
 	for n in get_children():

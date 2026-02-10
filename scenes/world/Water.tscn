@@ -31,6 +31,10 @@ _data = {
 &"uv1": SubResource("2")
 }
 
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_0bote"]
+radius = 10.0
+height = 30.0
+
 [node name="Water" type="Area3D" unique_id=1142140524]
 collision_layer = 16
 collision_mask = 4
@@ -48,3 +52,7 @@ root_node = NodePath("../MeshInstance3D")
 libraries/ = SubResource("AnimationLibrary_oford")
 autoplay = &"uv1"
 speed_scale = 0.25
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=817533351]
+transform = Transform3D(0.6682222, -0.74396175, 0, 0.74396175, 0.6682222, 0, 0, 0, 1, 0, -1.4184809, 0)
+mesh = SubResource("CapsuleMesh_0bote")

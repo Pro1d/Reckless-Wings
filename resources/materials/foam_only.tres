@@ -1,0 +1,38 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dmypuugs86bl5"]
+
+[sub_resource type="Shader" id="Shader_e5a02"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.6.stable's StandardMaterial3D.
+
+shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_back, diffuse_burley, specular_schlick_ggx;
+
+uniform vec4 albedo : source_color = vec4(1);
+
+uniform float specular : hint_range(0.0, 1.0, 0.01) = 0.5;
+
+uniform sampler2D depth_texture : hint_depth_texture, filter_nearest;
+
+void vertex() {
+}
+
+void fragment() {
+
+	float depth = textureLod(depth_texture, SCREEN_UV, 0.0).r;
+    vec4 upos = INV_PROJECTION_MATRIX * vec4(SCREEN_UV * 2.0 - 1.0, depth, 1.0);
+    float pixel_z = upos.z / upos.w;
+    float water_z = VERTEX.z;
+	float cost_foam = smoothstep(1.0, 0.0, water_z - pixel_z);
+	ALBEDO = albedo.rgb;
+	ALPHA = cost_foam * cost_foam * albedo.a;
+	SPECULAR = specular;
+
+	ROUGHNESS = 1.0;
+	//DEPTH = (PROJECTION_MATRIX * vec4(VERTEX, 1.0)).z;
+}
+"
+
+[resource]
+render_priority = 0
+shader = SubResource("Shader_e5a02")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/specular = 0.5
