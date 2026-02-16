@@ -12,22 +12,22 @@ func _ready() -> void:
 	_update_ground()
 	# Load alternative tiles
 	# FIXME do it deterministically
-	for c: MeshInstance3D in get_children():
-		if c == null or not c.visible:
-			continue
-		#c.set_surface_override_material(0, preload("res://resources/materials/rock_grass.material"))
-		#c.set_surface_override_material(0, preload("res://resources/materials/terrain.material"))
-		match randi_range(0, 2):
-			0:
-				pass
-			1:
-				var m := load(c.mesh.resource_path.replace('.res', 'b.res'))
-				if m != null:
-					c.mesh = m
-			2:
-				var m := load(c.mesh.resource_path.replace('.res', 'c.res'))
-				if m != null:
-					c.mesh = m
+	#for c: MeshInstance3D in get_children():
+		#if c == null or not c.visible:
+			#continue
+		##c.set_surface_override_material(0, preload("res://resources/materials/rock_grass.material"))
+		##c.set_surface_override_material(0, preload("res://resources/materials/terrain.material"))
+		#match randi_range(0, 2):
+			#0:
+				#pass
+			#1:
+				#var m := load(c.mesh.resource_path.replace('.res', 'b.res'))
+				#if m != null:
+					#c.mesh = m
+			#2:
+				#var m := load(c.mesh.resource_path.replace('.res', 'c.res'))
+				#if m != null:
+					#c.mesh = m
 
 func spawn_trees(td_imgs: Array[Image], td_size: Vector3i, img_scale: Vector3, transform_func: Callable) -> void:
 	#var mm := MultiMesh.new()
@@ -88,11 +88,17 @@ func _update_ground() -> void:
 	for c in get_children():
 		if c.name.begins_with("Ground") and c is Node3D:
 			(c as Node3D).visible = ground_enabled
-			
+		
+		var mesh_instance := c as MeshInstance3D
 		if c.name.begins_with("Top") and c is Node3D:
-			(c as MeshInstance3D).set_surface_override_material(0, preload("res://resources/materials/top_triplanar.res"))
+			mesh_instance.set_surface_override_material(0, preload("res://resources/materials/top_triplanar.res"))
 		else:
-			(c as MeshInstance3D).set_surface_override_material(0, preload("res://resources/materials/rock_grass.material"))
+			const MatRes := preload("res://resources/materials/rock_grass.material")
+			var mat := MatRes.duplicate() as ShaderMaterial
+			mat.set_shader_parameter(
+				"texture_mesh_normal",
+				load("res://assets/texture/hexatiles-normal/%s_normal.png" % [mesh_instance.mesh.resource_path.get_file().replace('.res', '')]))
+			mesh_instance.set_surface_override_material(0, mat)
 
 func meshes_transform(modifier: Callable) -> void:
 	for n in get_children():

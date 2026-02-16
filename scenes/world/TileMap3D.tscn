@@ -1,12 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://do12062hxywry"]
+[gd_scene format=3 uid="uid://do12062hxywry"]
 
 [ext_resource type="Script" uid="uid://cvif6eqo2n1x4" path="res://scripts/world/TileMap3D.gd" id="1_kk4b6"]
 [ext_resource type="Script" uid="uid://bimaq7gw3fhmw" path="res://scripts/world/TileMap3DData.gd" id="2_hr51e"]
 
 [sub_resource type="Resource" id="Resource_gwvqr"]
 script = ExtResource("2_hr51e")
-chunks = {}
 
-[node name="TileMap3D" type="Node3D"]
+[node name="TileMap3D" type="Node3D" unique_id=1350499764]
 script = ExtResource("1_kk4b6")
 tiles = SubResource("Resource_gwvqr")
