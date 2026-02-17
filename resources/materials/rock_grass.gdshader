@@ -93,6 +93,25 @@ vec4 triplanar_texture(sampler2D p_sampler, sampler2D p_sampler_top, vec3 p_weig
 	return samp / dot(abs(p_weights), vec3(1));
 }
 
+vec3 nmap_to_normal(vec2 n) // output z is inverted
+{
+	n = n * 2.0 - 1.0;
+	float n_z_squared = 1.0 - dot(n.xy, n.xy);
+	return vec3(n, inversesqrt(n_z_squared));
+}
+
+vec3 triplanar_normal(sampler2D p_sampler, vec3 p_weights, vec3 p_triplanar_pos) {
+	vec3 samp = vec3(0.0);
+	vec3 n_map_z = nmap_to_normal(texture(p_sampler, p_triplanar_pos.xy).xy);
+	vec3 n_map_y = nmap_to_normal(texture(p_sampler, p_triplanar_pos.xz).xy);
+	vec3 n_map_x = nmap_to_normal(texture(p_sampler, p_triplanar_pos.zy * vec2(-1.0, 1.0)).xy);
+	float weight_sum = dot(abs(p_weights), vec3(1));
+	return normalize(vec3(
+		(n_map_z.xy * n_map_z.z * p_weights.z
+		+ n_map_y.xy * n_map_y.z * abs(p_weights.y)
+		+ n_map_x.xy * n_map_x.z * p_weights.x) / weight_sum, 1));
+}
+
 void fragment() {
 if (!IN_SHADOW_PASS) {
 	vec3 mesh_normal = texture(texture_mesh_normal, UV).xyz * 2.0 - 1.0;
@@ -112,10 +131,9 @@ if (!IN_SHADOW_PASS) {
 	ROUGHNESS = mix(roughness_tex, 1.0, roughness);
 
 	// Normal Map: Enabled
-	NORMAL_MAP =  mix(mesh_normal * 0.5 + 0.5,
-		triplanar_texture(texture_normal, texture_normal_top, p_weights, uv1_triplanar_pos).rgb,
-		cavity);
-	//NORMAL_MAP = triplanar_texture(texture_normal, texture_normal_top, p_weights, uv1_triplanar_pos).rgb;
+	// UBN blending: float3 r = normalize(float3(n1.xy + n2.xy, n1.z)); // (n1=base, n2=details), [-1;1]^3
+	vec3 trinormal = triplanar_normal(texture_normal, p_weights, uv1_triplanar_pos).xyz;
+	NORMAL_MAP = normalize(vec3(trinormal.xy + mesh_normal.xy, trinormal.z)) * .5 + .5;
 	NORMAL_MAP_DEPTH = normal_scale;
 
 	// Ambient Occlusion: Enabled
