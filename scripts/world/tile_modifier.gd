@@ -53,11 +53,37 @@ func _transform_all_tiles() -> void:
 		veg_tree_density_texture.get_height(),
 		veg_tree_density_texture.get_depth()
 	)
+	var density_texture := HexaTile.DensityTexture3D.new()
+	density_texture.textures = td_imgs
+	density_texture.texture_size = td_size
+	density_texture.texture_scale = Vector3.ONE * 0.1
+	
+	var bush_params := HexaTile.VegetationParams.new()
+	bush_params.mesh_resource = preload("uid://bquctpri1enm")
+	bush_params.mesh_material = preload("uid://b8ni0cqlh10kq")
+	bush_params.mesh_scale = 0.0005
+	bush_params.visibility_range_end = 500
+	bush_params.visibility_range_end_margin = 100
+	bush_params.parts = HexaTile.Part.ALL
+	bush_params.pointcloud = HexaTile.VegetationParams.PointCloud.BUSH
+	
+	var tree_params := HexaTile.VegetationParams.new()
+	tree_params.mesh_resource = preload("uid://dxvw52xf6051q") #preload("res://resources/meshes/low-poly-tree-pack/Tree Type1 03 Model.res")
+	tree_params.mesh_material = preload("uid://k4yo4w5fxjab") #null
+	tree_params.mesh_scale = 0.05
+	tree_params.base_transform = Transform3D(Basis(Vector3.LEFT, PI/2))
+	tree_params.visibility_range_end = 1000
+	tree_params.visibility_range_end_margin = 300
+	tree_params.parts = HexaTile.Part.TOP
+	tree_params.pointcloud = HexaTile.VegetationParams.PointCloud.TREE
+	
 	for tile: HexaTile in _tile_map.hexa_tiles.values():
 		await get_tree().process_frame
-		tile.spawn_trees(td_imgs, td_size, Vector3.ONE * 0.1, _identity_transform_vertex)
+		var transform_func := _identity_transform_vertex # _transform_vertex
+		tile.spawn_vegetation(bush_params, density_texture, transform_func)
+		tile.spawn_vegetation(tree_params, density_texture, transform_func)
 		#await get_tree().process_frame
-		#tile.meshes_transform(_transform_vertex)
+		#tile.meshes_transform(transform_func)
 		#await get_tree().process_frame
 		#tile.create_trimesh_collision()
 
@@ -68,9 +94,22 @@ func _spawn_trees_on_all_tiles() -> void:
 		veg_tree_density_texture.get_height(),
 		veg_tree_density_texture.get_depth()
 	)
+	var density_texture := HexaTile.DensityTexture3D.new()
+	density_texture.textures = td_imgs
+	density_texture.texture_size = td_size
+	density_texture.texture_scale = Vector3.ONE * 0.1
+	var bush_params := HexaTile.VegetationParams.new()
+	bush_params.mesh_resource = preload("uid://bquctpri1enm")
+	bush_params.mesh_material = preload("uid://b8ni0cqlh10kq")
+	bush_params.mesh_scale = 0.0005
+	bush_params.visibility_range_end = 500
+	bush_params.visibility_range_end_margin = 100
+	bush_params.parts = HexaTile.Part.ALL
+	bush_params.pointcloud = HexaTile.VegetationParams.PointCloud.BUSH
+	
 	for tile: HexaTile in _tile_map.hexa_tiles.values():
 		await get_tree().process_frame
-		tile.spawn_trees(td_imgs, td_size, Vector3.ONE * 0.1, _transform_vertex)
+		tile.spawn_vegetation(bush_params, density_texture, _transform_vertex)
 
 func wait_images() -> void:
 	if h_img == null:

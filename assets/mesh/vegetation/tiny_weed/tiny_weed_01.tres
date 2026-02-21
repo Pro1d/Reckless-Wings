@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b8ni0cqlh10kq"]
+
+[ext_resource type="Texture2D" uid="uid://c5j7ug4xglfsx" path="res://assets/mesh/vegetation/tiny_weed/diffuse.tga" id="1_gkg6h"]
+[ext_resource type="Texture2D" uid="uid://yw874mm1aan5" path="res://assets/mesh/vegetation/tiny_weed/normal.tga" id="2_lffjb"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 1
+alpha_antialiasing_edge = 0.3
+cull_mode = 2
+albedo_texture = ExtResource("1_gkg6h")
+normal_texture = ExtResource("2_lffjb")

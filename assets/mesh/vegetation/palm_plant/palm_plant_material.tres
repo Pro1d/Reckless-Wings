@@ -1,0 +1,16 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://k4yo4w5fxjab"]
+
+[ext_resource type="Texture2D" uid="uid://bmgkciu2ybhrm" path="res://assets/mesh/vegetation/palm_plant/PalmPlant_Diffuse.tga" id="1_i22kl"]
+[ext_resource type="Texture2D" uid="uid://dwo8yxe4pj4ll" path="res://assets/mesh/vegetation/palm_plant/PalmPlant_Normal.tga" id="2_4nflj"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 1
+alpha_antialiasing_edge = 0.3
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_i22kl")
+normal_enabled = true
+normal_scale = 0.5
+normal_texture = ExtResource("2_4nflj")

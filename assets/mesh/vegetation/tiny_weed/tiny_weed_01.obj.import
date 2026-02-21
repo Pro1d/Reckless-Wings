@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bquctpri1enm"
+path="res://.godot/imported/tiny_weed_01.obj-dc01f717cd48d75bb95833879323e10e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/tiny_weed_01.obj-dc01f717cd48d75bb95833879323e10e.mesh"]
+
+source_file="res://assets/mesh/vegetation/tiny_weed/tiny_weed_01.obj"
+dest_files=["res://.godot/imported/tiny_weed_01.obj-dc01f717cd48d75bb95833879323e10e.mesh", "res://.godot/imported/tiny_weed_01.obj-dc01f717cd48d75bb95833879323e10e.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
