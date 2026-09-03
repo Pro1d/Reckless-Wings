@@ -3,12 +3,12 @@
 [ext_resource type="Texture2D" uid="uid://0wbrx0tw1wd4" path="res://assets/texture/water_normal_1.png" id="1"]
 
 [resource]
-albedo_color = Color(0.11000001, 0.15349999, 0.2, 1)
-metallic = 0.8
-roughness = 0.25
+albedo_color = Color(0.114465274, 0.2883081, 0.398365, 1)
+metallic = 0.9
+roughness = 0.15
 normal_enabled = true
-normal_scale = 0.07
+normal_scale = 0.05
 normal_texture = ExtResource("1")
-uv1_scale = Vector3(200, 200, 200)
 uv1_triplanar_sharpness = 0.999997
+disable_receive_shadows = true
 proximity_fade_distance = 10.0

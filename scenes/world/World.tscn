@@ -63,11 +63,6 @@ transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 script = ExtResource("7_uo1bn")
 disp_h_texture = ExtResource("5_e8x6h")
 disp_v_texture = ExtResource("5_fh22f")
-disp_h_scale = null
-disp_h_strength = null
-disp_v_scale = null
-disp_v_strength = null
-disp_v_min_height = null
 veg_tree_density_texture = ExtResource("8_bxbfo")
 
 [node name="Aircraft" parent="." unique_id=533223783 instance=ExtResource("5_d6ts7")]

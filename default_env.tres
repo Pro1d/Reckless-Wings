@@ -1,31 +1,27 @@
 [gd_resource type="Environment" format=3 uid="uid://bf4ucfyivfj0q"]
 
-[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_rhipt"]
-rayleigh_color = Color(0.24299997, 0.47294992, 0.9, 1)
-mie_color = Color(0.4941, 0.59413505, 0.81, 1)
-ground_color = Color(0.191974, 0.572534, 0.713726, 1)
-energy_multiplier = 3.0
+[ext_resource type="Texture2D" uid="uid://djlej8q8lbbfw" path="res://assets/texture/kloofendal_48d_partly_cloudy_puresky_4k.hdr" id="1_ooua1"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_v4eaj"]
+panorama = ExtResource("1_ooua1")
 
 [sub_resource type="Sky" id="1"]
-sky_material = SubResource("PhysicalSkyMaterial_rhipt")
+sky_material = SubResource("PanoramaSkyMaterial_v4eaj")
 
 [resource]
 background_mode = 2
 sky = SubResource("1")
 ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
+tonemap_mode = 2
 ssr_enabled = true
-ssr_max_steps = 32
-ssr_fade_in = 0.424264
-ssr_fade_out = 1.27456
-ssr_depth_tolerance = 25.01
+ssr_depth_tolerance = 10.01
 ssao_radius = 32.0
 ssao_light_affect = 0.5
 ssil_enabled = true
 ssil_radius = 32.0
 ssil_intensity = 1.5
 glow_enabled = true
-fog_enabled = true
 fog_mode = 1
 fog_light_color = Color(0.8722, 0.9548467, 0.98, 1)
 fog_density = 1.0

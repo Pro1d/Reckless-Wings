@@ -68,7 +68,7 @@ func _transform_all_tiles() -> void:
 	bush_params.pointcloud = HexaTile.VegetationParams.PointCloud.BUSH
 	
 	var tree_params := HexaTile.VegetationParams.new()
-	tree_params.mesh_resource = preload("uid://dxvw52xf6051q") #preload("res://resources/meshes/low-poly-tree-pack/Tree Type1 03 Model.res")
+	tree_params.mesh_resource = preload("uid://sc00d2mbwa23")
 	tree_params.mesh_material = preload("uid://k4yo4w5fxjab") #null
 	tree_params.mesh_scale = 0.05
 	tree_params.base_transform = Transform3D(Basis(Vector3.LEFT, PI/2))
