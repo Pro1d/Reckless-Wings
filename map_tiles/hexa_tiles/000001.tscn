@@ -1,22 +1,10 @@
 [gd_scene format=3 uid="uid://bwvuuekdxfdgq"]
 
 [ext_resource type="Script" uid="uid://b52vqkemt747a" path="res://map_tiles/hexa_tiles/hexa_tile.gd" id="1_cho6j"]
-[ext_resource type="ArrayMesh" uid="uid://drtidiyyrtjsv" path="res://map_tiles/hexa_parts/top_005.res" id="1_etc83"]
-[ext_resource type="ArrayMesh" uid="uid://c7vyqljjan6rm" path="res://map_tiles/hexa_parts/ground_005.res" id="2_w6bo7"]
-[ext_resource type="ArrayMesh" uid="uid://blxr1b7k34tu2" path="res://map_tiles/hexa_parts/cliff_005.res" id="3_dql5r"]
+[ext_resource type="PackedScene" uid="uid://bsjsa3rvhb2ea" path="res://map_tiles/hexa_tiles/curve_five.tscn" id="2_dai8l"]
 
 [node name="000001" type="Node3D" unique_id=2009268373]
 script = ExtResource("1_cho6j")
 
-[node name="Top005" type="MeshInstance3D" parent="." unique_id=1612146870]
-transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 0, 0, 0)
-mesh = ExtResource("1_etc83")
-skeleton = NodePath("")
-
-[node name="Ground005" type="MeshInstance3D" parent="." unique_id=1441324414]
-transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 0, 0, 0)
-mesh = ExtResource("2_w6bo7")
-
-[node name="Cliff005" type="MeshInstance3D" parent="." unique_id=1193684705]
-transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 0, 0, 0)
-mesh = ExtResource("3_dql5r")
+[node name="CurveFive" parent="." unique_id=32397053 instance=ExtResource("2_dai8l")]
+transform = Transform3D(0.49999997, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, 0.49999997, 0, 0, 0)

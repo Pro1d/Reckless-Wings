@@ -1,10 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cdksdm8a5l8rj"]
+[gd_scene format=3 uid="uid://cdksdm8a5l8rj"]
 
-[ext_resource type="ArrayMesh" uid="uid://bn77tf15rmpy0" path="res://map_tiles/hexa_parts/top_007.res" id="1_bhc1y"]
 [ext_resource type="Script" uid="uid://b52vqkemt747a" path="res://map_tiles/hexa_tiles/hexa_tile.gd" id="1_lrv8r"]
+[ext_resource type="PackedScene" uid="uid://esbihuk4t1kr" path="res://map_tiles/hexa_tiles/curve_full.tscn" id="2_0x66d"]
 
-[node name="111111" type="Node3D"]
+[node name="111111" type="Node3D" unique_id=1605542350]
 script = ExtResource("1_lrv8r")
 
-[node name="Top007" type="MeshInstance3D" parent="."]
-mesh = ExtResource("1_bhc1y")
+[node name="CurveFull" parent="." unique_id=158718359 instance=ExtResource("2_0x66d")]

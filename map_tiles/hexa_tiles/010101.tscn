@@ -1,45 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://x2psjnrt1uww"]
+[gd_scene format=3 uid="uid://x2psjnrt1uww"]
 
 [ext_resource type="Script" uid="uid://b52vqkemt747a" path="res://map_tiles/hexa_tiles/hexa_tile.gd" id="1_ehggk"]
-[ext_resource type="ArrayMesh" uid="uid://ty2dtybacgl6" path="res://map_tiles/hexa_parts/cliff_001.res" id="1_hc4sx"]
-[ext_resource type="ArrayMesh" uid="uid://cs4de4hkhg23y" path="res://map_tiles/hexa_parts/ground_001.res" id="2_1o4to"]
-[ext_resource type="ArrayMesh" uid="uid://c0ff3m0tx2ydv" path="res://map_tiles/hexa_parts/top_001.res" id="3_rsxhh"]
+[ext_resource type="PackedScene" uid="uid://bwpbpctefufcb" path="res://map_tiles/hexa_tiles/curve_one.tscn" id="2_5ehwa"]
 
-[node name="010101" type="Node3D"]
+[node name="010101" type="Node3D" unique_id=1685921101]
 script = ExtResource("1_ehggk")
 
-[node name="Cliff001" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.5, 0, -0.866026, 0, 1, 0, 0.866025, 0, 0.5, 0, 0, 0)
-mesh = ExtResource("1_hc4sx")
+[node name="CurveOne" parent="." unique_id=1056530585 instance=ExtResource("2_5ehwa")]
+transform = Transform3D(0.49999997, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, 0.49999997, 0, 0, 0)
 
-[node name="Ground001" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.5, 0, -0.866026, 0, 1, 0, 0.866025, 0, 0.5, 0, 0, 0)
-mesh = ExtResource("2_1o4to")
+[node name="CurveOne2" parent="." unique_id=189908658 instance=ExtResource("2_5ehwa")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="Top001" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.5, 0, -0.866026, 0, 1, 0, 0.866025, 0, 0.5, 0, 0, 0)
-mesh = ExtResource("3_rsxhh")
-
-[node name="Cliff002" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866026, 0, 0.5, 0, 0, 0)
-mesh = ExtResource("1_hc4sx")
-
-[node name="Ground002" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866026, 0, 0.5, 0, 0, 0)
-mesh = ExtResource("2_1o4to")
-
-[node name="Top002" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866026, 0, 0.5, 0, 0, 0)
-mesh = ExtResource("3_rsxhh")
-
-[node name="Cliff003" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1, 0, -8.74227e-08, 0, 1, 0, 8.74227e-08, 0, -0.999999, 0, 0, 0)
-mesh = ExtResource("1_hc4sx")
-
-[node name="Ground003" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1, 0, -8.74227e-08, 0, 1, 0, 8.74227e-08, 0, -0.999999, 0, 0, 0)
-mesh = ExtResource("2_1o4to")
-
-[node name="Top003" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1, 0, -8.74227e-08, 0, 1, 0, 8.74227e-08, 0, -0.999999, 0, 0, 0)
-mesh = ExtResource("3_rsxhh")
+[node name="CurveOne3" parent="." unique_id=1697316778 instance=ExtResource("2_5ehwa")]
+transform = Transform3D(0.4999999, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, 0.4999999, 0, 0, 0)

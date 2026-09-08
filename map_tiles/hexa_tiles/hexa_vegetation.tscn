@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://iayw8ddg2c4w"]
+
+[ext_resource type="Script" uid="uid://cyyoaarjxv3wj" path="res://map_tiles/hexa_tiles/hexa_vegetation.gd" id="1_xl4or"]
+
+[node name="HexaVegetation" type="MultiMeshInstance3D" unique_id=2028933810]
+script = ExtResource("1_xl4or")

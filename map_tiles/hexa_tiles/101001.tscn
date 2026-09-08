@@ -1,36 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://tu11b1tx2bf8"]
+[gd_scene format=3 uid="uid://tu11b1tx2bf8"]
 
-[ext_resource type="ArrayMesh" uid="uid://ty2dtybacgl6" path="res://map_tiles/hexa_parts/cliff_001.res" id="1_5p7ek"]
 [ext_resource type="Script" uid="uid://b52vqkemt747a" path="res://map_tiles/hexa_tiles/hexa_tile.gd" id="1_j1t8p"]
-[ext_resource type="ArrayMesh" uid="uid://cs4de4hkhg23y" path="res://map_tiles/hexa_parts/ground_001.res" id="2_yf8tg"]
-[ext_resource type="ArrayMesh" uid="uid://c0ff3m0tx2ydv" path="res://map_tiles/hexa_parts/top_001.res" id="3_jqa4a"]
-[ext_resource type="ArrayMesh" uid="uid://cuw2qi2l712no" path="res://map_tiles/hexa_parts/cliff_002.res" id="4_2uh1t"]
-[ext_resource type="ArrayMesh" uid="uid://dnt1regtgjmh5" path="res://map_tiles/hexa_parts/ground_002.res" id="5_x623c"]
-[ext_resource type="ArrayMesh" uid="uid://cdteo4utga1vl" path="res://map_tiles/hexa_parts/top_002.res" id="6_321nu"]
+[ext_resource type="PackedScene" uid="uid://clsey544smlni" path="res://map_tiles/hexa_tiles/curve_two.tscn" id="2_7ipbk"]
+[ext_resource type="PackedScene" uid="uid://bwpbpctefufcb" path="res://map_tiles/hexa_tiles/curve_one.tscn" id="3_rjl6w"]
 
-[node name="100101" type="Node3D"]
+[node name="101001" type="Node3D" unique_id=1128632593]
 script = ExtResource("1_j1t8p")
 
-[node name="Cliff001" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.5, 0, -0.866026, 0, 1, 0, 0.866026, 0, -0.5, 0, 0, 0)
-mesh = ExtResource("1_5p7ek")
+[node name="CurveTwo" parent="." unique_id=1909596812 instance=ExtResource("2_7ipbk")]
+transform = Transform3D(0.49999997, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, 0.49999997, 0, 0, 0)
 
-[node name="Ground001" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.5, 0, -0.866026, 0, 1, 0, 0.866026, 0, -0.5, 0, 0, 0)
-mesh = ExtResource("2_yf8tg")
-
-[node name="Top001" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.5, 0, -0.866026, 0, 1, 0, 0.866026, 0, -0.5, 0, 0, 0)
-mesh = ExtResource("3_jqa4a")
-
-[node name="Cliff002" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866026, 0, 0.5, 0, 0, 0)
-mesh = ExtResource("4_2uh1t")
-
-[node name="Ground002" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866026, 0, 0.5, 0, 0, 0)
-mesh = ExtResource("5_x623c")
-
-[node name="Top002" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866026, 0, 0.5, 0, 0, 0)
-mesh = ExtResource("6_321nu")
+[node name="CurveOne" parent="." unique_id=1056530585 instance=ExtResource("3_rjl6w")]
+transform = Transform3D(-0.4999999, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, -0.4999999, 0, 0, 0)

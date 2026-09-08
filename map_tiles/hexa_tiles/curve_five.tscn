@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bsjsa3rvhb2ea"]
+
+[ext_resource type="ArrayMesh" uid="uid://drtidiyyrtjsv" path="res://map_tiles/hexa_parts/top_005.res" id="1_20ye8"]
+[ext_resource type="Script" uid="uid://5qhn8yrb5bk8" path="res://map_tiles/hexa_tiles/hexa_curve.gd" id="1_nujn8"]
+[ext_resource type="ArrayMesh" uid="uid://c7vyqljjan6rm" path="res://map_tiles/hexa_parts/ground_005.res" id="2_nujn8"]
+[ext_resource type="ArrayMesh" uid="uid://blxr1b7k34tu2" path="res://map_tiles/hexa_parts/cliff_005.res" id="3_u7fbt"]
+
+[node name="CurveFive" type="Node3D" unique_id=32397053]
+script = ExtResource("1_nujn8")
+curve_size = 5
+
+[node name="Top" type="MeshInstance3D" parent="." unique_id=602341449]
+mesh = ExtResource("1_20ye8")
+skeleton = NodePath("")
+
+[node name="Ground" type="MeshInstance3D" parent="." unique_id=767211061]
+mesh = ExtResource("2_nujn8")
+
+[node name="Cliff" type="MeshInstance3D" parent="." unique_id=1917892673]
+mesh = ExtResource("3_u7fbt")

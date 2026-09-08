@@ -1,33 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://b67epgcrlk2pp"]
+[gd_scene format=3 uid="uid://b67epgcrlk2pp"]
 
 [ext_resource type="Script" uid="uid://b52vqkemt747a" path="res://map_tiles/hexa_tiles/hexa_tile.gd" id="1_r7xda"]
-[ext_resource type="ArrayMesh" uid="uid://ty2dtybacgl6" path="res://map_tiles/hexa_parts/cliff_001.res" id="1_spb5d"]
-[ext_resource type="ArrayMesh" uid="uid://cs4de4hkhg23y" path="res://map_tiles/hexa_parts/ground_001.res" id="2_witbq"]
-[ext_resource type="ArrayMesh" uid="uid://c0ff3m0tx2ydv" path="res://map_tiles/hexa_parts/top_001.res" id="3_pidqw"]
+[ext_resource type="PackedScene" uid="uid://bwpbpctefufcb" path="res://map_tiles/hexa_tiles/curve_one.tscn" id="2_74d23"]
 
-[node name="100101" type="Node3D"]
+[node name="101101" type="Node3D" unique_id=293749601]
 script = ExtResource("1_r7xda")
 
-[node name="Cliff001" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.5, 0, -0.866026, 0, 1, 0, 0.866026, 0, -0.5, 0, 0, 0)
-mesh = ExtResource("1_spb5d")
+[node name="CurveOne" parent="." unique_id=1056530585 instance=ExtResource("2_74d23")]
+transform = Transform3D(0.49999997, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, 0.49999997, 0, 0, 0)
 
-[node name="Ground001" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.5, 0, -0.866026, 0, 1, 0, 0.866026, 0, -0.5, 0, 0, 0)
-mesh = ExtResource("2_witbq")
-
-[node name="Top001" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.5, 0, -0.866026, 0, 1, 0, 0.866026, 0, -0.5, 0, 0, 0)
-mesh = ExtResource("3_pidqw")
-
-[node name="Cliff002" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.5, 0, 0.866026, 0, 1, 0, -0.866026, 0, 0.5, 0, 0, 0)
-mesh = ExtResource("1_spb5d")
-
-[node name="Ground002" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.5, 0, 0.866026, 0, 1, 0, -0.866026, 0, 0.5, 0, 0, 0)
-mesh = ExtResource("2_witbq")
-
-[node name="Top002" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.5, 0, 0.866026, 0, 1, 0, -0.866026, 0, 0.5, 0, 0, 0)
-mesh = ExtResource("3_pidqw")
+[node name="CurveOne2" parent="." unique_id=1799687935 instance=ExtResource("2_74d23")]
+transform = Transform3D(-0.4999999, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, -0.4999999, 0, 0, 0)
