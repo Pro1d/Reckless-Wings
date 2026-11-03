@@ -1,38 +1,44 @@
 class_name TileMap3DChunk
 extends Resource
 
-# 0: fill (land), 1: hole (canyon, cliff, sea)
+# true: fill (land), false: hole (canyon, cliff, sea)
 
-# 0: |0|1|2|3|
-# 1:  |0|1|2|3|
-# 2: |0|1|2|3|
-# 3:  |0|1|2|3|
+# 2D:    -- x -->
+# |  0: |0|1|2|3|
+# y  1:  |0|1|2|3|
+# |  2: |0|1|2|3|
+# v  3:  |0|1|2|3|
 
-const SIZE := Vector2i(10, 10)
+# 3D.x = 2D.x
+# 3D.y = height
+# 3D.z = 2D.y
+
+const SIZE := Vector3i(10, 10, 16)
+const SIZE2 := Vector2i(SIZE.x, SIZE.y)
+
+
 static func get_chunk_origin(i: Vector3i) -> Vector2i:
-	return (Vector2i(i.x, i.y) - SIZE / 2).snapped(SIZE)
-	
-@export var data := PackedInt32Array()
+	# snapped() rounds, '-SIZE2/2' compensate the round
+	return (Vector2i(i.x, i.y) - SIZE2/2).snapped(SIZE2)
+
+@export var data : Array[TileMap3DTile]
 @export var origin := Vector2i.ZERO
 
 func _init(o: Vector2i = Vector2.ZERO) -> void:
 	origin = o
-	data.resize(SIZE.x * SIZE.y)
-	data.fill(0)
+	data.resize(SIZE.x * SIZE.y * SIZE.z)
+	for i in range(data.size()):
+		data[i] = TileMap3DTile.new()
+
+func to_linear_index(i: Vector3i) -> int:
+	var irel := Vector2i(i.x, i.y) - origin
+	return irel.x + SIZE.x * (irel.y + SIZE.y * (i.z))
 
 func is_inside(i: Vector3i) -> bool:
 	var irel := Vector2i(i.x, i.y) - origin
-	return (0 <= irel.x and irel.x < SIZE.x and
-			0 <= irel.y and irel.y < SIZE.y)
+	return (0 <= irel.x and irel.x < SIZE2.x and
+			0 <= irel.y and irel.y < SIZE2.y)
 
-func data_at(i: Vector3i) -> bool:
-	var irel := Vector2i(i.x, i.y) - origin
-	return ((data[irel.x + irel.y * SIZE.x] >> i.z) & 1) != 0
-
-func set_data_at(i: Vector3i, d: bool) -> void:
-	var irel := Vector2i(i.x, i.y) - origin
-	if d:
-		data[irel.x + irel.y * SIZE.x] |= 1 << i.z
-	else:
-		data[irel.x + irel.y * SIZE.x] &= ~(1 << i.z)
-	
+func data_at(i: Vector3i) -> TileMap3DTile:
+	var ilin := to_linear_index(i)
+	return data[ilin]

@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://d2akpqagdmg3b" path="res://resources/displacement_texture.tres" id="5_e8x6h"]
 [ext_resource type="Texture2D" uid="uid://iu5jqqwqd6s8" path="res://resources/v_displacement_texture.tres" id="5_fh22f"]
 [ext_resource type="Script" uid="uid://b3cya7gh8egbf" path="res://scripts/world/camera_3d.gd" id="7_0my0o"]
-[ext_resource type="Script" uid="uid://dfhy0ow83vrhk" path="res://scripts/world/tile_modifier.gd" id="7_uo1bn"]
+[ext_resource type="Script" uid="uid://dfhy0ow83vrhk" path="res://scripts/world/TileModifier.gd" id="7_uo1bn"]
 [ext_resource type="NoiseTexture3D" uid="uid://bbgtnvlhe23wl" path="res://resources/tree_density_3d.tres" id="8_bxbfo"]
 [ext_resource type="Shader" uid="uid://cs8esd44mydlp" path="res://resources/materials/screen_cavity.gdshader" id="10_m4e2n"]
 

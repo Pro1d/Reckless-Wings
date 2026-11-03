@@ -8,6 +8,8 @@ uniform vec4 albedo_top : source_color = vec4(1);
 uniform sampler2D texture_albedo : source_color, filter_linear_mipmap, repeat_enable;
 
 uniform sampler2D texture_mesh_normal : hint_normal, filter_linear_mipmap;
+uniform float cavity_value : hint_range(0.0, 1.0) = 0.09;
+uniform float cavity_strength : hint_range(0.0, 1.0) = 0.36;
 
 uniform float roughness : hint_range(0.0, 1.0) = 1.0;
 uniform sampler2D texture_metallic : hint_default_white, filter_linear_mipmap, repeat_enable;
@@ -121,7 +123,7 @@ if (!IN_SHADOW_PASS) {
 	vec3 p_weights = uv1_power_normal / dot(abs(uv1_power_normal), vec3(1));
 	vec4 albedo_tex = triplanar_texture(texture_albedo, texture_albedo_top, p_weights, uv1_triplanar_pos);
 	vec4 modulate = mix(albedo, albedo_top, max(0.0, p_weights.y));
-	ALBEDO = modulate.rgb * mix(albedo_tex.rgb, vec3(1), cavity * 0.35);
+	ALBEDO = mix(modulate.rgb * albedo_tex.rgb, mix(modulate.rgb, vec3(1), cavity_value), cavity * cavity_strength);
 	float metallic_tex = dot(triplanar_texture(texture_metallic, texture_metallic_top, p_weights, uv1_triplanar_pos), metallic_texture_channel);
 	METALLIC = metallic_tex * metallic;
 	SPECULAR = specular;

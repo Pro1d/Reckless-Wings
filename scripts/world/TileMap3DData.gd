@@ -12,6 +12,7 @@ class ExtendedTileType:
 		return not hole
 
 @export var chunks : Dictionary  # chunks by origin
+static var empty_tile := TileMap3DTile.new()
 
 func get_chunk(i: Vector3i) -> TileMap3DChunk: # null if not existing
 	return chunks.get(TileMap3DChunk.get_chunk_origin(i), null) as TileMap3DChunk
@@ -22,52 +23,36 @@ func make_chunk(i: Vector3i) -> TileMap3DChunk:
 	chunks[o] = c
 	return c
 
-func data_at(i: Vector3i) -> bool:
+func fill_at(i: Vector3i) -> bool:
 	var c := get_chunk(i)
-	return c != null and c.data_at(i)
+	return c != null and c.data_at(i).fill
 
-func set_data_at(i: Vector3i, d: bool) -> void:
+func tile_at(i: Vector3i) -> TileMap3DTile:
+	var c := get_chunk(i)
+	return null if c == null else c.data_at(i)
+
+func set_fill_at(i: Vector3i, fill: bool) -> void:
 	var c := get_chunk(i)
 	if c == null:
+		if not fill:
+			return
 		c = make_chunk(i)
-	c.set_data_at(i, d)
+	c.data_at(i).fill = fill
 
 func is_hole(i: Vector3i) -> bool:
-	return not data_at(i)
+	return not fill_at(i)
 
 func set_hole(i: Vector3i, hole: bool) -> void:
-	set_data_at(i, not hole)
-
-func left(i: Vector3i) -> Vector3i:
-	return Vector3(i.x - 1, i.y, i.z)
-
-func right(i: Vector3i) -> Vector3i:
-	return Vector3i(i.x + 1, i.y, i.z)
-
-func up_left(i: Vector3i) -> Vector3i:
-	var odd_y := i.y & 1
-	return Vector3i(i.x - 1 + odd_y, i.y - 1, i.z)
-
-func up_right(i: Vector3i) -> Vector3i:
-	var odd_y := i.y & 1
-	return Vector3i(i.x + odd_y, i.y - 1, i.z)
-
-func down_left(i: Vector3i) -> Vector3i:
-	var odd_y := i.y & 1
-	return Vector3i(i.x  - 1 + odd_y, i.y + 1, i.z)
-
-func down_right(i: Vector3i) -> Vector3i:
-	var odd_y := i.y & 1
-	return Vector3i(i.x + odd_y, i.y + 1, i.z)
+	set_fill_at(i, not hole)
 
 func neighbors(i: Vector3i) -> int:
 	return (
-		int(is_hole(right(i))) << 0
-		| int(is_hole(up_right(i))) << 1
-		| int(is_hole(up_left(i))) << 2
-		| int(is_hole(left(i))) << 3
-		| int(is_hole(down_left(i))) << 4
-		| int(is_hole(down_right(i))) << 5
+		int(is_hole(TileMap3DMath.right(i))) << 0
+		| int(is_hole(TileMap3DMath.up_right(i))) << 1
+		| int(is_hole(TileMap3DMath.up_left(i))) << 2
+		| int(is_hole(TileMap3DMath.left(i))) << 3
+		| int(is_hole(TileMap3DMath.down_left(i))) << 4
+		| int(is_hole(TileMap3DMath.down_right(i))) << 5
 	)
 
 func extended_tile_type(i: Vector3i) -> ExtendedTileType:
@@ -76,7 +61,7 @@ func extended_tile_type(i: Vector3i) -> ExtendedTileType:
 	etd.neighbors = 0
 	etd.hole = is_hole(i)
 	if etd.hole and n != 0:
-		for r in range(6):
+		for r in range(TileMap3DMath.SIDES):
 			if (n & 1) != 0 and n > etd.neighbors:
 				etd.neighbors = n
 				etd.rotation = r

@@ -53,7 +53,7 @@ func _rebuild() -> void:
 	for chunk: TileMap3DChunk in tiles.chunks.values():
 		for x in range(chunk.origin.x - 1, chunk.origin.x + TileMap3DChunk.SIZE.x + 1):
 			for y in range(chunk.origin.y - 1, chunk.origin.y + TileMap3DChunk.SIZE.y + 1):
-				for z in range(5):
+				for z in range(TileMap3DChunk.SIZE.z):
 					var i := Vector3i(x, y, z)
 					if hexa_tiles.has(i):
 						continue
@@ -66,11 +66,33 @@ func _rebuild() -> void:
 					var res : PackedScene
 					res = meshes[ett.neighbors if ett.hole else -1]
 					var tile := res.instantiate() as HexaTile
+					tile.cliff_offsets = _make_tile_cliff_offsets(i)
 					tile.ground_enabled = (z == 0)
 					tile.rotation = PI / 3 * ett.rotation * Vector3.UP
 					tile.position = index_to_position(i)
 					add_child(tile, false, Node.InternalMode.INTERNAL_MODE_FRONT)
 					hexa_tiles[i] = tile
+
+	prints("cliff", HexaCurve.curve_stats)
+
+func _make_tile_cliff_offsets(i: Vector3i) -> HexaTile.CliffOffsets:
+	var co := HexaTile.CliffOffsets.new()
+	var side_index := TileMap3DMath.SideIndex.new()
+	for side: TileMap3DMath.TileSide in TileMap3DMath.TileSide.values():
+		side_index.tile_index = i
+		side_index.side = side
+		side_index.reverse_horizontal = false
+		side_index.normalize()
+		var tile := tiles.tile_at(side_index.tile_index)
+		if tile == null:
+			tile = TileMap3DData.empty_tile
+		var begin := 0 if side_index.reverse_horizontal else 1
+		var end := 1 - begin
+		co.begin_bottom_offsets[side] = tile.get_cliff_offset(side_index.side, begin, 0)
+		co.end_bottom_offsets[side] = tile.get_cliff_offset(side_index.side, end, 0)
+		co.begin_top_offsets[side] = tile.get_cliff_offset(side_index.side, begin, 1)
+		co.end_top_offsets[side] = tile.get_cliff_offset(side_index.side, end, 1)
+	return co
 
 func save_map(path: String) -> Error:
 	return ResourceSaver.save(tiles, path)

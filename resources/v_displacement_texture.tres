@@ -5,11 +5,12 @@ noise_type = 3
 frequency = 0.035
 fractal_octaves = 2
 fractal_lacunarity = 6.0
-fractal_gain = 0.2
+fractal_gain = 0.1
 
 [resource]
 width = 256
 height = 256
+generate_mipmaps = false
 noise = SubResource("FastNoiseLite_blut0")
 seamless = true
 seamless_blend_skirt = 0.25

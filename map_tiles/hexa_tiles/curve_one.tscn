@@ -1,17 +1,17 @@
 [gd_scene format=3 uid="uid://bwpbpctefufcb"]
 
 [ext_resource type="Script" uid="uid://5qhn8yrb5bk8" path="res://map_tiles/hexa_tiles/hexa_curve.gd" id="1_2r207"]
-[ext_resource type="ArrayMesh" uid="uid://ty2dtybacgl6" path="res://map_tiles/hexa_parts/cliff_001.res" id="1_6yq7f"]
 [ext_resource type="Material" uid="uid://bl3kaanfsjrpc" path="res://resources/materials/rock_grass.material" id="2_2r207"]
+[ext_resource type="ArrayMesh" uid="uid://01j8pw834dd" path="res://map_tiles/hexa_parts/1_cliff_0000_00_model.res" id="2_cpfhe"]
 [ext_resource type="ArrayMesh" uid="uid://cs4de4hkhg23y" path="res://map_tiles/hexa_parts/ground_001.res" id="3_cpfhe"]
-[ext_resource type="ArrayMesh" uid="uid://c0ff3m0tx2ydv" path="res://map_tiles/hexa_parts/top_001.res" id="4_cidxd"]
+[ext_resource type="ArrayMesh" uid="uid://bo3u3db8yserf" path="res://map_tiles/hexa_parts/1_top_0000_00_model.res" id="5_cidxd"]
 
 [node name="CurveOne" type="Node3D" unique_id=1056530585]
 script = ExtResource("1_2r207")
 curve_size = 1
 
 [node name="Cliff" type="MeshInstance3D" parent="." unique_id=1604506286]
-mesh = ExtResource("1_6yq7f")
+mesh = ExtResource("2_cpfhe")
 surface_material_override/0 = ExtResource("2_2r207")
 
 [node name="Ground" type="MeshInstance3D" parent="." unique_id=1866969032]
@@ -19,5 +19,5 @@ mesh = ExtResource("3_cpfhe")
 surface_material_override/0 = ExtResource("2_2r207")
 
 [node name="Top" type="MeshInstance3D" parent="." unique_id=1524347156]
-mesh = ExtResource("4_cidxd")
+mesh = ExtResource("5_cidxd")
 surface_material_override/0 = ExtResource("2_2r207")
