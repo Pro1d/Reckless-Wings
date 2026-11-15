@@ -6,8 +6,6 @@ extends Node
 @export var disp_h_scale : float = 0.05
 @export var disp_h_strength : float = 0.925
 @export var disp_v_scale : float = 0.01
-@export var disp_v_strength : float = 0.0
-@export var disp_v_min_height : float = 1.0
 
 @export_group("Vegetation", "veg_")
 @export var veg_tree_density_texture : Texture3D
@@ -40,7 +38,7 @@ func _transform_vertex(vertex: Vector3) -> Vector3:
 		vertex.x / map_scale * disp_v_scale,
 		vertex.z / map_scale * disp_v_scale
 	).x
-	vertex.y = (0.75 - 2.5 * dv) * map_scale + (disp_v_min_height + dv * disp_v_strength) * vertex.y
+	vertex.y += (0.75 - 2.5 * dv) * map_scale
 	return vertex
 
 func _identity_transform_vertex(v: Vector3) -> Vector3:

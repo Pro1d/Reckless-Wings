@@ -25,8 +25,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			var path := "res://maps/aaa.res"
 			print("loading from ", path)
 			_tile_map_3d.load_map(path)
-			_clean_map()
-			_tile_map_3d._rebuild()
+			#_clean_map()
+			#_tile_map_3d._rebuild()
 		else:
 			match ke.keycode:
 				KEY_LEFT:
